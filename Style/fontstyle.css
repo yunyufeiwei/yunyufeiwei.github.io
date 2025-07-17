@@ -1,0 +1,7 @@
+/* fontstyle.css */
+/* 定义全局字体样式 */
+body{
+    color: #353535;
+    font: 16px/1.5 'Microsoft Yahei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+}
+
