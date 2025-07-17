@@ -4,6 +4,12 @@
 a{ color: #c40b00; }
 .wrap{ max-width: 1000px; }
 
+/* 修改整体的背景类 */
+body
+{
+    background: #1f242d;    /* 修改整体的背景颜色 */
+}
+
 /* --- 侧边栏 --- */
 .sidebar
 {
@@ -18,7 +24,7 @@ a{ color: #c40b00; }
     background: #3d3b4f;
 }
 
-/* --- 侧边栏头像 --- */
+/* ------------------------------侧边栏头像------------------------------ */
 .sidebar .avatar
 {
     width: 120px;
@@ -43,6 +49,7 @@ a{ color: #c40b00; }
     height: 100%;
 }
 
+/* ------------------------------侧边栏导航------------------------------ */
 .sidebar .nav
 {
     margin: 0;
@@ -57,5 +64,28 @@ a{ color: #c40b00; }
     padding: 1em;
     display: block;
     text-align: center;
-    transition: background .3s, box-shadow .3s;
+    text-decoration: none;          /* 移除下划线 */
+    transition: background .3s, box-shadow .3s, transform 0.5s ease;
+}
+.sidebar .nav a:hover
+{
+    color: #ffc91d;                     /* 鼠标悬停时的文字颜色 */
+    background: rgba(0,0,0,0.3);
+    transform: scale(1.2);                /* 鼠标悬停时的文字放大系数 */
+}
+/*----------------------------------------------------------------*/
+
+/* 右侧主题的靠左边缘像素，因为侧边栏的宽度像素是220px，因此这里从220px开始*/
+main
+{
+    margin-left: 220px;
+}
+
+.wrap
+{
+    margin-left:auto;
+    margin-right: auto;
+    max-width: 1200px;
+    padding: 0 1.25em;
+    box-sizing: content-box;
 }
