@@ -3,9 +3,10 @@
 /* 0 - 全局
 -------------------------------- */
 
-a{ color: #c40b00; }
+a{ color: #a3a3a3; }
 
-.wrap{ max-width: 1000px; }
+.wrap{ max-width: 1000px; 
+text-align: left;}
 
 /* 1 - 页眉
 -------------------------------- */
@@ -15,12 +16,12 @@ a{ color: #c40b00; }
     top: 0;
     left: 0;
     bottom: 0;
-    color: #fff;
+    color: #fff;                    /* 左侧边栏的文字默认颜色*/
     width: 220px;
     position: fixed;
     overflow: hidden;
     overflow-y: auto;
-    background: #4b4b4b;
+    background: #292e39;            /* 左侧边栏的背景默认颜色*/
 }
 
 /* -- 头像 */
@@ -43,6 +44,7 @@ a{ color: #c40b00; }
 /* -- 侧边栏导航 */
 .sidebar .nav{
     margin: 0;
+    margin-top: 40px;
     display: flex;
     list-style: none;
     flex-direction: column;
@@ -53,18 +55,18 @@ a{ color: #c40b00; }
     padding: 1em;
     display: block;
     text-align: center;
-    transition: background .3s, box-shadow .3s;
+    transition: background .3s, box-shadow .3s ,transform .5s ease;
 }
 .sidebar .nav a:hover{
-    color: #f8bd24;         /* 左侧边栏悬停时字体颜色 */
+    color: #ff9c1d;         /* 左侧边栏悬停时字体颜色 */
     background: rgba(0, 0, 0, .2);
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 /* 右侧主体*/
 main{
     margin-left: 220px;
-    background: #b6b6b6;
+    background: #1f242d;
 }
 
 @media screen and (max-width: 900px) {
@@ -73,7 +75,7 @@ main{
         position: relative;
     }
     .sidebar .nav{
-        background: #f8bd24;
+        background: #ff9c1d;
         flex-direction: row;
         justify-content: center;
     }
@@ -106,12 +108,13 @@ main section{
     main section{
         padding: 3em 0;
     }
-}
+} 
 
-#info{ background: url(img/bg-1.png) fixed; }
-#skills{ background: #f8bd24; }
-#works{ background: url(img/bg-2.png) fixed; }
-#team{ background: url(img/bg-3.png) fixed; }
+/* #info{ background: url(Image/background/jianbian_01.png) fixed; } */
+#skills{ background: #232933}
+/* #story{background: #232933;} */
+#works{ background: #232933 fixed; }
+/* #team{ background: #232933 fixed; } */
 
 .title{
     margin-bottom: 1em;
@@ -140,20 +143,29 @@ main section{
 
 /* - 技能 */
 .skills-icon{
-    width: 100px;
-    height: 100px;
+    width: 30px;
+    height: 30px;
     margin: 0 auto;
     background: #fff;
     border-radius: 100%;
     box-shadow: 0 5px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* 确保图片不超出圆形边界 */
+    transition: transform 0.5s ease; /* 添加悬停动画 */
 }
 .skills-icon:hover i{
-    transform: rotate(1turn);
+    transform: scale(1.2);
 }
 .skills-icon i{
     font-size: 50px;
     line-height: 100px;
-    transition: transform 0.5s;
+}
+.skills-icon img {
+    width: 70%; /* 控制图片大小 */
+    height: 70%;
+    object-fit: contain; /* 保持图片比例 */
 }
 .skills-title{
     margin-top: 1.5em;

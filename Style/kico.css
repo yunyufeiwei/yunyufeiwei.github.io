@@ -12,7 +12,7 @@ fieldset, legend, figure{
 }
 
 body{
-    color: #353535;
+    color: #a3a3a3;                     /* 整体Body的文字颜色，如果需要对其中的文字颜色调整，在子类里面对颜色重新覆写*/
     font: 16px/1.5 'Microsoft Yahei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
 }
 
@@ -50,7 +50,7 @@ nav, section, main{
     background-color: rgba(0, 0, 0, .66);
 }
 
-/* - 滚动条 */
+/* - 页面侧边栏滚动条 */  
 ::-webkit-scrollbar{
     width: 10px;
     height: 10px;
@@ -86,7 +86,7 @@ body::-webkit-scrollbar-track:hover{
 /* 1 - 容器
 -------------------------------- */
 .wrap{
-    margin-left:auto;
+    margin-left: 80px;;
     margin-right: auto;
     max-width: 1200px;
     padding: 0 1.25em;
@@ -636,7 +636,7 @@ iframe{
 /* - 栅格系统 */
 .row{
     display: flex;
-    flex-wrap: wrap;
+    flex:auto;
     margin-left: -1.25em;
     margin-right: -1.25em;
 }
