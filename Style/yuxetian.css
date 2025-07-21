@@ -5,7 +5,7 @@
 
 a{ color: #a3a3a3; }
 
-.wrap{ max-width: 1000px; }
+.wrap{ max-width: 1500px; }
 
 /* 1 - 页眉
 -------------------------------- */
@@ -191,6 +191,15 @@ main section{
     border-left: 2px grey solid;
 }
 
+.timeline .time{
+    display: inline-block;
+    width: 400px;
+}
+.timeline .job{
+    margin-left: 40px;
+    color: #c0c0c0;
+}
+
 .timeline li{
     line-height: 1.5em;
     position: relative;
@@ -216,9 +225,12 @@ main section{
 -------------------------------- */
 footer{
     color: #fff;
-    padding: 1em 0;
+    max-height: 40px;
+    padding: 0.5em 0;
     text-align: center;
-    background: #72655b;
+    background: #6d6d6d;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 footer a{
     color: inherit;
