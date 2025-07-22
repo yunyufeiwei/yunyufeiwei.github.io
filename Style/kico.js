@@ -117,112 +117,109 @@ function bk_overlay(attr){
 //     });
 // }
 
-
-
 /* 弹出图片查看窗口事件逻辑 */
-// Global gallery state
-    const galleryState = {
-        currentIndex: 0,
-        images: [],
-        window: null,
-        content: null
+const galleryState = {
+    currentIndex: 0,
+    images: [],
+    window: null,
+    content: null
+};
+
+// Open gallery in a new window
+function openGalleryWindow(galleryId) {
+    // Create the gallery window elements
+    const galleryWindow = document.createElement('div');
+    galleryWindow.className = 'gallery-window';
+    
+    const galleryContent = document.createElement('div');
+    galleryContent.className = 'gallery-content';
+    
+    const prevButton = document.createElement('button');
+    prevButton.className = 'gallery-nav gallery-prev';
+    prevButton.innerHTML = '&lt;';
+    prevButton.onclick = (e) => {
+        e.stopPropagation();
+        navigateGallery(-1);
     };
+    
+    const nextButton = document.createElement('button');
+    nextButton.className = 'gallery-nav gallery-next';
+    nextButton.innerHTML = '&gt;';
+    nextButton.onclick = (e) => {
+        e.stopPropagation();
+        navigateGallery(1);
+    };
+    
+    const imageContainer = document.createElement('div');
+    imageContainer.className = 'gallery-image-container';
+    
+    const image = document.createElement('img');
+    image.className = 'gallery-image';
+    image.onclick = () => {
+        closeGalleryWindow();
+    };
+    
+    const counter = document.createElement('div');
+    counter.className = 'gallery-counter';
+    
+    // Build the DOM structure
+    imageContainer.appendChild(image);
+    imageContainer.appendChild(counter);
+    galleryContent.appendChild(prevButton);
+    galleryContent.appendChild(imageContainer);
+    galleryContent.appendChild(nextButton);
+    galleryWindow.appendChild(galleryContent);
+    
+    // Add to document
+    document.body.appendChild(galleryWindow);
+    
+    // Get the images from the gallery
+    const gallery = document.getElementById(galleryId);
+    galleryState.images = Array.from(gallery.querySelectorAll('img'));
+    galleryState.currentIndex = 0;
+    galleryState.window = galleryWindow;
+    galleryState.content = galleryContent;
+    
+    // Update the display
+    updateGalleryDisplay();
+    
+    // Add keyboard navigation
+    document.addEventListener('keydown', handleGalleryKeydown);
+}
 
-    // Open gallery in a new window
-    function openGalleryWindow(galleryId) {
-        // Create the gallery window elements
-        const galleryWindow = document.createElement('div');
-        galleryWindow.className = 'gallery-window';
-        
-        const galleryContent = document.createElement('div');
-        galleryContent.className = 'gallery-content';
-        
-        const prevButton = document.createElement('button');
-        prevButton.className = 'gallery-nav gallery-prev';
-        prevButton.innerHTML = '&lt;';
-        prevButton.onclick = (e) => {
-            e.stopPropagation();
-            navigateGallery(-1);
-        };
-        
-        const nextButton = document.createElement('button');
-        nextButton.className = 'gallery-nav gallery-next';
-        nextButton.innerHTML = '&gt;';
-        nextButton.onclick = (e) => {
-            e.stopPropagation();
-            navigateGallery(1);
-        };
-        
-        const imageContainer = document.createElement('div');
-        imageContainer.className = 'gallery-image-container';
-        
-        const image = document.createElement('img');
-        image.className = 'gallery-image';
-        image.onclick = () => {
-            closeGalleryWindow();
-        };
-        
-        const counter = document.createElement('div');
-        counter.className = 'gallery-counter';
-        
-        // Build the DOM structure
-        imageContainer.appendChild(image);
-        imageContainer.appendChild(counter);
-        galleryContent.appendChild(prevButton);
-        galleryContent.appendChild(imageContainer);
-        galleryContent.appendChild(nextButton);
-        galleryWindow.appendChild(galleryContent);
-        
-        // Add to document
-        document.body.appendChild(galleryWindow);
-        
-        // Get the images from the gallery
-        const gallery = document.getElementById(galleryId);
-        galleryState.images = Array.from(gallery.querySelectorAll('img'));
-        galleryState.currentIndex = 0;
-        galleryState.window = galleryWindow;
-        galleryState.content = galleryContent;
-        
-        // Update the display
-        updateGalleryDisplay();
-        
-        // Add keyboard navigation
-        document.addEventListener('keydown', handleGalleryKeydown);
+// Close the gallery window
+function closeGalleryWindow() {
+    if (galleryState.window) {
+        document.body.removeChild(galleryState.window);
+        document.removeEventListener('keydown', handleGalleryKeydown);
+        galleryState.window = null;
     }
+}
 
-    // Close the gallery window
-    function closeGalleryWindow() {
-        if (galleryState.window) {
-            document.body.removeChild(galleryState.window);
-            document.removeEventListener('keydown', handleGalleryKeydown);
-            galleryState.window = null;
-        }
-    }
+// Navigate through gallery images
+function navigateGallery(direction) {
+    galleryState.currentIndex = (galleryState.currentIndex + direction + galleryState.images.length) % galleryState.images.length;
+    updateGalleryDisplay();
+}
 
-    // Navigate through gallery images
-    function navigateGallery(direction) {
-        galleryState.currentIndex = (galleryState.currentIndex + direction + galleryState.images.length) % galleryState.images.length;
-        updateGalleryDisplay();
-    }
+// Update the gallery display
+function updateGalleryDisplay() {
+    if (!galleryState.window) return;
+    
+    const image = galleryState.content.querySelector('.gallery-image');
+    const counter = galleryState.content.querySelector('.gallery-counter');
+    
+    image.src = galleryState.images[galleryState.currentIndex].src;
+    counter.textContent = `${galleryState.currentIndex + 1}/${galleryState.images.length}`;
+}
 
-    // Update the gallery display
-    function updateGalleryDisplay() {
-        if (!galleryState.window) return;
-        
-        const image = galleryState.content.querySelector('.gallery-image');
-        const counter = galleryState.content.querySelector('.gallery-counter');
-        
-        image.src = galleryState.images[galleryState.currentIndex].src;
-        counter.textContent = `${galleryState.currentIndex + 1}/${galleryState.images.length}`;
+// Handle keyboard navigation
+function handleGalleryKeydown(e) {
+    if (e.key === 'Escape') {
+        closeGalleryWindow();
+    } else if (e.key === 'ArrowLeft') {
+        navigateGallery(-1);
+    } else if (e.key === 'ArrowRight') {
+        navigateGallery(1);
     }
-
-    // Handle keyboard navigation
-    function handleGalleryKeydown(e) {
-        if (e.key === 'Escape') {
-            closeGalleryWindow();
-        } else if (e.key === 'ArrowLeft') {
-            navigateGallery(-1);
-        } else if (e.key === 'ArrowRight') {
-            navigateGallery(1);
-        }
-    }
+}
