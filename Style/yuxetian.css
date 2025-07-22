@@ -3,9 +3,9 @@
 /* 0 - 全局
 -------------------------------- */
 
-a{ color: #a3a3a3; }
+a{ color: #a3a3a3; }            /* 默认全局字体颜色，如果子类*/
 
-.wrap{ max-width: 1500px; }
+.wrap{ max-width: 100%; }        /* 按百分比设置最大宽度，可以更好的适配不同尺寸的屏幕*/
 
 /* 1 - 页眉
 -------------------------------- */
@@ -16,14 +16,14 @@ a{ color: #a3a3a3; }
     left: 0;
     bottom: 0;
     color: #fff;                    /* 左侧边栏的文字默认颜色*/
-    width: 220px;
+    width: 15%;
     position: fixed;
     overflow: hidden;
     overflow-y: auto;
     background: #292e39;            /* 左侧边栏的背景默认颜色*/
 }
 
-/* -- 头像 */
+/* -- 头像 -- */
 .sidebar .avatar{
     width: 120px;
     height: 120px;
@@ -40,7 +40,7 @@ a{ color: #a3a3a3; }
     border-radius: 100%;
 }
 
-/* -- 侧边栏导航 */
+/* -- 侧边栏导航 -- */
 .sidebar .nav{
     margin: 0;
     margin-top: 40px;
@@ -64,17 +64,17 @@ a{ color: #a3a3a3; }
 
 /* 右侧主体*/
 main{
-    margin-left: 220px;
+    margin-left: 15%;
     background: #1f242d;
 }
-
+/* 响应式设计：当屏幕宽度 ≤ 900px 时触发的样式 */
 @media screen and (max-width: 900px) {
     .sidebar {
         width: inherit;
         position: relative;
     }
     .sidebar .nav{
-        background: #ff9c1d;
+        background: #39404f;
         flex-direction: row;
         justify-content: center;
     }
@@ -100,7 +100,7 @@ main{
 /* 2 - 正文
 -------------------------------- */
 main section{
-    padding: 5em 0;
+    padding: 4em 0;     /* 每一个Section块的边距*/
     position: relative;
 }
 @media screen and (max-width: 900px) {
@@ -124,20 +124,21 @@ main section{
     font-family: "FontAwesome";
 }
 
+/* 这里的\内容表示以Unicode编码表示FontAweaome图标*/
 #info .title:before{
-    content: "\f005";
+    content: "\f005";       /* 星标 */
 }
 #skills .title:before{
-    content: "\f19d";
-}
-#works .title:before{
-    content: "\f091";
+    content: "\f19d";       /* 毕业帽 */
 }
 #story .title:before{
-    content: "\f0b1";
+    content: "\f0b1";       /* 公文包 */
+}
+#works .title:before{
+    content: "\f091";       /* 奖杯 */
 }
 #team .title:before{
-    content: "\f024";
+    content: "\f024";       /* 旗帜 */
 }
 
 /* - 技能 */
@@ -145,6 +146,7 @@ main section{
     width: 50px;
     height: 50px;
     margin: 0 auto;
+    margin-top: 2px;
     background: #fff;
     border-radius: 100%;
     box-shadow: 0 5px rgba(0,0,0,0.3);
@@ -164,22 +166,11 @@ main section{
 .skills-icon img {
     width: 70%; /* 控制图片大小 */
     height: 70%;
+    max-width: 100%;
     object-fit: contain; /* 保持图片比例 */
 }
 .skills-title{
     margin-top: 1.5em;
-    text-align: center;
-}
-
-/* - 作品 */
-.works-item img{
-    transition: transform 0.3s;
-}
-.works-item img:hover{
-    transform: scale(1.05, 1.05);
-}
-.works-item p{
-    padding: 1em 0;
     text-align: center;
 }
 
@@ -190,7 +181,6 @@ main section{
     padding-left: 1.5em;
     border-left: 2px grey solid;
 }
-
 .timeline .time{
     display: inline-block;
     width: 400px;
@@ -219,6 +209,117 @@ main section{
     border-radius: 100%;
     transition: transform .3s;
 }
+
+/* - 作品 */
+.works-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 0.2px 0.2px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+}
+.works-item:hover{
+    box-shadow: 0 0.2px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+.works-item img{
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s;
+}
+.works-item img:hover{
+    transform: scale(1.05, 1.05);
+}
+.works-item p{
+    padding: 1em 0;
+    text-align: center;
+    margin: 0;
+    background: #f8f9fa;
+}
+
+/* 拓展部分 */
+/* 图片查看器样式 */
+.gallery-window {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);     /* 弹出页面时的背景颜色以及透明度 */
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* 添加模糊效果 */
+        backdrop-filter: blur(4px); /* 模糊程度，可根据需要调整 */
+        -webkit-backdrop-filter: blur(8px); /* 兼容Safari */
+    }
+    
+    .gallery-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .gallery-image-container {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        text-align: center;
+    }
+    
+    .gallery-image {
+        max-width: 100%;
+        max-height: 90vh;
+        cursor: pointer;
+    }
+    
+    .gallery-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        font-size: 2rem;
+        padding: 15px 15px; /* 左右padding相同 */
+        cursor: pointer;
+        width: 60px; /* 新增宽度 */
+        height: 60px; /* 新增高度 */
+        border-radius: 50%; /* 使用50%确保完美圆形 */
+        display: flex; /* 新增，用于居中箭头 */
+        align-items: center; /* 新增，垂直居中 */
+        justify-content: center; /* 新增，水平居中 */
+        z-index: 1001;
+    }
+    
+    .gallery-nav:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .gallery-prev {
+        left: 20px;
+    }
+    
+    .gallery-next {
+        right: 20px;
+    }
+    
+    .gallery-counter {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 1.2rem;
+    }
 
 
 /* 3 - 页尾

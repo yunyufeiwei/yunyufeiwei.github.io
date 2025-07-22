@@ -52,7 +52,7 @@
                 <h2 class="title">掌握的技能</h2>
                 <div class="row scrollable">
 
-                    <div class="col-s-3 col-m-2 center-fixed">
+                    <div class="col-l-2 center-fixed">
                         <div class="skills-icon">
                             <img src="Icon/unrealEngine.jpg" alt="HTML5">
                         </div>
@@ -61,7 +61,7 @@
                         </div>
                     </div>
 
-                    <div class="col-s-3 col-m-2 center-fixed">
+                    <div class="col-l-2 center-fixed">
                         <div class="skills-icon">
                             <img src="Icon/unityEngine.jpg" alt="HTML5">
                         </div>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
 
-                    <div class="col-s-3 col-m-2 center-fixed">
+                    <div class="col-l-2 center-fixed">
                         <div class="skills-icon">
                             <img src="Icon/houdini.jpg" alt="HTML5">
                         </div>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
 
-                    <div class="col-s-3 col-m-2 center-fixed">
+                    <div class="col-l-2 center-fixed">
                         <div class="skills-icon">
                             <img src="Icon/SD.png" alt="HTML5">
                         </div>
@@ -88,7 +88,7 @@
                         </div>
                     </div>
 
-                    <div class="col-s-3 col-m-2 center-fixed">
+                    <div class="col-l-2 center-fixed">
                         <div class="skills-icon">
                             <img src="Icon/pt.png" alt="HTML5">
                         </div>
@@ -97,7 +97,7 @@
                         </div>
                     </div>
 
-                    <div class="col-s-3 col-m-2 center-fixed">
+                    <div class="col-l-2 center-fixed">
                         <div class="skills-icon">
                             <img src="Icon/ps.jpg" alt="HTML5">
                         </div>
@@ -106,7 +106,7 @@
                         </div>
                     </div>
 
-                    <div class="col-s-3 col-m-2 center-fixed">
+                    <div class="col-l-2 center-fixed">
                         <div class="skills-icon">
                             <img src="Icon/Blender.png" alt="HTML5">
                         </div>
@@ -115,7 +115,7 @@
                         </div>
                     </div>
 
-                    <div class="col-s-3 col-m-2 center-fixed">
+                    <div class="col-l-2 center-fixed">
                         <div class="skills-icon">
                              <img src="Icon/Max.ico" alt="HTML5">
                         </div>
@@ -124,12 +124,30 @@
                         </div>
                     </div>
 
-                    <div class="col-s-3 col-m-2 center-fixed">
+                    <div class="col-l-2 center-fixed">
                         <div class="skills-icon">
                             <img src="Icon/Zbursh.png" alt="HTML5">
                         </div>
                         <div class="skills-title">
                             <h3>Zbrush</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-l-2 center-fixed">
+                        <div class="skills-icon">
+                            <img src="Icon/worldCreator.jpg" alt="HTML5">
+                        </div>
+                        <div class="skills-title">
+                            <h3>worldCreator</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-l-2 center-fixed">
+                        <div class="skills-icon">
+                            <img src="Icon/Gaea.ico" alt="HTML5">
+                        </div>
+                        <div class="skills-title">
+                            <h3>Gaea</h3>
                         </div>
                     </div>
 
@@ -173,28 +191,61 @@
             <div class="wrap">
                 <h2 class="title">个人作品</h2>
                 <div class="row scrollable">
+
+                     <!-- 渲染组 -->
                     <div class="col-s-6">
-                        <div class="works-item">
-                            <img src="Image/binkic-2017.jpg"/>
-                            <p>测试测试</p>
+                        <div class="works-item" onclick="openGalleryWindow('gallery1')">
+                            <img class="thumbnail" src="Image/work/Rendering/雷因-02.png">
+                            <p>【渲染】</p>
+                            <div id="gallery1" class="gallery" style="display:none">
+                                <img src="Image/work/Rendering/雷因-02.png">
+                                <img src="Image/work/Rendering/登入界面-老虎.png">
+                                <img src="Image/work/Rendering/登入界面-臭鼬.png">
+                                <img src="Image/work/Rendering/水晶.gif">
+                            </div>
                         </div>
                     </div>
+
+                    <!-- 地编组 -->
                     <div class="col-s-6">
-                        <div class="works-item">
-                            <img src="Image/binkic-2018.jpg"/>
-                            <p>测试测试</p>
+                        <div class="works-item" onclick="openGalleryWindow('gallery2')">
+                            <img class="thumbnail" src="Image/work/Level/LongDemo_01.png"/>
+                            <p>【地编】</p>
+                            <div id="gallery2" class="gallery" style="display:none">
+                                <img src="Image/work/Level/LongDemo_01.png">
+                                <img src="Image/work/Level/LongDemo_02.png">
+                                <img src="Image/work/Level/SVL_01.png">
+                                <img src="Image/work/Level/SVL_02.png">
+                                <img src="Image/work/Level/SVL_03.png">
+                                <img src="Image/work/Level/大唐境外.png">
+                                <img src="Image/work/Level/江南野外6.png">
+                                <img src="Image/work/Level/江南野外7.png">
+                            </div>
                         </div>
                     </div>
+                    
+                    <!-- 三渲二组 -->
                     <div class="col-s-6">
-                        <div class="works-item">
-                            <img src="Image/binkic-2018.jpg"/>
-                            <p>测试测试</p>
+                        <div class="works-item" onclick="openGalleryWindow('gallery3')">
+                            <img class="thumbnail" src="Image/work/ThreeShadesTwo/东海渔村.png"/>
+                            <p>【三渲二】</p>
+                            <div id="gallery3" class="gallery" style="display:none">
+                                <img src="Image/work/ThreeShadesTwo/东海渔村.png">
+                                <img src="Image/work/ThreeShadesTwo/东海龙宫.png">
+                                <img src="Image/work/ThreeShadesTwo/金銮殿.png">
+                            </div>
                         </div>
                     </div>
+
+                    <!-- 模型组 -->
                     <div class="col-s-6">
-                        <div class="works-item">
-                            <img src="Image/work/东海龙宫.png"/>
-                            <p>东海龙宫</p>
+                        <div class="works-item" onclick="openGalleryWindow('gallery4')">
+                            <img class="thumbnail" src="Image/binkic-2017.jpg">
+                            <p>【模型】</p>
+                            <div id="gallery4" class="gallery" style="display:none">
+                                <img src="Image/binkic-2017.jpg">
+                                <img src="Image/binkic-2018.jpg">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -207,7 +258,7 @@
                 <div class="row">
                     <div class="col-m-6">
                         <p>具有较强的专业能力，对游戏美术全流程开发有较为系统的理解，熟练掌握游戏开发中的各个环节制作流程与周期，对游戏美术风格敏感，能快速适应项目艺术方向。</p>
-                        <p>擅长美术资源整合、素材库与Shader函数库等，对提高项目开发要求较高。</p>
+                        <p>擅长美术资源整合、搭建素材库与Shader函数库等，提高项目开发效率。</p>
                         <p>具有良好的人际关系与较强责任心，对待工作耐心细致。擅长与策划/程序沟通技术实现方案，平衡美术表现与性能开销。积极接收反馈，并在项目迭代中根据反馈完成美术效果优化。</p>
                         <p>具有较强的自我规划与学习能力，以及较强时间观念与执行力。</p>
                     </div>
@@ -219,9 +270,21 @@
         </section>
 
         <footer>
-            <p>@ 2025 By YunYuFeiWei</p>
+            <p>@ 2025 By YunYuFeiWei --- 生命不息，学习不止。</p>
         </footer>
     </main>
+
+    <!-- 图片查看器 (移到section外，全局唯一) -->
+    <div id="image-viewer" class="gallery-window" style="display:none">
+        <div class="gallery-content">
+            <button class="gallery-nav gallery-prev">&#10094;</button>
+            <div class="gallery-image">
+                <img id="displayed-image" src="">
+                <div class="gallery-counter"><span id="current-index">1</span>/<span id="total-images">3</span></div>
+            </div>
+            <button class="gallery-nav gallery-next">&#10095;</button>
+        </div>
+    </div>
 
     <script src="Style/kico.js"></script>
     <script src="Style/yuxuetian.js"></script>
