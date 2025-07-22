@@ -5,7 +5,7 @@
 
 a{ color: #a3a3a3; }            /* 默认全局字体颜色，如果子类*/
 
-.wrap{ max-width: 100%; }        /* 按百分比设置最大宽度，可以更好的适配不同尺寸的屏幕*/
+.wrap{ max-width: 90%; }        /* 按百分比设置最大宽度，可以更好的适配不同尺寸的屏幕*/
 
 /* 1 - 页眉
 -------------------------------- */
@@ -16,7 +16,7 @@ a{ color: #a3a3a3; }            /* 默认全局字体颜色，如果子类*/
     left: 0;
     bottom: 0;
     color: #fff;                    /* 左侧边栏的文字默认颜色*/
-    width: 15%;
+    width: 10%;
     position: fixed;
     overflow: hidden;
     overflow-y: auto;
@@ -64,7 +64,7 @@ a{ color: #a3a3a3; }            /* 默认全局字体颜色，如果子类*/
 
 /* 右侧主体*/
 main{
-    margin-left: 15%;
+    margin-left: 10%;
     background: #1f242d;
 }
 /* 响应式设计：当屏幕宽度 ≤ 900px 时触发的样式 */
