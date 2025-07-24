@@ -13,6 +13,7 @@ fieldset, legend, figure{
 
 body{
     color: #a3a3a3;                     /* 整体Body的文字颜色，如果需要对其中的文字颜色调整，在子类里面对颜色重新覆写*/
+    background-color:#292e39;
     font: 16px/1.5 'Microsoft Yahei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
 }
 
