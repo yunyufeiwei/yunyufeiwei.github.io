@@ -5,7 +5,7 @@
 
 a{ color: #a3a3a3; }            /* 默认全局字体颜色，如果子类*/
 
-.wrap{ max-width: 90%; }        /* 按百分比设置最大宽度，可以更好的适配不同尺寸的屏幕*/
+.wrap{ max-width: 100%;}        /* 按百分比设置最大宽度，可以更好的适配不同尺寸的屏幕*/
 
 /* 1 - 页眉
 -------------------------------- */
@@ -16,7 +16,7 @@ a{ color: #a3a3a3; }            /* 默认全局字体颜色，如果子类*/
     left: 0;
     bottom: 0;
     color: #fff;                    /* 左侧边栏的文字默认颜色*/
-    width: 10%;
+    width: 15%;
     position: fixed;
     overflow: hidden;
     overflow-y: auto;
@@ -64,7 +64,7 @@ a{ color: #a3a3a3; }            /* 默认全局字体颜色，如果子类*/
 
 /* 右侧主体*/
 main{
-    margin-left: 10%;
+    margin-left: 15%;
     background: #1f242d;
 }
 /* 响应式设计：当屏幕宽度 ≤ 900px 时触发的样式 */
@@ -213,7 +213,6 @@ main section{
 /* - 作品 */
 .works-item {
     position: relative;
-    cursor: pointer;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 0.2px 0.2px rgba(0,0,0,0.4);
@@ -258,69 +257,108 @@ main section{
         -webkit-backdrop-filter: blur(8px); /* 兼容Safari */
     }
     
-    .gallery-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;                 /* 弹出页面图片填充在窗口中的宽度 */
-        height: 100%;
-    }
+.gallery-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;                 /* 弹出页面图片填充在窗口中的宽度 */
+    height: 100%;
+}
     
-    /* .gallery-image-container {
-        position: relative;
-        max-width: 90%;
-        max-height: 90%;
-        text-align: center;
-    } */
-    
-    .gallery-image {
-        max-width: 100%;
-        max-height: 90vh;
-        cursor: zoom-out;           /* 如果图片已放大，则显示缩小光标 */
-    }
-    
-    .gallery-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(220, 220, 220, 0.5);
-        color: white;
-        border: none;
-        font-size: 2rem;
-        padding: 15px 15px;         /* 左右padding相同 */
-        cursor: pointer;
-        width: 45px;                /* 新增宽度 */
-        height: 45px;               /* 新增高度 */
-        border-radius: 50%;         /* 使用50%确保完美圆形 */
-        display: flex;              /* 新增，用于居中箭头 */
-        align-items: center;        /* 新增，垂直居中 */
-        justify-content: center;    /* 新增，水平居中 */
-        z-index: 1001;
-    }
-    
-    .gallery-nav:hover {
-        background: rgba(255, 255, 255, 0.2);         /* 鼠标悬停在圆形区域时显示的颜色以及透明度 */
-    }
-    
-    .gallery-prev {
-        left: 10px;                                     /* 圆形区域距离打开窗口左边的像素距离 */
-    }
-    
-    .gallery-next {
-        right: 10px;                                    /* 圆形区域距离打开窗口右边的像素距离 */
-    }
-    
-    .gallery-counter {
-        position: absolute;
-        bottom: 1%;
-        left: 50%;
-        transform: translateX(-50%);
-        color: white;
-        background: rgba(0, 0, 0, 0.5);
-        padding: 2px 20px;                  /* 数量显示的宽高值 */
-        border-radius: 20px;                /* 将下面的数量显示UI变为圆角形状 */
-        font-size: 1.5rem;
-    }
+/* .gallery-image-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    text-align: center;
+} */
+
+.gallery-image {
+    max-width: 100%;
+    max-height: 90vh;
+    cursor: zoom-out;           /* 如果图片已放大，则显示缩小光标 */
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(220, 220, 220, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 15px 15px;         /* 左右padding相同 */
+    cursor: pointer;
+    width: 45px;                /* 新增宽度 */
+    height: 45px;               /* 新增高度 */
+    border-radius: 50%;         /* 使用50%确保完美圆形 */
+    display: flex;              /* 新增，用于居中箭头 */
+    align-items: center;        /* 新增，垂直居中 */
+    justify-content: center;    /* 新增，水平居中 */
+    z-index: 1001;
+}
+
+.gallery-nav:hover {
+    background: rgba(255, 255, 255, 0.2);         /* 鼠标悬停在圆形区域时显示的颜色以及透明度 */
+}
+
+.gallery-prev {
+    left: 10px;                                     /* 圆形区域距离打开窗口左边的像素距离 */
+}
+
+.gallery-next {
+    right: 10px;                                    /* 圆形区域距离打开窗口右边的像素距离 */
+}
+
+.gallery-counter {
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 20px;                  /* 数量显示的宽高值 */
+    border-radius: 20px;                /* 将下面的数量显示UI变为圆角形状 */
+    font-size: 1.5rem;
+}
+
+
+/*--作品页面函数--*/
+.addWindow
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #292e39;
+    transition: all 0.3s ease;
+}
+.windowMargins
+{
+    margin: 3%;
+}
+.windowBox{
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+.windowBox:hover{
+    cursor:zoom-in;
+}
+.windowBox img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition:transform 0.3s;
+}
+.windowBox img:hover{
+    transform:scale(1.05,1.05);
+}
+.windowBox p{
+    padding: 0.8em 0;
+    text-align: center;
+    margin: 0;
+    color: #000000;
+    background-color: #e3e3e3;
+}
 
 
 /* 3 - 页尾
