@@ -654,9 +654,14 @@ iframe{
 }
 
 .row.scrollable{
-    /*overflow: auto;       /* 启用滚动条 */
-    margin: 0 -0.625;
-    flex-wrap: wrap;        /* 允许换行（关键修改） */
+    display: flex;
+    flex-wrap: wrap; /* 允许换行 */
+    overflow-x: auto; /* 横向滚动条 */
+    overflow-y: hidden; /* 禁止纵向滚动 */
+    height: calc(2 * (你的单行高度 + margin)); /* 关键：限制为两行高度 */
+    margin: 0 -0.625em;
+    scrollbar-width: thin; /* 滚动条细样式 */
+    white-space: nowrap; /* 防止内部换行 */
 }
 
 /* -- 对齐方式 */
