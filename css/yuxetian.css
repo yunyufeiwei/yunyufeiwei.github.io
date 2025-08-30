@@ -1,26 +1,162 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-/* 0 - 全局
--------------------------------- */
+:root{
+    --header-height:3rem;
+    --hue-color: 250;
 
-a{ color: #a3a3a3; }            /* 默认全局字体颜色，如果子类*/
+    --first-color: hsl(var(--hue-color), 69%, 61%);
+    --text-color: hsl(var(--hue-color), 8%, 65%);
+    --title-color: hsl(var(--hue-color), 8%, 15%);
+    --body-color: hsl(var(--hue-color), 28%, 12%);          /* 比较暗的蓝紫色 */
 
-.wrap{ max-width: 100%;}        /* 按百分比设置最大宽度，可以更好的适配不同尺寸的屏幕*/
+    /*========== Font and typography ==========*/
+    --body-font: 'Poppins', sans-serif;
 
-/* 1 - 页眉
--------------------------------- */
+    --mb-1-5: 1.5rem;
 
-/* - 侧边栏 */
-.sidebar{
-    top: 0;
-    left: 0;
-    bottom: 0;
-    color: #fff;                    /* 左侧边栏的文字默认颜色*/
-    width: 15%;
+    /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+    
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+/* Font size for large devices */
+@media screen and (min-width: 968px) {
+    :root {
+        --big-font-size: 3rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/* --------------------------------Base-------------------------------- */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0 0 var(--header-height) 0;
+    /*font-family: var(--body-font);*/
+    font-size: var(--normal-font-size);
+    /*background-color: var(--body-color);*/
+    background-color: black;
+    color: var(--text-color);
+}
+
+/* --------------------------------Layout-------------------------------- */
+.container {
+    max-width: 768px;
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+}
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+.header{
+    width: 100%;
     position: fixed;
-    overflow: hidden;
-    overflow-y: auto;
-    background: #292e39;            /* 左侧边栏的背景默认颜色*/
+    bottom: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: var(--body-color);
+}
+
+
+/*.wrap{ max-width: 100%;}        !* 按百分比设置最大宽度，可以更好的适配不同尺寸的屏幕*!*/
+
+/* --------------------------------顶部布局-------------------------------- */
+.nav {
+    /*background: var(--body-color);  !* 修改的背景色 *!*/
+    /*position: fixed;                !* 将元素固定在视口（viewport）的特定位置，即使页面滚动，元素也会保持在屏幕上的固定位置。*!*/
+    /*width: 100%;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*max-width: 1200px;*/
+    /*height: 40px;                   !* 设置导航栏高度为50像素 *!*/
+    /*margin: 0 0 var(--header-height) 0;             !* 外边距：上右下左分别为0,0,10px,0，与下方内容保持间距 *!*/
+    /*z-index: 1000;                  !* 设置高堆叠顺序，确保导航栏总是显示在最上层 *!*/
+    /*display: flex;                  !* 使用Flexbox布局模型 *!*/
+    /*justify-content: right;         !* Flex项目在主轴上右对齐（靠右排列） *!*/
+    /*align-items: center;            !* Flex项目在交叉轴上居中对齐（垂直居中） *!*/
+    /*padding: 0px 5%;*/
+    /*box-shadow: 0 -1px 4px rgba(0,0,0,.15);*/
+    /*transition: all 0.3s ease;*/
+
+    max-width: 968px;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo,
+.nav__toggle{
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+.nav__logo:hover{
+    color: var(--first-color);
+}
+
+/*.top-nav .nav {*/
+/*    display: flex;*/
+/*    list-style: none;*/
+/*    gap: 25px; !* 导航项间距 *!*/
+/*    margin-right: 15%;*/
+/*}*/
+
+.nav a:hover,
+.nav a.active {
+    color: var(--first-color);
+    background: rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 15px;
+}
+
+.logo img {
+    width: 30px;
+    height: 30px;
+    /*border-radius: 50%;*/
+    /*border: 2px solid #ff9c1d;*/
+    transition: transform 0.5s;
+}
+
+.logo-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color:var(--title-color);
 }
 
 /* -- 头像 -- */
@@ -41,32 +177,35 @@ a{ color: #a3a3a3; }            /* 默认全局字体颜色，如果子类*/
 }
 
 /* -- 侧边栏导航 -- */
-.sidebar .nav{
-    margin: 0;
-    margin-top: 40px;
-    display: flex;
-    list-style: none;
-    flex-direction: column;
-    transition: transform 0.5s ease;
-}
-.sidebar .nav a{
-    color: #fff;    /* 左侧边栏字体默认颜色 */
-    padding: 1em;
-    display: block;
-    text-align: center;
-    transition: background .3s, box-shadow .3s ,transform .5s ease;
-}
-.sidebar .nav a:hover{
-    color: #ff9c1d;         /* 左侧边栏悬停时字体颜色 */
-    background: rgba(0, 0, 0, .2);
-    transform: scale(1.2);
-}
+/*.sidebar .nav{*/
+/*    margin: 0;*/
+/*    margin-top: 40px;*/
+/*    display: flex;*/
+/*    list-style: none;*/
+/*    flex-direction: row;*/
+/*    transition: transform 0.5s ease;*/
+/*}*/
+/*.sidebar .nav a{*/
+/*    color: #fff;    !* 左侧边栏字体默认颜色 *!*/
+/*    padding: 1em;*/
+/*    display: block;*/
+/*    text-align: center;*/
+/*    transition: background .3s, box-shadow .3s ,transform .5s ease;*/
+/*}*/
+/*.sidebar .nav a:hover{*/
+/*    color: #ff9c1d;         !* 左侧边栏悬停时字体颜色 *!*/
+/*    background: rgba(0, 0, 0, .2);*/
+/*    transform: scale(1.2);*/
+/*}*/
 
 /* 右侧主体*/
 main{
-    margin-left: 15%;
-    background: #1f242d;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;     /* 让main标签内的内容水平剧中 */
+    padding: 20px;
 }
+
 /* 响应式设计：当屏幕宽度 ≤ 900px 时触发的样式 */
 @media screen and (max-width: 900px) {
     .sidebar {
@@ -109,8 +248,8 @@ main section{
     }
 } 
 
-#skills{ background: #232933}
-#works{ background: #232933 fixed; }
+/*#skills{ background: #232933}*/
+/*#works{ background: #232933 fixed; }*/
 
 /* 每一个模块的说明标签 */
 .title{
