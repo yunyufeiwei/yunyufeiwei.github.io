@@ -7,7 +7,7 @@
 
     --first-color: hsl(var(--hue-color), 69%, 61%);
     --text-color: hsl(var(--hue-color), 8%, 65%);
-    --title-color: hsl(var(--hue-color), 8%, 15%);
+    --title-color: hsl(var(--hue-color), 8%, 95%);          /* 文字颜色，在暗色背景下，文字是白色 */
     --body-color: hsl(var(--hue-color), 28%, 12%);          /* 比较暗的蓝紫色 */
 
     /*========== Font and typography ==========*/
@@ -63,8 +63,8 @@ body{
     margin: 0 0 var(--header-height) 0;
     /*font-family: var(--body-font);*/
     font-size: var(--normal-font-size);
-    /*background-color: var(--body-color);*/
-    background-color: black;
+    background-color: var(--body-color);
+    /*background-color: black;*/
     color: var(--text-color);
 }
 
@@ -88,26 +88,10 @@ body{
 }
 
 
-/*.wrap{ max-width: 100%;}        !* 按百分比设置最大宽度，可以更好的适配不同尺寸的屏幕*!*/
+.wrap{ max-width: 100%;}        /* 按百分比设置最大宽度，可以更好的适配不同尺寸的屏幕*/
 
 /* --------------------------------顶部布局-------------------------------- */
 .nav {
-    /*background: var(--body-color);  !* 修改的背景色 *!*/
-    /*position: fixed;                !* 将元素固定在视口（viewport）的特定位置，即使页面滚动，元素也会保持在屏幕上的固定位置。*!*/
-    /*width: 100%;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*max-width: 1200px;*/
-    /*height: 40px;                   !* 设置导航栏高度为50像素 *!*/
-    /*margin: 0 0 var(--header-height) 0;             !* 外边距：上右下左分别为0,0,10px,0，与下方内容保持间距 *!*/
-    /*z-index: 1000;                  !* 设置高堆叠顺序，确保导航栏总是显示在最上层 *!*/
-    /*display: flex;                  !* 使用Flexbox布局模型 *!*/
-    /*justify-content: right;         !* Flex项目在主轴上右对齐（靠右排列） *!*/
-    /*align-items: center;            !* Flex项目在交叉轴上居中对齐（垂直居中） *!*/
-    /*padding: 0px 5%;*/
-    /*box-shadow: 0 -1px 4px rgba(0,0,0,.15);*/
-    /*transition: all 0.3s ease;*/
-
     max-width: 968px;
     height: var(--header-height);
     display: flex;
@@ -123,13 +107,6 @@ body{
 .nav__logo:hover{
     color: var(--first-color);
 }
-
-/*.top-nav .nav {*/
-/*    display: flex;*/
-/*    list-style: none;*/
-/*    gap: 25px; !* 导航项间距 *!*/
-/*    margin-right: 15%;*/
-/*}*/
 
 .nav a:hover,
 .nav a.active {
@@ -207,33 +184,33 @@ main{
 }
 
 /* 响应式设计：当屏幕宽度 ≤ 900px 时触发的样式 */
-@media screen and (max-width: 900px) {
-    .sidebar {
-        width: inherit;
-        position: relative;
-    }
-    .sidebar .nav{
-        background: #39404f;
-        flex-direction: row;
-        justify-content: center;
-    }
-    .sidebar .nav a:hover{
-        background: none;
-        box-shadow: 0 -3px 0 #fff inset;
-    }
-    main{
-        margin-left: 0;
-    }
-}
+/*@media screen and (max-width: 900px) {*/
+/*    .sidebar {*/
+/*        width: inherit;*/
+/*        position: relative;*/
+/*    }*/
+/*    .sidebar .nav{*/
+/*        background: #39404f;*/
+/*        flex-direction: row;*/
+/*        justify-content: center;*/
+/*    }*/
+/*    .sidebar .nav a:hover{*/
+/*        background: none;*/
+/*        box-shadow: 0 -3px 0 #fff inset;*/
+/*    }*/
+/*    main{*/
+/*        margin-left: 0;*/
+/*    }*/
+/*}*/
 
-@media print{
-    .sidebar{
-        display: none;
-    }
-    main{
-        margin-left: 0;
-    }
-}
+/*@media print{*/
+/*    .sidebar{*/
+/*        display: none;*/
+/*    }*/
+/*    main{*/
+/*        margin-left: 0;*/
+/*    }*/
+/*}*/
 
 
 /* 2 - 正文
@@ -248,7 +225,7 @@ main section{
     }
 } 
 
-/*#skills{ background: #232933}*/
+#skills{ background: #232933}
 /*#works{ background: #232933 fixed; }*/
 
 /* 每一个模块的说明标签 */
@@ -493,4 +470,39 @@ footer a{
     margin: 0;
     color: #000000;
     background-color: #e3e3e3;
+}
+
+/* 屏幕适配覆写 */
+
+/* 当屏幕的最小宽度大于等于768时，使用这里的样式覆盖默认的样式布局 */
+@media screen and (min-width: 768px){
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .body {
+        margin: 0;
+    }
+
+    .header {
+        top: 0;
+        bottom: initial;
+    }
+
+    .header,
+    .main,
+    .footer__container {
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (min-width: 968px) {
+    .header,.main,footer__container{
+        padding:0;
+    }
+
+    .header {
+        bottom: 0;
+    }
 }
