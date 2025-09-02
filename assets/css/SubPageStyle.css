@@ -1,0 +1,56 @@
+:root{
+    --hue-color: 250;
+    --bg-color: hsl(var(--hue-color), 28%, 12%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    --body-color: hsl(var(--hue-color), 28%, 12%);
+}
+
+/*--作品页面函数--*/
+.addWindow{
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    transition: all 0.3s ease;
+}
+
+.windowMargins{
+    margin: 3%;
+}
+
+.windowBox{
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
+    border-radius: 8px;
+    margin: auto;
+}
+
+.windowBox:hover{
+    cursor:zoom-in;
+}
+
+.windowBox img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition:transform 0.3s;
+}
+
+.windowBox img:hover{
+    transform:scale(1.05,1.05);
+}
+
+.windowBox p{
+    padding: 0.8em 0;
+    text-align: center;
+    margin: 0;
+    color: #e3e3e3;
+}
+

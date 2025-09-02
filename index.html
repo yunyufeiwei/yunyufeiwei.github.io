@@ -1,278 +1,736 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>陈雨的个人简历</title>
-    <meta name="theme-color" content="#ffc91d"/>
-    <link rel="icon" href="assets/Icon/32.png" sizes="32x32"/>
-    <link rel="icon" href="assets/Icon/32.png" sizes="192x192"/>
-<!--    <link href="css/kico.css" rel="stylesheet" type="text/css"/>-->
-    <link href="css/yuxetian.css" rel="stylesheet" type="text/css"/>
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
+    <meta charset="UTF-8" />
+    <title>陈雨 - 个人简历</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/Icon/32.png" />
+    <!--==================== UNICONS 图标====================-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css"/>
+    <!--==================== SWIPER CSS ====================-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <!--==================== CSS ====================-->
+    <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body>
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">媳妇豆豆</a>
-<!--                <img src="assets/Icon/32.png" alt="Logo"/>-->
-<!--                <a href="#" class="">媳妇豆豆</a>-->
-<!--            </a>-->
-            <div class="nav__menu" id="nav-menu">
-                <a href="#info">Home</a>
-                <a href="#skills">Skills</a>
-                <a href="#story">working</a>
-                <a href="#works">protfolio</a>
-                <a href="#team">contactme</a>
-            </div>
-        </nav>
-    </header>
+<!--==================== HEADER ====================-->
+<header class="header scroll-header" id="header">
+    <nav class="nav container">
+        <a href="#" class="nav__logo">YunYuFeiWei</a>
 
-    <main>
-        <section id="info">
-            <div class="wrap">
-                <h2 class="title">个人资料</h2>
-                <div class="row">
-                    <div class="col-l-4">
-                        <p>姓名：陈雨</p>
-                        <p>性别：男</p>
-                        <p>年龄：36</p>
-                        <p>学历：大专</p>
-                    </div>
-                    <div class="col-l-4">
-                        <p>QQ：328800436</p>
-                        <p>微信：cy32880436</p>
-                        <p>GitHub：<a href="https://github.com/yunyufeiwei?tab=repositories">yunyufeiwei</a></p>
-                        <p>知乎：<a href="https://www.zhihu.com/people/XiaoYu">媳妇豆豆</a></p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list grid">
 
-        <section id="skills">
-            <div class="wrap">
-                <h2 class="title">掌握的技能</h2>
-                <div class="row scrollable">
-                    <div class="col-l-2 center-fixed">
-                        <div class="skills">
-                            <img src="Icon/unrealEngine.jpg" alt="HTML5">
-                        </div>
-                        <div class="skills-title">
-                            <h3>UnrealEngine</h3>
-                        </div>
-                    </div>
+                <li class="nav__item">
+                    <a href="#home" class="nav__link">
+                        <i class="uil uil-estate nav__icon"></i>
+                        <p i18n="home">Home</p>
+                    </a>
+                </li>
 
-                    <div class="col-l-2 center-fixed">
-                        <div class="skills">
-                            <img src="assets/Icon/unityEngine.jpg" alt="HTML5">
-                        </div>
-                        <div class="skills-title">
-                            <h3>UnityEngine</h3>
-                        </div>
-                    </div>
+                <li class="nav__item">
+                    <a href="#about" class="nav__link">
+                        <i class="uil uil-user nav__icon"></i>
+                        <p i18n="about">About</p>
+                    </a>
+                </li>
 
-                    <div class="col-l-2 center-fixed">
-                        <div class="skills">
-                            <img src="assets/Icon/houdini.jpg" alt="HTML5">
-                        </div>
-                        <div class="skills-title">
-                            <h3>Houdini</h3>
-                        </div>
-                    </div>
+                <li class="nav__item">
+                    <a href="#skills" class="nav__link">
+                        <i class="uil uil-file-alt nav__icon"></i>
+                        <p i18n="skills">Skills</p>
+                    </a>
+                </li>
 
-                    <div class="col-l-2 center-fixed">
-                        <div class="skills">
-                            <img src="assets/Icon/SD.png" alt="HTML5">
-                        </div>
-                        <div class="skills-title">
-                            <h3>Designer</h3>
-                        </div>
-                    </div>
+                <li class="nav__item">
+                    <a href="#portfolio" class="nav__link">
+                        <i class="uil uil-scenery nav__icon"></i>
+                        <p i18n="portfolio">Portfolio</p>
+                    </a>
+                </li>
 
-                    <div class="col-l-2 center-fixed">
-                        <div class="skills">
-                            <img src="assets/Icon/pt.png" alt="HTML5">
-                        </div>
-                        <div class="skills-title">
-                            <h3>Painter</h3>
-                        </div>
-                    </div>
+                <li class="nav__item">
+                    <a href="#contact" class="nav__link">
+                        <i class="uil uil-message nav__icon"></i>
+                        <p i18n="contact">Contactme</p>
+                    </a>
+                </li>
 
-                    <div class="col-l-2 center-fixed">
-                        <div class="skills">
-                            <img src="assets/Icon/ps.jpg" alt="HTML5">
-                        </div>
-                        <div class="skills-title">
-                            <h3>Photoshop</h3>
-                        </div>
+                <li class="nav__item">
+                    <div class="nav__link" id="translate" value="en">
+                        <svg class="icon nav__icon-svg" aria-hidden="true">
+                            <use xlink:href="#icon-fanyi"></use>
+                        </svg>
+                        <a class="=nav__link" id="nav__translate">Translate</a>
                     </div>
-
-                    <div class="col-l-2 center-fixed">
-                        <div class="skills">
-                            <img src="assets/Icon/Blender.png" alt="HTML5">
-                        </div>
-                        <div class="skills-title">
-                            <h3>Blender</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-l-2 center-fixed">
-                        <div class="skills">
-                             <img src="assets/Icon/Max.ico" alt="HTML5">
-                        </div>
-                        <div class="skills-title">
-                            <h3>3ds Max</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-l-2 center-fixed">
-                        <div class="skills">
-                            <img src="assets/Icon/Zbursh.png" alt="HTML5">
-                        </div>
-                        <div class="skills-title">
-                            <h3>Zbrush</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-l-2 center-fixed">
-                        <div class="skills">
-                            <img src="assets/Icon/worldCreator.jpg" alt="HTML5">
-                        </div>
-                        <div class="skills-title">
-                            <h3>worldCreator</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-l-2 center-fixed">
-                        <div class="skills">
-                            <img src="assets/Icon/Gaea.ico" alt="HTML5">
-                        </div>
-                        <div class="skills-title">
-                            <h3>Gaea</h3>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="story">
-            <div class="wrap">
-                <h2 class="title">工作经历</h2>
-                <div class="row">
-                    <div class="col-m-8">
-                        <ul class="timeline">
-                            <li><h4><span class="time">2018.04~至今：成都金山互娱武汉分公司</span><span class="job">岗位描述：场景美术师/技术美术师</span></h4></li>
-                            <p>1.主要制作项目中Shader(全栈)、材质交互逻辑、美术工具开发，以及美术制作流程的规范。</p>
-                            <p>2.推进项目优化中场景相关的优化事项与技术跟进。</p>
-                            <p>3.游戏关卡地图制作、灯光烘焙，对接TA与程序实现材质效果与逻辑功能。</p>
-                            <p>4.3D场景模型贴图制作，地图制作。</p>
-
-                            <li><h4><span class="time">2016.05~2018.01：武汉水静科技有限公司</span><span class="job">岗位描述：3D场景模型/场景美术师</span></h4></li>
-                            <p>1.场景地图制作。</p>
-                            <p>2.负责对接甲方需求，管理团队及项目排期、内部质量审核。</p>
-                            <p>3.主要制作3D手绘场景、三渲二场景、渲染，对内部提交文件质量审核与修改。</p>
-                            
-                            <li><h4><span class="time">2011.11~2016.05：武汉渲奇科技有限公司</span><span class="job">岗位描述：3D场景模型/</span></h4></li>
-                            <p>1.负责校企合作事项、在校场地管理，在校实习生培养。</p>
-                            <p>2.主要负责对接甲方需求、项目管理排气分配、项目质量与进审核，以及场景相关内容制作。</p>
-                            <p>3.主要制作3D手绘、次世代、三渲二场景，对内部文件提交质量审核与修改。</p>
-                            
-                            <li><h4><span class="time">2009.09~2011.05：武汉奇诺科技有限公司</span><span class="job">岗位描述：3D场景模型</span></h4></li>
-                            <p>3D场景模型，主要制作三渲二场景、手绘场景模型贴图。</p>
-                        </ul>
-                    </div>
-                    <div class="col-m-4 center-fixed">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="works">
-            <div class="wrap">
-                <h2 class="title">个人作品</h2>
-                <div class="row scrollable">
-                    <!-- 技术美术 -->
-                    <div class="col-s-6">
-                        <div class="works-item" onclick="window.open('TechnicalArt.html','_blank')">
-                            <img class="thumbnail" src="assets/Image/work/Rendering/【Role】雷音.png">
-                            <p>【TA(渲染))】</p>
-                        </div>
-                    </div>
-
-                    <!-- 地编 -->
-                    <div class="col-s-6">
-                        <div class="works-item" onclick="window.open('Scene.html','_blank')">
-                            <img class="thumbnail" src="assets/Image/work/Level/LongDemo_01.png"/>
-                            <p>【地编】</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 三渲二 -->
-                    <div class="col-s-6">
-                        <div class="works-item" onclick="openGalleryWindow('gallery3')">
-                            <img class="thumbnail" src="assets/Image/work/ThreeShadesTwo/东海渔村.png"/>
-                            <p>【三渲二】</p>
-                            <div id="gallery3" class="gallery" style="display:none">
-                                <img src="assets/Image/work/ThreeShadesTwo/东海渔村.png">
-                                <img src="assets/Image/work/ThreeShadesTwo/东海龙宫.png">
-                                <img src="assets/Image/work/ThreeShadesTwo/金銮殿.png">
-                                <img src="assets/Image/work/ThreeShadesTwo/野外山洞.png">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 模型 -->
-                    <div class="col-s-6">
-                        <div class="works-item" onclick="openGalleryWindow('gallery4')">
-                            <img class="thumbnail" src="assets/Image/work/Model/实力守护兽.jpg">
-                            <p>【模型】</p>
-                            <div id="gallery4" class="gallery" style="display:none">
-                                <img src="assets/Image/work/Model/实力守护兽.jpg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="content-d" id="team">
-            <div class="wrap"> 
-                <h2 class="title">自我评价</h2>
-                <div class="row">
-                    <div class="col-m-6">
-                        <p>具有较强的专业能力，对游戏美术全流程开发有较为系统的理解，熟练掌握游戏开发中的各个环节制作流程与周期，对游戏美术风格敏感，能快速适应项目艺术方向。</p>
-                        <p>擅长所有场景相关的开发工作，同时擅长美术资源整合、搭建素材库与Shader函数库与项目工程管理等，提高项目开发效率。</p>
-                        <p>具有良好的人际关系与较强责任心，对待工作耐心细致。擅长与策划/程序沟通技术实现方案，平衡美术表现与性能开销。积极接收反馈，并在项目迭代中根据反馈完成美术效果优化。</p>
-                        <p>具有较强的自我规划与学习能力，以及较强时间观念与执行力，并具有很好的风险意识。</p>
-                    </div>
-                    <div class="col-m-2 center">
-                            <img src="assets/Image/WeiXin/weixin.jpg"/>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <p>@ 2025 By YunYuFeiWei --- 生命不息，学习不止。</p>
-        </footer>
-    </main>
-
-    <!-- 图片查看器 (移到section外，全局唯一) -->
-    <div id="image-viewer" class="gallery-window" style="display:none">
-        <div class="gallery-content">
-            <button class="gallery-nav gallery-prev">&#10094;</button>
-            <div class="gallery-image">
-                <img id="displayed-image" src="">
-                <div class="gallery-counter"><span id="current-index">1</span>/<span id="total-images">3</span></div>
-            </div>
-            <button class="gallery-nav gallery-next">&#10095;</button>
+                </li>
+            </ul>
+            <i class="uil uil-times nav__close" id="nav-close"></i>
         </div>
+
+        <div class="nav__btns">
+            <i class="uil uil-moon change-theme" id="theme-button"></i>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="uil uil-apps"></i>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!--==================== MAIN ====================-->
+<main class="main">
+    <!--==================== HOME ====================-->
+    <section class="home section" id="home">
+        <div class="home__container container grid">
+            <div class="home__content grid">
+                <div class="home__social">
+                    <a  href="https://www.zhihu.com/people/XiaoYu" target="_blank" class="home__social-icon-min" >
+                        <!-- 这里使用home__social-text-min 类对颜色进行重写-->
+                        <text class="home__social-text-min">
+                            <svg
+                                    viewBox="0 0 64 30"
+                                    width="64"
+                                    height="30"
+                                    class="home__social-icon"
+                            >
+                                <path d="M29.05 4.582H16.733V25.94h3.018l.403 2.572 4.081-2.572h4.815V4.582zm-5.207 18.69l-2.396 1.509-.235-1.508h-1.724V7.233h6.78v16.04h-2.425zM14.46 14.191H9.982c0-.471.033-.954.039-1.458v-5.5h5.106V5.935a1.352 1.352 0 0 0-.404-.957 1.378 1.378 0 0 0-.968-.396H5.783c.028-.088.056-.177.084-.255.274-.82 1.153-3.326 1.153-3.326a4.262 4.262 0 0 0-2.413.698c-.57.4-.912.682-1.371 1.946-.532 1.453-.997 2.856-1.31 3.693C1.444 8.674.28 11.025.28 11.025a5.85 5.85 0 0 0 2.52-.61c1.119-.593 1.679-1.502 2.054-2.883l.09-.3h2.334v5.5c0 .5-.045.982-.073 1.46h-4.12c-.71 0-1.39.278-1.893.775a2.638 2.638 0 0 0-.783 1.874h6.527a17.717 17.717 0 0 1-.778 3.649 16.796 16.796 0 0 1-3.012 5.273A33.104 33.104 0 0 1 0 28.74s3.13 1.175 5.425-.954c1.388-1.292 2.631-3.814 3.23-5.727a28.09 28.09 0 0 0 1.12-5.229h5.967v-1.37a1.254 1.254 0 0 0-.373-.899 1.279 1.279 0 0 0-.909-.37z"></path>
+                            </svg>
+                        </text>
+                        
+                    </a>
+
+                    <a href="https://github.com/yunyufeiwei" target="_blank" class="home__social-icon-medium" >
+                        <i class="uil uil-github-alt"></i>
+                    </a>
+
+                    <a href="https://space.bilibili.com/382898888" target="_blank" class="home__social-icon-min" >
+                        <svg
+                                t="1674801734735"
+                                viewBox="0 0 1024 1024"
+                                version="1.1"
+                                xmlns="http://www.w3.org/2000/svg"
+                                p-id="4124"
+                        >
+                            <path
+                                    d="M777.514667 131.669333a53.333333 53.333333 0 0 1 0 75.434667L728.746667 255.829333h49.92A160 160 0 0 1 938.666667 415.872v320a160 160 0 0 1-160 160H245.333333A160 160 0 0 1 85.333333 735.872v-320a160 160 0 0 1 160-160h49.749334L246.4 207.146667a53.333333 53.333333 0 1 1 75.392-75.434667l113.152 113.152c3.370667 3.370667 6.186667 7.04 8.448 10.965333h137.088c2.261333-3.925333 5.12-7.68 8.490667-11.008l113.109333-113.152a53.333333 53.333333 0 0 1 75.434667 0z m1.152 231.253334H245.333333a53.333333 53.333333 0 0 0-53.205333 49.365333l-0.128 4.010667v320c0 28.117333 21.76 51.157333 49.365333 53.162666l3.968 0.170667h533.333334a53.333333 53.333333 0 0 0 53.205333-49.365333l0.128-3.968v-320c0-29.44-23.893333-53.333333-53.333333-53.333334z m-426.666667 106.666666c29.44 0 53.333333 23.893333 53.333333 53.333334v53.333333a53.333333 53.333333 0 1 1-106.666666 0v-53.333333c0-29.44 23.893333-53.333333 53.333333-53.333334z m320 0c29.44 0 53.333333 23.893333 53.333333 53.333334v53.333333a53.333333 53.333333 0 1 1-106.666666 0v-53.333333c0-29.44 23.893333-53.333333 53.333333-53.333334z"
+                                    fill="hsl(250deg 69% 61%)"
+                                    p-id="4125"
+                            ></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="home__img">
+                    <img src="assets/Image/192.png">
+                </div>
+
+                <div class="home__data">
+                    <h3 class="home__title" i18n="home__title">
+                        Hi, I'm XiFuDouDou
+                    </h3>
+                    <h3 class="home__subtitle" i18n="home__subtitle">
+                        Game Artist
+                    </h3>
+                    <p class="home__description" i18n="home__description">
+                        High level experience in web design and development knowledge,
+                        producing quality work.
+                    </p>
+                    <a href="#contact" class="button button-flex">
+                        <span i18n="home__contact">Contact Me</span>
+                        <i class="uil uil-message button__icon"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="home__scroll">
+                <a href="#about" class="home__scroll-button button--flex">
+                    <i class="uil uil-mouse-alt-2 home__scroll-mouse"></i>
+                    <span class="home__scroll-name" i18n="home__scroll-name"
+                    >Scroll down</span
+                    >
+                    <i class="uil uil-arrow-down home__scroll-arrow"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--==================== ABOUT ====================-->
+    <section class="about section" id="about">
+        <h2 class="section__title" i18n="about__title">About Me</h2>
+        <span class="section__subtitle" i18n="about__subtitle">My introduction</span>
+
+        <div class="about__container container">
+            <div class="about__data">
+                <p class="about__description" i18n="about__description">
+                    A game art developer with strong professional skills,
+                    possessing a systematic understanding of the entire game art development process,
+                    proficient in mastering the production processes and timelines of various stages in game development,
+                    sensitive to game art styles, and capable of quickly adapting to the artistic direction of projects.
+                </p>
+
+                <div class="about__info">
+                    <div>
+                        <span class="about__info-title">14+</span>
+                        <span class="about__info-name" i18n="about__info-name1">Years of <br />experience</span>
+                    </div>
+
+                    <!--              <div>-->
+                    <!--                <span class="about__info-title">00+</span>-->
+                    <!--                <span class="about__info-name" i18n="about__info-name2"-->
+                    <!--                  >Completed <br />-->
+                    <!--                  projects</span-->
+                    <!--                >-->
+                    <!--              </div>-->
+
+                    <div>
+                        <span class="about__info-title">8+</span>
+                        <span class="about__info-name" i18n="about__info-name3">Companies <br />worked</span>
+                    </div>
+                </div>
+
+                <div class="about__buttons">
+                    <a
+                            download=""
+                            href="assets/pdf/简历.pdf"
+                            class="button button--flex"
+                    >
+                        <span i18n="download">Download CV</span>
+                        <i class="uil uil-download-alt button__icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--==================== SKILLS ====================-->
+    <section class="skills section" id="skills">
+        <h2 class="section__title" i18n="skills__title">Skills</h2>
+        <span class="section__subtitle" i18n="skills__subtitle">My technical level</span>
+
+        <div class="skills__container container grid">
+            <div>
+                <!--==================== SKILLS 1 ====================-->
+                <div class="skills__content skills__open">
+                    <div class="skills__header">
+                        <i class="uil uil-brackets-curly skills__icon"></i>
+                        <div>
+                            <h1 class="skills__title" i18n="home__subtitle">Game Artist</h1>
+                            <span class="skills__subtitle" i18n="skills__years">More than * years</span>
+                        </div>
+                        <i class="uil uil-angle-down skills__arrow"></i>
+                    </div>
+
+                    <!-- 进度条的具体数值在styles的skills__percentage -->
+                    <div class="skills__list grid">
+                        <!------------------------ 3dsMax ------------------------>
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <div class="skills__titles">
+                                    <img class="skill_img" src="assets/Image/Icon/Max.ico">
+                                    <h3 class="skills__name">3dsMax</h3>
+                                </div>
+                                <span class="skills__number">80%</span>
+                            </div>
+
+                            <div class="skills__bar">
+                                <div class="skills__percentage skills__3dsMax"></div>
+                            </div>
+                        </div>
+
+                        <!------------------------ Blender ------------------------>
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <div class="skills__titles">
+                                    <img class="skill_img" src="assets/Image/Icon/Blender.png">
+                                    <h3 class="skills__name">Blender</h3>
+                                </div>
+                                <span class="skills__number">40%</span>
+                            </div>
+
+                            <div class="skills__bar">
+                                <div class="skills__percentage skills__Blender"></div>
+                            </div>
+                        </div>
+
+                        <!------------------------ Houdini ------------------------>
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <div class="skills__titles">
+                                    <img class="skill_img" src="assets/Image/Icon/houdini.jpg">
+                                    <h3 class="skills__name">Houdini</h3>
+                                </div>
+                                <span class="skills__number">20%</span>
+                            </div>
+
+                            <div class="skills__bar">
+                                <div class="skills__percentage skills__Houdini"></div>
+                            </div>
+                        </div>
+
+                        <!------------------------ Zbrush ------------------------>
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <div class="skills__titles">
+                                    <img class="skill_img" src="assets/Image/Icon/Zbursh.png">
+                                    <h3 class="skills__name">Zbrush</h3>
+                                </div>
+                                <span class="skills__number">45%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <div class="skills__percentage skills__Zbrush"></div>
+                            </div>
+                        </div>
+
+                        <!------------------------ Photoshop ------------------------>
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <div class="skills__titles">
+                                    <img class="skill_img" src="assets/Image/Icon/photoshop.png">
+                                    <h3 class="skills__name">Phoptshop</h3>
+                                </div>
+                                <span class="skills__number">70%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <div class="skills__percentage skills__photoshop"></div>
+                            </div>
+                        </div>
+
+                        <!------------------------ SubstancePainter ------------------------>
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <div class="skills__titles">
+                                    <img class="skill_img" src="assets/Image/Icon/pt.png">
+                                    <h3 class="skills__name">SubstancePainter</h3>
+                                </div>
+                                <span class="skills__number">75%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <div class="skills__percentage skills__substancePainter"></div>
+                            </div>
+                        </div>
+
+                        <!------------------------ SubstanceDesigner ------------------------>
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <div class="skills__titles">
+                                    <img class="skill_img" src="assets/Image/Icon/SD.png">
+                                    <h3 class="skills__name">SubstanceDesigner</h3>
+                                </div>
+                                <span class="skills__number">65%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <div class="skills__percentage skills__substanceDesigner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--==================== SKILLS 2 ====================-->
+                <div class="skills__content skills__close">
+                    <div class="skills__header">
+                        <i class="uil uil-server-network skills__icon"></i>
+                        <div>
+                            <h1 class="skills__title" i18n="skills__title2">Technical Artist</h1>
+                            <span class="skills__subtitle" i18n="skills__years2">More than * years</span>
+                        </div>
+                        <i class="uil uil-angle-down skills__arrow"></i>
+                    </div>
+
+                    <div class="skills__list grid">
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <div class="skills__titles">
+                                    <img class="skill_img" src="assets/Image/Icon/unityEngine.jpg">
+                                    <h3 class="skills__name">UnityEngine</h3>
+                                </div>
+                                <span class="skills__number">85%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <div class="skills__percentage skills__UnityEngine"></div>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <div class="skills__titles">
+                                    <img class="skill_img" src="assets/Image/Icon/unrealEngine.jpg">
+                                    <h3 class="skills__name">UnrealEngine</h3>
+                                </div>
+                                <span class="skills__number">75%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <div class="skills__percentage skills__UnrealEngine"></div>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <div class="skills__titles">
+                                    <img class="skill_img" src="assets/Image/Icon/C%23.png">
+                                    <h3 class="skills__name">C#</h3>
+                                </div>
+                                <span class="skills__number">60%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <div class="skills__percentage skills__c"></div>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <div class="skills__titles">
+                                    <img class="skill_img" src="assets/Image/Icon/python.png">
+                                    <h3 class="skills__name">Python</h3>
+                                </div>
+                                <span class="skills__number">45%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <div class="skills__percentage skills__python"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--==================== QUALIFICATION ====================-->
+    <section class="qualification section">
+        <h2 class="section__title" i18n="qualification__title">
+            Employment History
+        </h2>
+        <span class="section__subtitle" i18n="qualification__subtitle">
+              My personal journey
+          </span>
+
+        <div class="qualification__container container">
+            <div class="qualification__tabs">
+                <div class="qualification__button button--flex qualification__active" data-target="#education">
+                    <i class="uil uil-graduation-cap qualification__icon"></i>
+                    <span i18n="education">Education</span>
+                </div>
+
+                <div class="qualification__button button--flex" data-target="#work">
+                    <i class="uil uil-briefcase-alt qualification__icon"></i>
+                    <span i18n="work">Work</span>
+                </div>
+            </div>
+
+            <div class="qualification__sections">
+                <!--==================== 教育经历 ====================-->
+                <div
+                        class="qualification__content qualification__active"
+                        data-content
+                        id="education"
+                >
+
+                    <!--==================== 教育经历 1 ====================-->
+                    <div class="qualification__data">
+                        <div>
+                            <h3 class="qualification__title" i18n="qualification1__title">
+                                Computer Application
+                            </h3>
+                            <span class="qualification__subtitle" i18n="qualification1__subtitle">**** - University</span>
+                            <div class="qualification__calendar">
+                                <i class="uil uil-calendar-alt"></i>
+                                2008.09-2010.06
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="qualification__rounder"></span>
+                            <span class="qualification__line"></span>
+                        </div>
+                    </div>
+
+                    <!--==================== 教育经历 2 ====================-->
+                    <div class="qualification__data">
+                        <div></div>
+                        <div>
+                            <span class="qualification__rounder"></span>
+                            <!-- 对竖着的部分额外画一条线 -->
+                            <!-- <span class="qualification__line"></span>-->
+                        </div>
+
+                        <div>
+                            <h3 class="qualification__title" i18n="qualification2__title">
+                                Web Design
+                            </h3>
+                            <span class="qualification__subtitle" i18n="qualification2__subtitle">Self-Study</span>
+                            <div class="qualification__calendar">
+                                <i class="uil uil-calendar-alt"></i>
+                                2009.09-2010.06
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--==================== 工作经历 ====================-->
+                <div class="qualification__content" data-content id="work">
+
+                    <!--==================== 工作经历 1 ====================-->
+                    <div class="qualification__data">
+
+                        <div>
+                            <h3 class="qualification__title" i18n="qualification4__title">
+                                Software Enginner
+                            </h3>
+                            <span class="qualification__subtitle" i18n="qualification4__subtitle">Wuhan Qinuo</span>
+                            <div class="qualification__calendar">
+                                <i class="uil uil-calendar-alt"></i>
+                                2009.09 ~ 2011.05
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="qualification__rounder"></span>
+                            <span class="qualification__line"></span>
+                        </div>
+                    </div>
+
+                    <!--==================== 工作经历 2 ====================-->
+                    <div class="qualification__data">
+                        <div></div>
+                        <div>
+                            <span class="qualification__rounder"></span>
+                            <span class="qualification__line"></span>
+                        </div>
+                        <div>
+                            <h3 class="qualification__title" i18n="qualification5__title">
+                                Job Description
+                            </h3>
+                            <span class="qualification__subtitle" i18n="qualification5__subtitle">Wuhan Xuanqi</span>
+                            <div class="qualification__calendar">
+                                <i class="uil uil-calendar-alt"></i>
+                                2011.11 ~ 2016.05
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--==================== 工作经历 3 ====================-->
+                    <div class="qualification__data">
+                        <div>
+                            <h3 class="qualification__title" i18n="qualification6__title">
+                                Job Description
+                            </h3>
+                            <span class="qualification__subtitle" i18n="qualification6__subtitle">Wuhan ShuiJing</span>
+                            <div class="qualification__calendar">
+                                <i class="uil uil-calendar-alt"></i>
+                                2016.05 ~ 2018.01
+                            </div>
+                        </div>
+                        <div>
+                            <span class="qualification__rounder"></span>
+                            <span class="qualification__line"></span>
+                        </div>
+                    </div>
+
+                    <!--==================== 工作经历 4 ====================-->
+                    <div class="qualification__data">
+                        <div></div>
+
+                        <div>
+                            <span class="qualification__rounder"></span>
+                            <!--                          <span class="qualification__line"></span>-->
+                        </div>
+
+                        <div>
+                            <h3 class="qualification__title" i18n="qualification7__title">
+                                Job Description
+                            </h3>
+                            <span class="qualification__subtitle" i18n="qualification7__subtitle">King Soft</span>
+                            <div class="qualification__calendar">
+                                <i class="uil uil-calendar-alt"></i>
+                                2018.04 ~ now
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--==================== PORTFOLIO ====================-->
+    <section class="portfolio section" id="portfolio">
+        <h2 class="section__title" i18n="portfolio__title">Portfolio</h2>
+        <span class="section__subtitle" i18n="portfolio__subtitle">Most recent works</span>
+
+        <div class="portfolio__container container swiper-container">
+            <div class="swiper-wrapper">
+
+                <!--==================== PORTFOLIO 1 ====================-->
+                <div class="portfolio__content grid swiper-slide">
+                    <img src="assets/ImageWork/Rendering/【Role】雷音.png" alt="" class="portfolio__img"/>
+                    <div class="portfolio_">
+                        <h3 class="portfolio__title" i18n="portfolio1__title">Technical Artist</h3>
+                        <p class="portfolio__description" i18n="portfolio1__description">
+                            Website adaptable to all devices, with ui components and animated interactions.
+                        </p>
+                        <a href="TechnicalArtist.html" target="_blank" class="button button--flex button--small portfolio__button">
+                            Demo
+                            <i class="uil uil-arrow-right button__icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!--==================== PORTFOLIO 2 ====================-->
+                <div class="portfolio__content grid swiper-slide">
+                    <img src="assets/ImageWork/Level/SVL_02.png" alt="" class="portfolio__img"/>
+                    <div class="portfolio_">
+                        <h3 class="portfolio__title" i18n="portfolio2__title">Scene Artist</h3>
+                        <p class="portfolio__description" i18n="portfolio2__description">
+                            Website adaptable to all devices, with ui components and animated interactions.
+                        </p>
+                        <a href="SceneArtist.html" target="_blank" class="button button--flex button--small portfolio__button" >
+                            Demo
+                            <i class="uil uil-arrow-right button__icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!--==================== PORTFOLIO 3 ====================-->
+                <div class="portfolio__content grid swiper-slide">
+                    <img src="assets/ImageWork/ThreeShadesTwo/金銮殿.png" alt="" class="portfolio__img"/>
+                    <div class="portfolio_">
+                        <h3 class="portfolio__title" i18n="portfolio3__title">Three Shades Two</h3>
+                        <p class="portfolio__description" i18n="portfolio3__description">
+                            Website adaptable to all devices, with ui components and animated interactions.
+                        </p>
+                        <a href="ThreeShadesTwo.html" target="_blank" class="button button--flex button--small portfolio__button">
+                            Demo
+                            <i class="uil uil-arrow-right button__icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio__content grid swiper-slide">
+                    <img src="assets/ImageWork/Model/势力守护兽.jpg" alt="" class="portfolio__img"/>
+                    <div class="portfolio_">
+                        <h3 class="portfolio__title" i18n="portfolio4__title">Scene Model</h3>
+                        <p class="portfolio__description" i18n="portfolio4__description">
+                            Website adaptable to all devices, with ui components and animated interactions.
+                        </p>
+                        <a href="SceneModel.html" target="_blank" class="button button--flex button--small portfolio__button">
+                            Demo
+                            <i class="uil uil-arrow-right button__icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- add arrows-->
+            <div class="swiper-button-next">
+                <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+            </div>
+
+            <div class="swiper-button-prev">
+                <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+            </div>
+
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!--==================== CONTACT ME ====================-->
+    <section class="contact section" id="contact">
+        <h2 class="section__title" i18n="contact__title">Contact me</h2>
+        <span class="section__subtitle" i18n="contact__subtitle">Get in touch</span>
+        <div class="contact__container container grid">
+            <div>
+                <div class="contact__information">
+                    <i class="uil uil-phone-alt contact__icon"></i>
+                    <div>
+                        <h3 class="contact__title" i18n="tel">Call me</h3>
+                        <span class="contact__subtitle" i18n="tel__number">136xxxxxxxx</span>
+                    </div>
+                </div>
+
+                <div class="contact__information">
+                    <i class="uil uil-envelope contact__icon"></i>
+                    <div>
+                        <h3 class="contact__title" i18n="email">E-mail</h3>
+                        <span class="contatc__subtitle" i18n="email__address">asoutherncat@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="contact__information">
+                    <i class="uil uil-map-marker contact__icon"></i>
+                    <div>
+                        <h3 class="contact__title" i18n="location">Location</h3>
+                        <span class="contatc__subtitle" i18n="location__detail">HuNan , CHN</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!--==================== FOOTER ====================-->
+<footer class="footer">
+    <div class="footer__bg">
+        <div class="footer__container container grid">
+            <div>
+                <h1 class="footer__title">YunYuFeiWei</h1>
+                <!--                    <span class="footer__subtitle" i18n="home__subtitle">Frontend developer</span>-->
+            </div>
+
+            <ul class="footer__links">
+                <li>
+                    <a href="#skills" class="footer__link" i18n="skills">Skills</a>
+                </li>
+                <li>
+                    <a href="#portfolio" class="footer__link" i18n="portfolio">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#contact" class="footer__link" i18n="contact">Contact</a>
+                </li>
+            </ul>
+
+            <div class="footer__socials">
+                <a href="https://www.zhihu.com/people/XiaoYu" target="_blank">
+                    <svg class="icon footer__social" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                </a>
+                <a href="https://github.com/yunyufeiwei" target="_blank">
+                    <svg class="icon footer__social" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                </a>
+                <a href="https://space.bilibili.com/382898888" target="_blank">
+                    <svg class="icon footer__social" aria-hidden="true">
+                        <use xlink:href="#icon-bilibili-line"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <p class="footer__copy">
+            &#169; YunYuFeiWei.Copy from
+            <a class="footer__copy" href="https://www.youtube.com/c/Bedimcode" target="_blank">Bedimcode</a>
+        </p>
     </div>
+</footer>
 
-    <script src="js/kico.js"></script>
-    <script src="js/yuxuetian.js"></script>
+<!--==================== SCROLL TOP ====================-->
+<a href="#" class="scrollup" id="scroll-up">
+    <i class="uil uil-arrow-up scrollup__icon"></i>
+</a>
+<!--==================== SWIPER JS ====================-->
+<script src="assets/js/swiper-bundle.min.js"></script>
 
+<!-- iconfont JS -->
+<script src="assets/js/iconfont.js"></script>
+<!-- jquery -->
+<script src="assets/js/jquery2.1.4.min.js"></script>
+<script src="assets/js/jquery.i18n.min.js"></script>
+<!--==================== MAIN JS ====================-->
+<script src="assets/js/main.js"></script>
+
+<!-- translate JS -->
+<script src="assets/js/cn-en-translate.js"></script>
 </body>
 </html>
