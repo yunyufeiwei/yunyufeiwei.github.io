@@ -239,7 +239,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: var(--small-font-size);
+    font-size: var(--normal-font-size);
     color: var(--title-color);
     font-weight: var(--font-medium);
     cursor: pointer;
@@ -520,7 +520,7 @@ img {
 
 .skills__list {
     row-gap: 1.5rem;
-    padding-left: 2.7rem;
+    padding-left: 2.2rem;
     transition: .4s;
 }
 
@@ -558,7 +558,7 @@ img {
 }
 
 .skills__3dsMax {
-    width: 80%;
+    width: 90%;
 }
 
 .skills__Blender{
@@ -566,7 +566,7 @@ img {
 }
 
 .skills__Houdini{
-    width: 30%;
+    width: 10%;
 }
 
 .skills__Zbrush{
@@ -574,7 +574,7 @@ img {
 }
 
 .skills__photoshop{
-    width: 70%;
+    width: 85%;
 }
 
 .skills__substancePainter{
@@ -589,7 +589,11 @@ img {
     width: 85%;
 }
 .skills__UnrealEngine{
-    width: 75%;
+    width: 80%;
+}
+
+.skills__hlsl{
+    width: 90%;
 }
 
 .skills__c{
@@ -639,8 +643,12 @@ img {
 
 .qualification__data {
     display: grid;
-    grid-template-columns: 1fr max-content 1fr;
+    grid-template-columns: 0.1fr max-content 1fr;
     column-gap: 1.5rem;
+    padding-bottom: 3rem;
+    max-width: 1024px;
+    /*justify-content: start;  !* 确保左对齐 *!*/
+    margin-left: 0;          /* 移除可能的左边距 */
 }
 
 .qualification__title {
@@ -652,29 +660,29 @@ img {
     display:flex;
     font-size: var(--small-font-size);
     margin-bottom: var(--mb-1);
+    text-align: inherit;
 }
 
 .qualification__calendar {
     font-size: var(--smaller-font-size);
     color: var(--text-color-light);
-    /* margin-bottom: var(--mb-1) */
 
 }
 
 .qualification__rounder {
     display: inline-block;
-    width: 13px;
-    height: 13px;
+    width: 12px;
+    height: 12px;
     background-color: var(--first-color);
-    border-radius: 50%;
+    border-radius: 0%;
 }
 
 .qualification__line {
     display: block;
     width: 1px;
-    height: 100%;
+    height: 125%;       /* 工作经历的竖条高度 */
     background-color: var(--first-color);
-    transform: translate(6px, -7px)
+    transform: translate(5px, -6px)
 }
 
 .qualification__content[data-content] {
@@ -982,7 +990,7 @@ img {
 /* For medium devices 适用于中等尺寸设备 */
 @media screen and (min-width: 568px) {
     .home__content {
-        grid-template-columns: max-content 1fr 1fr;
+        grid-template-columns: max-content 3fr 1fr;
     }
 
     .home__data {
@@ -992,8 +1000,10 @@ img {
     .home__img {
         order: 1;
         justify-self: center;
-        width: 240px;
-        height: 240px;
+        align-self: center;
+        margin: auto;
+        width: 180px;
+        height: 180px;
         transition: transform 0.5s;
     }
 
@@ -1007,11 +1017,11 @@ img {
     .project__container,
     .contact__container,
     .footer__container {
-        grid-template-columns: repeat(2, 1fr);    /* 这里的2表示分成2列，也就是有两个竖向格子*/
+    grid-template-columns: repeat(2, 1fr);    /* 这里的2表示分成2列，也就是有两个竖向格子*/
     }
 
     .qualification__sections {
-        display: grid;
+        /*display: grid;*/
         grid-template-columns: .6fr;
         justify-content: center;
     }
@@ -1027,7 +1037,7 @@ img {
         }
 
         .section {
-            padding: 6rem 0 2rem;
+            padding: 2rem 0 2rem;
         }
 
         .section__subtitle {
@@ -1214,7 +1224,7 @@ img {
     }
 
     .home__social {
-        transform: translateX(-6rem);
+        transform: translateX(-4rem);
     }
 
     .services__container {
