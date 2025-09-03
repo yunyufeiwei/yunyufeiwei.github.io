@@ -905,6 +905,13 @@ img {
 /*==================== MEDIA QUERIES ====================*/
 /* For small devices 针对小型设备 */
 @media screen and (max-width: 350px) {
+    .header{
+        top: 0;
+        bottom: initial;
+        padding: 0 1rem;
+        margin: auto;
+    }
+    
     .container {
         margin-left: var(--mb-1);
         margin-right: var(--mb-1);
@@ -966,6 +973,13 @@ img {
 
 /* For medium devices 适用于中等尺寸设备 */
 @media screen and (min-width: 568px) {
+    .header{
+        top: 0;
+        bottom: initial;
+        padding: 0 1rem;
+        margin: auto;
+    }
+    
     .home__content {
         grid-template-columns: max-content 3fr 1fr;
     }
@@ -990,19 +1004,20 @@ img {
 
     .about__container,
     .skills_container,
-    .portfolio__content,
     .project__container,
     .contact__container,
     .footer__container {
     grid-template-columns: repeat(2, 1fr);    /* 这里的2表示分成2列，也就是有两个竖向格子*/
     }
+    
+    .portfolio__content {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
 
     .qualification__sections {
-        /*display: grid;*/
         grid-template-columns: .6fr;
         justify-content: center;
-        
-        
     }
 
     @media screen and (min-width: 768px) {
@@ -1211,7 +1226,7 @@ img {
     }
 
     .portfolio__content {
-        column-gap: 5rem;
+        column-gap: 2rem;
     }
 
     .swiper-portfolio-icon {
