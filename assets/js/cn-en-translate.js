@@ -1,7 +1,7 @@
 $(document).ready(function () {
     /*默认语言*/
     const lang = localStorage.getItem("lang");
-    const defaultLang = lang? lang : "en";
+    const defaultLang = lang? "cn":lang;    /* 修改三目运算符的真假顺序来调整语言默认是中文还是英文 */
     $("[i18n]").i18n({
         defaultLang: defaultLang,
         filePath: "assets/i18n/", //路径配置
@@ -13,7 +13,7 @@ $(document).ready(function () {
         },
     });
     /*中英文切换按钮*/
-    const text = defaultLang =="cn"?"中/En":"En/中";
+    const text = defaultLang =="cn"?"En/中":"中/En";
     $("#nav__translate").text(text);
     $("#translate").click(function (e) {
         const currentLang = localStorage.getItem("lang")? localStorage.getItem("lang") : defaultLang;
@@ -29,7 +29,5 @@ $(document).ready(function () {
                 console.log(localStorage.getItem("lang"));
             }
         });
-
     });
-
 });

@@ -31,42 +31,62 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 
 /*==================== ACCORDION SKILLS ====================*/
 const skillsContent = document.getElementsByClassName('skills__content'),
-      skillsHeader = document.querySelectorAll('.skills__header')
+    skillsHeader = document.querySelectorAll('.skills__header')
 
-      function toggleSkills() {
-        let itemClass = this.parentNode.className
+function toggleSkills() {
+    let itemClass = this.parentNode.className
 
-        for(i = 0; i < skillsContent.length; i++) {
-          skillsContent[i].className = 'skills__content skills__close'
-        }
-        if(itemClass === 'skills__content skills__close'){
-          this.parentNode.className = 'skills__content skills__open'
-        }
-      }
-      
-      skillsHeader.forEach((el) => {
-        el.addEventListener('click', toggleSkills)
-      })
+    for(i = 0; i < skillsContent.length; i++) {
+        skillsContent[i].className = 'skills__content skills__close'
+    }
+    if(itemClass === 'skills__content skills__close'){
+        this.parentNode.className = 'skills__content skills__open'
+    }
+}
+
+skillsHeader.forEach((el) => {
+    el.addEventListener('click', toggleSkills)
+})
 
 /*==================== QUALIFICATION TABS ====================*/
 const tabs = document.querySelectorAll('[data-target]'),
-      tabContents = document.querySelectorAll('[data-content]')
+    tabContents = document.querySelectorAll('[data-content]')
+
+// 默认激活工作标签而不是教育标签（该模块为新增模块，如果不增加，默认显示为英文）
+document.addEventListener('DOMContentLoaded', function() {
+    const workTab = document.querySelector('[data-target="#work"]');
+    const workContent = document.querySelector('#work');
+
+    if (workTab && workContent) {
+        // 移除所有激活状态
+        tabContents.forEach(tabContent => {
+            tabContent.classList.remove('qualification__active');
+        });
+        tabs.forEach(tab => {
+            tab.classList.remove('qualification__active');
+        });
+
+        // 激活工作标签和内容
+        workTab.classList.add('qualification__active');
+        workContent.classList.add('qualification__active');
+    }
+});
 
 tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    console.log('click disparado')
-    const target = document.querySelector(tab.dataset.target)
+    tab.addEventListener('click', () => {
+        console.log('click disparado')
+        const target = document.querySelector(tab.dataset.target)
 
-    tabContents.forEach(tabContent => {
-      tabContent.classList.remove('qualification__active')
-    })
-    target.classList.add('qualification__active')
+        tabContents.forEach(tabContent => {
+            tabContent.classList.remove('qualification__active')
+        })
+        target.classList.add('qualification__active')
 
-    tabs.forEach(tab => {
-      tab.classList.remove('qualification__active')
+        tabs.forEach(tab => {
+            tab.classList.remove('qualification__active')
+        })
+        tab.classList.add('qualification__active')
     })
-    tab.classList.add('qualification__active')
-  })
 })
 
 
@@ -74,17 +94,17 @@ tabs.forEach(tab => {
 let swiperPortfolio = new Swiper('.portfolio__container', {
     cssMode: true,
     loop: true,
-  
+
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
     },
-  
+
     pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
+        el: '.swiper-pagination',
+        clickable: true,
     },
-  });
+});
 
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
@@ -105,26 +125,26 @@ function scrollActive(){
 }
 window.addEventListener('scroll', scrollActive)
 
-/*==================== CHANGE BACKGROUND HEADER ====================*/ 
+/*==================== CHANGE BACKGROUND HEADER ====================*/
 function scrollHeader(){
     const nav = document.getElementById('header')
     if(this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
-  }
-  window.addEventListener('scroll', scrollHeader)
+}
+window.addEventListener('scroll', scrollHeader)
 
-/*==================== SHOW SCROLL UP ====================*/ 
+/*==================== SHOW SCROLL UP ====================*/
 function scrollUp(){
     const scrollUp = document.getElementById('scroll-up');
     if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
-  }
-  window.addEventListener('scroll', scrollUp)
+}
+window.addEventListener('scroll', scrollUp)
 
-/*==================== DARK LIGHT THEME & LANGUAGE====================*/ 
+/*==================== DARK LIGHT THEME & LANGUAGE====================*/
 
 const themeButton = document.getElementById('theme-button')
 const darkTheme = 'dark-theme'
 const iconTheme = 'uil-sun'
-const language = 'cn'
+const language = 'en'
 
 // Previously selected topic (if user selected)
 const selectedTheme = localStorage.getItem('selected-theme')
@@ -136,9 +156,9 @@ const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-mo
 
 // We validate if the user previously chose a topic
 if (selectedTheme) {
-  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
-  themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
+    // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+    document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+    themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
 }
 
 // Activate / deactivate the theme manually with the button

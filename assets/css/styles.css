@@ -361,14 +361,9 @@ img {
     margin-bottom: var(--mb-2);
 }
 
-/* .home__scroll {
-  display: none;
-} */
-
 .home__scroll-button {
     color: var(--first-color);
     transition: .3s;
-
 }
 
 .home__scroll-button:hover {
@@ -390,7 +385,6 @@ img {
 
 .home__scroll-arrow {
     font-size: 1.25rem;
-
 }
 
 /*==================== BUTTONS ====================*/
@@ -401,7 +395,6 @@ img {
     padding: 1rem;
     border-radius: .5rem;
     font-weight: var(--font-medium);
-
 }
 
 .button:hover {
@@ -418,7 +411,6 @@ img {
     display: inline-flex;
     align-items: center;
     transition: .3s;
-
 }
 
 .button--small {
@@ -442,13 +434,11 @@ img {
     border-radius: .5rem;
     justify-self: center;
     align-self: center;
-
 }
 
 .about__description {
     text-align: center;
     margin-bottom: var(--mb-2-5);
-
 }
 
 .about__info {
@@ -465,13 +455,11 @@ img {
 
 .about__info-name {
     font-size: var(--smaller-font-size);
-
 }
 
 .about__info-title, .about__info-name {
     display: block;
     text-align: center;
-
 }
 
 .about__buttons {
@@ -494,12 +482,10 @@ img {
 .skills__icon, .skills__arrow {
     font-size: 2rem;
     color: var(--first-color);
-
 }
 
 .skills__icon {
     margin-right: var(--mb-0-75);
-
 }
 
 .skills__title {
@@ -509,13 +495,11 @@ img {
 .skills__subtitle {
     font-size: var(--small-font-size);
     color: var(--text-color-light);
-
 }
 
 .skills__arrow {
     margin-left: auto;
     transition: .4s;
-
 }
 
 .skills__list {
@@ -538,18 +522,15 @@ img {
 
 .skill_img{
     width: 1.5rem;
-
 }
 
 .skills__bar, .skills__percentage {
     height: 5px;
     border-radius: .25rem;
-
 }
 
 .skills__bar {
     background-color: var(--first-color-lighter);
-
 }
 
 .skills__percentage {
@@ -604,10 +585,8 @@ img {
 }
 
 .skills__close .skills__list {
-
     height: 0;
     overflow: hidden;
-
 }
 
 .skills__open .skills__list {
@@ -643,12 +622,10 @@ img {
 
 .qualification__data {
     display: grid;
-    grid-template-columns: 0.1fr max-content 1fr;
+    grid-template-columns: 10px max-content;
     column-gap: 1.5rem;
     padding-bottom: 3rem;
-    max-width: 1024px;
-    /*justify-content: start;  !* 确保左对齐 *!*/
-    margin-left: 0;          /* 移除可能的左边距 */
+    position: relative;
 }
 
 .qualification__title {
@@ -661,12 +638,12 @@ img {
     font-size: var(--small-font-size);
     margin-bottom: var(--mb-1);
     text-align: inherit;
+    max-width: 1024px;          /* 限制了工作经历描述区域文字的最大宽度显示 */
 }
 
 .qualification__calendar {
     font-size: var(--smaller-font-size);
     color: var(--text-color-light);
-
 }
 
 .qualification__rounder {
@@ -1024,6 +1001,8 @@ img {
         /*display: grid;*/
         grid-template-columns: .6fr;
         justify-content: center;
+        
+        
     }
 
     @media screen and (min-width: 768px) {

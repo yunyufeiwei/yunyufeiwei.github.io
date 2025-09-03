@@ -38,7 +38,10 @@
     "qualification1__title":"Computer Application",
     "qualification1__subtitle":"Wuhan - University",
     "qualification2__title":"Animation Design",
-    "qualification2__subtitle":"Self-Study",
+    "qualification2__subtitle":[
+      "Wuhan Chino Technology </br>",
+      "</br>",
+      "Learn through project practice。"],
 
     "qualification4__title":"3D Scene Modeler",
     "qualification4__subtitle":[
@@ -52,7 +55,7 @@
       "</br>",
       "1. Mainly produce 3D hand drawn, next-generation, three rendering, and two scene designs, and submit internal files for quality review and modification.</br>",
       "2. Mainly responsible for liaising with Party A's requirements, project management and exhaust allocation, project quality and audit, as well as creating scene related content.</br>",
-      "3.Responsible for school enterprise cooperation matters, campus venue management, and training of on campus interns。"
+      "3. Responsible for school enterprise cooperation matters, campus venue management, and training of on campus interns。"
     ],
     "qualification6__title": "Scene Artist",
     "qualification6__subtitle": [
@@ -66,7 +69,7 @@
     "qualification7__subtitle": [
       "Wuhan Kingsoft</br>",
       "</br>",
-      "1.3D scene model texture production, map production. </br>",
+      "1. 3D scene model texture production, map production. </br>",
       "2. Game level map production, lighting baking, integration with TA and program to achieve material effects and logical functions.</br>",
       "3. Promote scenario related optimization issues and technical follow-up in project optimization.</br>",
       "4. The main production projects include Shader (full stack), material interaction logic, art tool development, and standardization of art production processes. "
@@ -75,13 +78,15 @@
     "portfolio__title":"Portfolio",
     "portfolio__subtitle":"Project Works And Personal Exercises",
     "portfolio1__title":"Technical Artist",
-    "portfolio1__description":" This is my portfolio exploring the intersection of artistic expression and technological development.</br>The subpage displays some of the content I have created, including project and personal exercises.",
+    "portfolio1__description":[
+      "This is my portfolio exploring the intersection of artistic expression and technological development. </br>",
+      "The subpage displays some of the content I have created, including projects and personal exercises under different engines and modules."],
     "portfolio2__title":"Level Artist",
-    "portfolio2__description":"Website adaptable to all devices, with ui components and animated interactions.",
+    "portfolio2__description":"Click on Demo to see level map designs of different types and theme styles in the project and exercises.",
     "portfolio3__title":"Three Shades Two",
-    "portfolio3__description":"Website adaptable to all devices, with ui components and animated interactions.",
+    "portfolio3__description":"Click on Demo to see the rendered map effects from previous projects, and you will see high-quality maps rendered using v-ray.",
     "portfolio4__title":"Scene Model",
-    "portfolio4__description":"Website adaptable to all devices, with ui components and animated interactions.",
+    "portfolio4__description":"Click on Demo to see 3D models with different styles and themes, which demonstrate my ability to handle different styles, proportions, and details of scene models.. ",
     
     "contact__title":"Contact me",
     "contact__subtitle":"Get in touch",

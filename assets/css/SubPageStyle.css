@@ -1,56 +1,161 @@
-:root{
+:root {
     --hue-color: 250;
     --bg-color: hsl(var(--hue-color), 28%, 12%);
+    --container-width: 1024px;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    --body-color: hsl(var(--hue-color), 28%, 12%);
-}
-
-/*--作品页面函数--*/
-.addWindow{
-    width: 100%;
-    height: 100%;
+body {
     background-color: var(--bg-color);
-    transition: all 0.3s ease;
+    color: #e3e3e3;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    padding: 0.5rem 0;
 }
 
-.windowMargins{
-    margin: 3%;
+/* 页面容器 */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
-.windowBox{
-    width: 90%;
-    height: 90%;
+/* 页面的头说明 */
+.page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-top: 1rem;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: hsl(var(--hue-color), 69%, 61%);
+    margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+    color: #a0a0a0;
+    font-size: 1.1rem;
+}
+
+/* 图片与文字填充内容的外层容器 */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.gallery-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
     overflow: hidden;
-    border-radius: 8px;
-    margin: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
-.windowBox:hover{
-    cursor:zoom-in;
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-.windowBox img{
+/* 图片内容 */
+.image-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.image-container:hover .gallery-image {
+    transform: scale(1.03);
+    cursor: zoom-in;
+}
+
+/* 填充内容的文字部分外框*/
+.image-description {
+    padding: 1.2rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* 填充内容文字的标题 */
+.image-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: hsl(var(--hue-color), 69%, 71%);
+}
+
+/* 填充内容文字的描述 */
+.image-desc {
+    font-size: 0.95rem;
+    color: #d0d0d0;
+}
+
+/* 页面内容模糊效果 */
+.container.blurred {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+/* 放大图片的样式 */
+.enlarged-container {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    display: block;
-    transition:transform 0.3s;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.windowBox img:hover{
-    transform:scale(1.05,1.05);
+.enlarged-container.active {
+    opacity: 1;
+    visibility: visible;
 }
 
-.windowBox p{
-    padding: 0.8em 0;
-    text-align: center;
-    margin: 0;
-    color: #e3e3e3;
+.enlarged-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    cursor: zoom-out;
 }
 
+.enlarged-container.active .enlarged-image {
+    transform: scale(1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .gallery {
+        gap: 2rem;
+    }
+
+    .enlarged-image {
+        max-width: 95%;
+        max-height: 95%;
+    }
+}
