@@ -166,7 +166,7 @@ img {
 
 /*==================== LAYOUT ====================*/
 .container {
-    max-width: 1024px;
+    max-width:968px;
     margin-left: var(--mb-1-5);
     margin-right: var(--mb-1-5);
 }
@@ -1206,7 +1206,7 @@ img {
 }
 
 /* For large devices */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 968px) {
     .header,
     .main,
     .footer__container {
