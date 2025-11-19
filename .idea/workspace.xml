@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1bd24feb-6305-42e2-9c0d-c11437b0709f" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/yuxetian.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/yuxetian.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/i18n/i18n_cn.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/i18n/i18n_cn.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/i18n/i18n_en.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/i18n/i18n_en.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +57,7 @@
       <workItem from="1760511070103" duration="3381000" />
       <workItem from="1760572457899" duration="6099000" />
       <workItem from="1760922374233" duration="1314000" />
+      <workItem from="1763533688178" duration="3551000" />
     </task>
     <servers />
   </component>
