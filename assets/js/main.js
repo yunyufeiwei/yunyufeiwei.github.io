@@ -94,10 +94,16 @@ tabs.forEach(tab => {
 let swiperPortfolio = new Swiper('.portfolio__container', {
     cssMode: true,
     loop: true,
+    //作品页面自动翻页
+    autoplay:
+        {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
 
     navigation: {
         nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        //prevEl: '.swiper-button-prev',
     },
 
     pagination: {
@@ -159,6 +165,14 @@ if (selectedTheme) {
     // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
     document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
     themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
+}
+else{
+    // 如果是首次访问，默认使用深色主题
+    document.body.classList.add(darkTheme)
+    themeButton.classList.add(iconTheme)
+    // 保存默认主题到localStorage
+    localStorage.setItem('selected-theme', 'dark')
+    localStorage.setItem('selected-icon', 'uil-sun')
 }
 
 // Activate / deactivate the theme manually with the button

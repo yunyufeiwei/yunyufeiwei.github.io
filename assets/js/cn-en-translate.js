@@ -1,7 +1,7 @@
 $(document).ready(function () {
     /*默认语言*/
     const lang = localStorage.getItem("lang");
-    const defaultLang = lang? "cn":lang;    /* 修改三目运算符的真假顺序来调整语言默认是中文还是英文 */
+    const defaultLang = lang ? " lang ": cn;    /* 修改三目运算符的真假顺序来调整语言默认是中文还是英文 */
     $("[i18n]").i18n({
         defaultLang: defaultLang,
         filePath: "assets/i18n/", //路径配置
