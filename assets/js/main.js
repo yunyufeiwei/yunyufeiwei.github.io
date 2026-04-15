@@ -34,13 +34,12 @@ const skillsContent = document.getElementsByClassName('skills__content'),
     skillsHeader = document.querySelectorAll('.skills__header')
 
 function toggleSkills() {
-    let itemClass = this.parentNode.className
-
-    for(i = 0; i < skillsContent.length; i++) {
-        skillsContent[i].className = 'skills__content skills__close'
-    }
-    if(itemClass === 'skills__content skills__close'){
-        this.parentNode.className = 'skills__content skills__open'
+    // 独立切换当前技能栏的展开/收缩，不影响其他技能栏
+    let parent = this.parentNode
+    if (parent.className === 'skills__content skills__close') {
+        parent.className = 'skills__content skills__open'
+    } else {
+        parent.className = 'skills__content skills__close'
     }
 }
 
@@ -103,7 +102,7 @@ let swiperPortfolio = new Swiper('.portfolio__container', {
 
     navigation: {
         nextEl: '.swiper-button-next',
-        //prevEl: '.swiper-button-prev',
+        prevEl: '.swiper-button-prev',
     },
 
     pagination: {

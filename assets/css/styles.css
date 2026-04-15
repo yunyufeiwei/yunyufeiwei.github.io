@@ -145,7 +145,7 @@ img {
 
 /*==================== REUSABLE CSS CLASSES ====================*/
 .section {
-    padding: 2rem 0 4rem;
+    padding: 3rem 0;
 }
 
 .section__title {
@@ -179,7 +179,7 @@ img {
 .header {
     width: 100%;
     position: fixed;
-    bottom: 0;
+    top: 0;
     left: 0;
     z-index: var(--z-fixed);
     background-color: var(--body-color);
@@ -216,14 +216,52 @@ img {
 @media screen and (max-width:767px){
     .nav__menu{
         position: fixed;
-        bottom: -100%;
+        top: -100%;
         left: 0;
         width: 100%;
         background-color: var(--body-color);
-        padding: 2rem 1.5rem 4rem;
-        box-shadow: 0 -1px 4px rgba(0,0,0,.15);
-        border-radius: 1.5rem 1.5rem 0 0;
+        padding: 4rem 1.5rem 2rem;
+        box-shadow: 0 1px 4px rgba(0,0,0,.15);
+        border-radius: 0 0 1.5rem 1.5rem;
         transition: .3s;
+    }
+
+    .show-menu {
+        top: 0;
+    }
+
+    .nav__close {
+        position: absolute;
+        right: 1.3rem;
+        top: .5rem;
+    }
+
+    /* 移动端联系方式：标题和内容换行显示 */
+    .contact__information {
+        flex-wrap: wrap;
+    }
+
+    .contact__title {
+        min-width: auto;
+    }
+
+    /* 移动端 home 区域文字居中 */
+    .home__data {
+        text-align: center;
+    }
+
+    .home__data .button {
+        justify-content: center;
+    }
+
+    /* 移动端 portfolio 图片全宽 */
+    .portfolio__img {
+        width: 100%;
+    }
+
+    /* 移动端 qualification 数据间距 */
+    .qualification__subtitle {
+        max-width: 100%;
     }
 }
 
@@ -244,6 +282,7 @@ img {
     font-weight: var(--font-medium);
     cursor: pointer;
     text-transform: capitalize;
+    white-space: nowrap;
 }
 
 .nav__link:hover{
@@ -274,10 +313,7 @@ img {
 .nav__close:hover{
     color: var(--first-color-alt);
 }
-/* show menu */
-.show-menu{
-    bottom: 0;
-}
+/* show menu — 移动端由 media query 内的 .show-menu 控制 top:0 */
 
 /* Active link */
 .active-link {
@@ -524,65 +560,21 @@ img {
     width: 1.5rem;
 }
 
-.skills__bar, .skills__percentage {
-    height: 5px;
-    border-radius: .25rem;
-}
-
+/* ===== 技能方格进度条 ===== */
 .skills__bar {
+    display: flex;
+    gap: 4px;
+}
+
+.skills__block {
+    aspect-ratio: 1 / 1;
+    flex: 1;
+    border-radius: 2px;
     background-color: var(--first-color-lighter);
+    transition: background-color .3s;
 }
 
-.skills__percentage {
-    display: block;
-    background-color: var(--first-color);
-}
-
-.skills__3dsMax {
-    width: 90%;
-}
-
-.skills__Blender{
-    width: 40%;
-}
-
-.skills__Houdini{
-    width: 10%;
-}
-
-.skills__Zbrush{
-    width: 45%;
-}
-
-.skills__photoshop{
-    width: 85%;
-}
-
-.skills__substancePainter{
-    width: 75%;
-}
-
-.skills__substanceDesigner{
-    width: 65%;
-}
-
-.skills__UnityEngine{
-    width: 85%;
-}
-.skills__UnrealEngine{
-    width: 80%;
-}
-
-.skills__hlsl{
-    width: 90%;
-}
-
-.skills__c{
-    width: 60%;
-}
-.skills__python{
-    width: 45%;
-}
+/* 彩虹色：根据位置百分比分配，由 JS 内联设置 */
 
 .skills__close .skills__list {
     height: 0;
@@ -626,6 +618,7 @@ img {
     column-gap: 1.5rem;
     padding-bottom: 3rem;
     position: relative;
+    overflow: hidden;
 }
 
 .qualification__title {
@@ -652,14 +645,17 @@ img {
     height: 12px;
     background-color: var(--first-color);
     border-radius: 0%;
+    position: relative;
+    z-index: 1;
 }
 
 .qualification__line {
     display: block;
     width: 1px;
-    height: 125%;       /* 工作经历的竖条高度 */
+    height: calc(100% + 3rem);       /* 匹配 padding-bottom 的间距，精确连接到下一个圆点 */
     background-color: var(--first-color);
-    transform: translate(5px, -6px)
+    transform: translateX(5.5px);     /* 水平居中对齐圆点 */
+    margin-top: -6px;                 /* 紧接圆点底部 */
 }
 
 .qualification__content[data-content] {
@@ -748,18 +744,26 @@ img {
 
 .contact__information {
     display: flex;
-    margin-bottom: var(--mb-2)
+    align-items: center;
+    margin-bottom: var(--mb-1);
 }
 
 .contact__icon {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--first-color);
-    margin-right: var(--mb-0-75);
+    margin-right: var(--mb-0-5);
+    width: 1.2rem;
 }
 
-.content__title {
-    font-size: var(--h3-font-size);
+.contact__title {
+    font-size: var(--normal-font-size);
     font-weight: var(--font-medium);
+    min-width: 7rem;
+    text-align: left;
+}
+
+.contact__separator {
+    margin: 0 .25rem;
 }
 
 .contact__subtitle {
@@ -796,12 +800,12 @@ img {
 }
 
 .footer__container {
-    row-gap: 3.5rem;
+    row-gap: 0.5rem;
 }
 
 .footer__bg {
     background-color: var(--first-color-second);
-    padding: 2rem 0 3rem;
+    padding: 0.5rem 0 0.5rem;
 }
 
 .footer__title {
@@ -818,7 +822,7 @@ img {
     white-space: nowrap;
     display: flex;
     flex-direction: column;
-    row-gap: 1.5rem;
+    row-gap: 0.5rem;
 }
 
 .footer__link:hover {
@@ -838,7 +842,7 @@ img {
     font-size: var(--smaller-font-size);
     text-align: center;
     color: var(--text-color-light);
-    margin-top: var(--mb-3);
+    margin-top: var(--mb-1);
 }
 
 .footer__title,
@@ -936,6 +940,16 @@ img {
     }
     .qualification__data {
         gap: .5rem;
+    }
+
+    /* 联系方式小屏适配 */
+    .contact__title {
+        min-width: 5rem;
+        font-size: var(--small-font-size);
+    }
+
+    .contact__subtitle {
+        font-size: var(--smaller-font-size);
     }
 
     .services__container {
@@ -1070,6 +1084,8 @@ img {
             align-content: center;
             display: flex;
             flex-wrap: wrap;
+            min-width: 5rem;
+            justify-content: center;
         }
 
         #translate{

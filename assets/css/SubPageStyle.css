@@ -147,15 +147,37 @@ body {
 /* 响应式设计 */
 @media (max-width: 768px) {
     .page-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .gallery {
-        gap: 2rem;
+        gap: 1.5rem;
+    }
+
+    .image-title {
+        font-size: 1.1rem;
+    }
+
+    .image-desc {
+        font-size: 0.85rem;
     }
 
     .enlarged-image {
         max-width: 95%;
         max-height: 95%;
+    }
+}
+
+@media (max-width: 350px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .image-description {
+        padding: 0.8rem;
     }
 }

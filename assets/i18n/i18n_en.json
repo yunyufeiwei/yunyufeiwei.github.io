@@ -7,7 +7,7 @@
   
     "home__title":"Hi, I'm ChenYu",
     "home__subtitle":"Game Artist",
-    "home__description":"love work, Love life, pursue excellence and innovation, curious about the world, eager to explore the unknown, and expand the boundaries of cognition.",
+    "home__description":["Love life, love work, and stay curious about the unknown.</br></br>Focused on game art creation and visual implementation, deeply rooted in the full art pipeline. Skilled at balancing art quality, project efficiency, and technical solutions, continuously exploring more effective and higher-quality art production paths.</br></br>Committed to proactive learning and self-improvement, eager to engage with client-side programming knowledge, combining artistic intuition with technical thinking to create more expressive game visuals."],
     "home__contact":"Contact Me",
     "home__scroll-name":"Scroll down",
   
@@ -47,41 +47,41 @@
     "qualification4__subtitle":[
       "Wuhan Chino Technology</br>",
       "</br>",
-      "3D scene models are mainly used to create three rendering and two scene, as well as hand drawn scene model textures."
+      "3D scene modeling, mainly producing cel-shaded scenes and hand-painted scene model textures."
     ],
     "qualification5__title": "3D Scene Modeler",
     "qualification5__subtitle":[
       "Wuhan Xuanqi Technology</br>",
       "</br>",
-      "1. Mainly produce 3D hand drawn, next-generation, three rendering, and two scene designs, and submit internal files for quality review and modification.</br>",
-      "2. Mainly responsible for liaising with Party A's requirements, project management and exhaust allocation, project quality and audit, as well as creating scene related content.</br>",
-      "3. Responsible for school enterprise cooperation matters, campus venue management, and training of on campus interns。</br>",
+      "1. Produced 3D hand-painted, next-gen, and cel-shaded scenes; reviewed and revised internal file submissions for quality.</br>",
+      "2. Responsible for liaising with client requirements, project scheduling and task allocation, quality review, and scene content production.</br>",
+      "3. Managed school-enterprise cooperation, on-campus facilities, and intern training.</br>",
       "</br>",
-      "Participate project:",
-      "《山脊赛车》《大唐无双》《武魂》《斩魂》《镇魔曲》《大话西游手游》《梦想星城》《秘宝猎人》等"
+      "Projects:",
+      "Ridge Racer, Datang Wushuang, Wuhun, Zhanhun, Zhenmoqu,erta"
     ],
-    "qualification6__title": "Scene Artist",
+    "qualification6__title": "3D Modeler / Scene Artist",
     "qualification6__subtitle": [
       "Wuhan Shuijing Technology</br>",
       "</br>",
-      "1. Mainly produces 3D hand drawn scenes, three rendering and two scene rendering, and conducts quality review and modification of internal submitted files.</br>",
-      "2. Responsible for meeting the needs of Party A, managing the team and project scheduling, and conducting internal quality audits.</br>",
-      "3. Scene map production.",
+      "1. Produced 3D hand-painted scenes, cel-shaded scenes, and renderings; reviewed and revised internal file submissions for quality.</br>",
+      "2. Responsible for liaising with client requirements, team management, project scheduling, and internal quality review.</br>",
+      "3. Scene map production.</br>",
       "</br>",
-      "Participate project:",
-      "《通灵宝印》《大话西游手游》《梦幻西游手游3D版》等"
+      "Projects:",
+      "Tongling Baoyin,erta"
     ],
-    "qualification7__title": "Scene Artist",
+    "qualification7__title": "Scene Artist / Technical Artist",
     "qualification7__subtitle": [
       "Wuhan Kingsoft</br>",
       "</br>",
-      "1. 3D scene model texture production, map production. </br>",
-      "2. Game level map production, lighting baking, integration with TA and program to achieve material effects and logical functions.</br>",
-      "3. Promote scenario related optimization issues and technical follow-up in project optimization.</br>",
-      "4. The main production projects include Shader (full stack), material interaction logic, art tool development, and standardization of art production processes. </br>",
+      "1. 3D scene model and texture production.</br>",
+      "2. Game level map production, lighting baking, collaborating with TA and programmers on material effects and logic.</br>",
+      "3. Drove scene-related optimization and technical follow-up in project optimization.</br>",
+      "4. Shader development, material interaction logic, art tool development, and art production pipeline standardization.</br>",
       "</br>",
-      "Participate project:",
-      "《卧龙吟》《狩猎突袭》等"
+      "Projects:",
+      "Erta"
     ],
 
     "portfolio__title":"Portfolio",
