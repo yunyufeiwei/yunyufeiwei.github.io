@@ -10,65 +10,160 @@
 
 <body>
 <div class="container" id="mainContainer">
-    <header class="page-header">
-        <h1 class="page-title">技术美术作品集</h1>
+    <div class="sidebar-layout">
+        <aside class="sidebar">
+            <nav class="nav-list">
+                <div class="nav-category">
+                    <button class="nav-btn category-btn" data-target="role">角色</button>
+                    <div class="sub-nav" id="sub-nav-role">
+                        <button class="nav-btn sub-btn" data-target="role-realistic">角色 - 写实渲染</button>
+                        <div class="sub-sub-nav" id="sub-sub-nav-role-realistic">
+                            <button class="nav-btn sub-sub-btn" data-target="role-realistic">史莱姆</button>
+                            <button class="nav-btn sub-sub-btn" data-target="role-realistic">老虎</button>
+                        </div>
+                        
+                        <button class="nav-btn sub-btn" data-target="role-nonrealistic">角色 - 非真实感渲染</button>
+                        <div class="sub-sub-nav" id="sub-sub-nav-role-nonrealistic">
+                            <button class="nav-btn sub-sub-btn" data-target="role">雷音</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-category">
+                    <button class="nav-btn category-btn" data-target="scene">场景</button>
+                    <div class="sub-nav" id="sub-nav-scene">
+                        <button class="nav-btn sub-btn" data-target="scene-paving">场景 - 平铺投射</button>
+                        <div class="sub-sub-nav" id="sub-sub-nav-scene-paving">
+                            
+                        </div>
+                        
+                        <button class="nav-btn sub-btn" data-target="scene-paving-sub">场景 - 视差贴花</button>
+                        <div class="sub-sub-nav" id="sub-sub-nav-scene-paving-sub">
+                            <button class="nav-btn sub-sub-btn" data-target="scene-paving-1">视差贴花</button>
+                            <button class="nav-btn sub-sub-btn" data-target="scene-paving-2">视差熔岩</button>
+                        </div>
+                        
+                        <button class="nav-btn sub-btn" data-target="scene-vegetation">场景 - 植被渲染</button>
+                        <div class="sub-sub-nav" id="sub-sub-nav-scene-vegetation">
+                            <button class="nav-btn sub-sub-btn" data-target="scene-vegetation-1">草地</button>
+                            <button class="nav-btn sub-sub-btn" data-target="scene-vegetation-2">灌木</button>
+                        </div>
+                        
+                        <button class="nav-btn sub-btn" data-target="scene-water">场景 - 水体渲染</button>
+                        <div class="sub-sub-nav" id="sub-sub-nav-scene-water">
+                            <button class="nav-btn sub-sub-btn" data-target="scene-water-1">水体渲染-01</button>
+                            <button class="nav-btn sub-sub-btn" data-target="scene-water-2">FlowMap-01</button>
+                            <button class="nav-btn sub-sub-btn" data-target="scene-water-3">RainWater</button>
+                        </div>
+                        
+                        <button class="nav-btn sub-btn" data-target="scene-glass">场景 - 玻璃水晶</button>
+                        <div class="sub-sub-nav" id="sub-sub-nav-scene-glass">
+                            <button class="nav-btn sub-sub-btn" data-target="scene-glass-1">玻璃杯-02</button>
+                            <button class="nav-btn sub-sub-btn" data-target="scene-glass-2">玻璃窗户</button>
+                            <button class="nav-btn sub-sub-btn" data-target="scene-glass-3">水晶</button>
+                        </div>
+                        
+                        <button class="nav-btn sub-btn" data-target="scene-composite">场景 - 场景综合</button>
+                        <div class="sub-sub-nav" id="sub-sub-nav-scene-composite">
+                            <button class="nav-btn sub-sub-btn" data-target="scene-composite-1">综合渲染-01</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-category">
+                    <button class="nav-btn category-btn" data-target="effect">特效</button>
+                    <div class="sub-nav" id="sub-nav-effect">
+                        <button class="nav-btn sub-btn" data-target="effect">特效 - 能量体</button>
+                    </div>
+                </div>
+
+                <div class="nav-category">
+                    <button class="nav-btn category-btn" data-target="ui">UI</button>
+                    <div class="sub-nav" id="sub-nav-ui">
+                        <button class="nav-btn sub-btn" data-target="ui">UI - 粒子模拟</button>
+                    </div>
+                </div>
+
+                <div class="nav-category">
+                    <button class="nav-btn category-btn" data-target="post">后期</button>
+                    <div class="sub-nav" id="sub-nav-post">
+                        <button class="nav-btn sub-btn" data-target="post">后期 - 外描边</button>
+                    </div>
+                </div>
+
+                <div class="nav-category">
+                    <button class="nav-btn category-btn" data-target="pcg">PCG</button>
+                    <div class="sub-nav" id="sub-nav-pcg">
+                        <button class="nav-btn sub-btn" data-target="pcg">PCG - 地形生成</button>
+                        <button class="nav-btn sub-btn" data-target="pcg">PCG - 模型生成</button>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">技术美术作品集</h1>
 <!--        <p class="page-subtitle">展示游戏开发中的技术美术渲染效果</p>-->
-    </header>
+            </header>
 
-    <div class="gallery">
+            <div class="gallery">
         <!--    角色渲染    -->
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Rendering/【Role】雷音.png" alt="雷音角色渲染" class="gallery-image">
+        <div class="gallery-category-section" id="role-realistic">
+            <h2 class="gallery-category-title">写实渲染</h2>
+            <div class="gallery-item" id="role-realistic">
+                <div class="image-container">
+                    <img src="assets/ImageWork/Rendering/【Role】老虎.png" alt="老虎" class="gallery-image">
+                </div>
             </div>
-            <div class="image-description">
-                <h3 class="image-title">角色渲染 - 雷音</h3>
-                <p class="image-desc">Unreal custom Shader model Material</p>
+
+            <div class="gallery-item" id="role-realistic-1">
+                <div class="image-container">
+                    <img src="assets/ImageWork/Rendering/【Role】史莱姆.gif" alt="史莱姆" class="gallery-image">
+                </div>
             </div>
         </div>
 
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Rendering/【Role】老虎.png" alt="老虎" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">角色渲染 - 老虎</h3>
-                <p class="image-desc">Unreal Default Material</p>
-            </div>
-        </div>
-
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Rendering/【Role】史莱姆.gif" alt="史莱姆" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">角色渲染 - 史莱姆</h3>
-                <p class="image-desc">Unity URP Shader</p>
+        <div class="gallery-category-section" id="role-nonrealistic">
+            <h2 class="gallery-category-title">非真实感渲染</h2>
+            <div class="gallery-item" id="role">
+                <div class="image-container">
+                    <img src="assets/ImageWork/Rendering/【Role】雷音.png" alt="雷音角色渲染" class="gallery-image">
+                </div>
             </div>
         </div>
 
         <!--   场景渲染     -->
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Rendering/【场景】GroundPOM.png" alt="地面" class="gallery-image">
+        <div class="gallery-category-section" id="scene-paving">
+            <h2 class="gallery-category-title">平铺投射</h2>
+        </div>
+
+        <div class="gallery-category-section" id="scene-paving-sub">
+            <h2 class="gallery-category-title">场景 - 视差贴花</h2>
+            <div class="gallery-item" id="scene-paving-1">
+                <div class="image-container">
+                    <img src="assets/ImageWork/Rendering/【场景】GroundPOM.png" alt="地面" class="gallery-image">
+                </div>
+                <div class="image-description">
+                    <h3 class="image-title"> 场景渲染 - 视差贴花</h3>
+                    <p class="image-desc">UnrealEngine</p>
+                </div>
             </div>
-            <div class="image-description">
-                <h3 class="image-title"> 场景渲染 - 视差贴花</h3>
-                <p class="image-desc">UnrealEngine</p>
+
+            <div class="gallery-item" id="scene-paving-2">
+                <div class="image-container">
+                    <img src="assets/ImageWork/Rendering/【场景】Ground-熔岩视差.png" alt="地面" class="gallery-image">
+                </div>
+                <div class="image-description">
+                    <h3 class="image-title"> 场景渲染 - 视差熔岩</h3>
+                    <p class="image-desc">UnrealEngine</p>
+                </div>
             </div>
         </div>
 
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Rendering/【场景】Ground-熔岩视差.png" alt="地面" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title"> 场景渲染 - 视差熔岩</h3>
-                <p class="image-desc">UnrealEngine</p>
-            </div>
-        </div>
-
-        <div class="gallery-item">
+        <div class="gallery-category-section" id="scene-vegetation">
+            <h2 class="gallery-category-title">植被渲染</h2>
+            <div class="gallery-item" id="scene-vegetation-1">
             <div class="image-container">
                 <img src="assets/ImageWork/Rendering/【场景】Grass-随机动画.gif" alt="植被" class="gallery-image">
             </div>
@@ -78,7 +173,7 @@
             </div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" id="scene-vegetation-2">
             <div class="image-container">
                 <img src="assets/ImageWork/Rendering/【场景】Grass-灌木动画.gif" alt="植被" class="gallery-image">
             </div>
@@ -86,8 +181,11 @@
                 <h3 class="image-title"> 场景渲染 - 灌木</h3>
             </div>
         </div>
+        </div>
 
-        <div class="gallery-item">
+        <div class="gallery-category-section" id="scene-water">
+            <h2 class="gallery-category-title">水体渲染</h2>
+            <div class="gallery-item" id="scene-water-1">
             <div class="image-container">
                 <img src="assets/ImageWork/Rendering/【场景】Water-01.gif" alt="水体" class="gallery-image">
             </div>
@@ -97,7 +195,7 @@
             </div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" id="scene-water-2">
             <div class="image-container">
                 <img src="assets/ImageWork/Rendering/【场景】Water-Flowmap.gif" alt="水体" class="gallery-image">
             </div>
@@ -107,7 +205,7 @@
             </div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" id="scene-water-3">
             <div class="image-container">
                 <img src="assets/ImageWork/Rendering/【场景】WaterRain.gif" alt="水体" class="gallery-image">
             </div>
@@ -116,8 +214,11 @@
                 <!--                <p class="image-desc">UnrealEngine</p>-->
             </div>
         </div>
+        </div>
 
-        <div class="gallery-item">
+        <div class="gallery-category-section" id="scene-glass">
+            <h2 class="gallery-category-title">玻璃水晶</h2>
+            <div class="gallery-item" id="scene-glass-1">
             <div class="image-container">
                 <img src="assets/ImageWork/Rendering/【场景】玻璃-02.png" alt="玻璃" class="gallery-image">
             </div>
@@ -127,7 +228,7 @@
             </div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" id="scene-glass-2">
             <div class="image-container">
                 <img src="assets/ImageWork/Rendering/【场景】玻璃窗户.gif" alt="玻璃" class="gallery-image">
             </div>
@@ -137,7 +238,7 @@
             </div>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item" id="scene-glass-3">
             <div class="image-container">
                 <img src="assets/ImageWork/Rendering/【场景】crystal-砖石.gif" alt="晶体" class="gallery-image">
             </div>
@@ -147,49 +248,48 @@
             </div>
         </div>
 
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Rendering/【场景】综合效果01.gif" alt="综合效果" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">场景渲染 - 综合渲染-01</h3>
-<!--                <p class="image-desc">UnrealEngine</p>-->
+        <div class="gallery-category-section" id="scene-composite">
+            <h2 class="gallery-category-title">场景综合</h2>
+            <div class="gallery-item" id="scene-composite-1">
+                <div class="image-container">
+                    <img src="assets/ImageWork/Rendering/【场景】综合效果01.gif" alt="综合效果" class="gallery-image">
+                </div>
             </div>
         </div>
         
         <!--   特效     -->
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Rendering/【Effect】能量体.gif" alt="能量体" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">特效渲染 - 能量体</h3>
-<!--                <p class="image-desc">Unity URP Shader</p>-->
+        <div class="gallery-category-section" id="effect">
+            <h2 class="gallery-category-title">特效渲染</h2>
+            <div class="gallery-item" id="effect-1">
+                <div class="image-container">
+                    <img src="assets/ImageWork/Rendering/【Effect】能量体.gif" alt="能量体" class="gallery-image">
+                </div>
             </div>
         </div>
 
         <!--   UI    -->
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Rendering/【UI】图形模拟.gif" alt="粒子发散" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">UI特效 - 粒子模拟</h3>
-<!--                <p class="image-desc">Unity URP Shader</p>-->
+        <div class="gallery-category-section" id="ui">
+            <h2 class="gallery-category-title">UI特效</h2>
+            <div class="gallery-item" id="ui-1">
+                <div class="image-container">
+                    <img src="assets/ImageWork/Rendering/【UI】图形模拟.gif" alt="粒子发散" class="gallery-image">
+                </div>
             </div>
         </div>
 
         <!--   后期    -->
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Rendering/【后处理】外描边.gif" alt="外描边" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">后期渲染 - 外描边</h3>
-<!--                <p class="image-desc">Unity URP Shader</p>-->
+        <div class="gallery-category-section" id="post">
+            <h2 class="gallery-category-title">后期渲染</h2>
+            <div class="gallery-item" id="post-1">
+                <div class="image-container">
+                    <img src="assets/ImageWork/Rendering/【后处理】外描边.gif" alt="外描边" class="gallery-image">
+                </div>
             </div>
         </div>
         
+    </div>
+            </div>
+        </main>
     </div>
 </div>
 
