@@ -55,30 +55,62 @@ function closeEnlargedImage() {
 // 切换分类按钮的展开/收起
 categoryBtns.forEach(btn => {
     btn.addEventListener('click', function() {
-        // 关闭所有其他分类的子菜单
-        categoryBtns.forEach(otherBtn => {
-            if (otherBtn !== this) {
-                const otherSubNav = otherBtn.nextElementSibling;
-                if (otherSubNav && otherSubNav.classList.contains('sub-nav')) {
-                    otherSubNav.classList.remove('active');
-                    otherBtn.classList.remove('active');
+        // 检查是否是窄窗口模式
+        const isNarrowWindow = window.innerWidth <= 1200;
+        
+        if (isNarrowWindow) {
+            // 窄窗口模式：点击大分类展开子分类
+            const subNav = this.nextElementSibling;
+            if (subNav && subNav.classList.contains('sub-nav')) {
+                const isActive = subNav.classList.contains('active');
+                
+                // 关闭所有其他分类的子菜单
+                categoryBtns.forEach(otherBtn => {
+                    if (otherBtn !== this) {
+                        const otherSubNav = otherBtn.nextElementSibling;
+                        if (otherSubNav && otherSubNav.classList.contains('sub-nav')) {
+                            otherSubNav.classList.remove('active');
+                            otherBtn.classList.remove('active');
+                        }
+                    }
+                });
+                
+                // 切换当前分类的子菜单
+                if (!isActive) {
+                    subNav.classList.add('active');
+                    this.classList.add('active');
+                } else {
+                    subNav.classList.remove('active');
+                    this.classList.remove('active');
                 }
             }
-        });
-        
-        // 切换当前分类的子菜单
-        const subNav = this.nextElementSibling;
-        if (subNav && subNav.classList.contains('sub-nav')) {
-            const isActive = subNav.classList.contains('active');
+        } else {
+            // 宽窗口模式：保持原有逻辑
+            // 关闭所有其他分类的子菜单
+            categoryBtns.forEach(otherBtn => {
+                if (otherBtn !== this) {
+                    const otherSubNav = otherBtn.nextElementSibling;
+                    if (otherSubNav && otherSubNav.classList.contains('sub-nav')) {
+                        otherSubNav.classList.remove('active');
+                        otherBtn.classList.remove('active');
+                    }
+                }
+            });
             
-            // 如果当前子菜单未激活，则切换到激活状态
-            if (!isActive) {
-                subNav.classList.add('active');
-                this.classList.add('active');
-            } else {
-                // 如果当前子菜单已激活，则关闭它
-                subNav.classList.remove('active');
-                this.classList.remove('active');
+            // 切换当前分类的子菜单
+            const subNav = this.nextElementSibling;
+            if (subNav && subNav.classList.contains('sub-nav')) {
+                const isActive = subNav.classList.contains('active');
+                
+                // 如果当前子菜单未激活，则切换到激活状态
+                if (!isActive) {
+                    subNav.classList.add('active');
+                    this.classList.add('active');
+                } else {
+                    // 如果当前子菜单已激活，则关闭它
+                    subNav.classList.remove('active');
+                    this.classList.remove('active');
+                }
             }
         }
     });
@@ -93,11 +125,17 @@ subBtns.forEach(btn => {
         const targetId = this.getAttribute('data-target');
         scrollToSection(targetId);
         
-        // 点击后不收起子菜单，保持展开状态
-        // const parentSubNav = this.closest('.sub-nav');
-        // if (parentSubNav) {
-        //     parentSubNav.classList.remove('active');
-        // }
+        // 在窄窗口模式下，点击子分类后收起父级菜单
+        const isNarrowWindow = window.innerWidth <= 1200;
+        if (isNarrowWindow) {
+            const parentSubNav = this.closest('.sub-nav');
+            const parentCategoryBtn = parentSubNav ? parentSubNav.previousElementSibling : null;
+            
+            if (parentSubNav && parentCategoryBtn) {
+                parentSubNav.classList.remove('active');
+                parentCategoryBtn.classList.remove('active');
+            }
+        }
     });
 });
 
@@ -110,7 +148,9 @@ subSubBtns.forEach(btn => {
         // 阻止事件冒泡，防止触发父元素的点击事件
         e.stopPropagation();
         
+        const isNarrowWindow = window.innerWidth <= 1200;
         const subSubNav = this.nextElementSibling;
+        
         if (subSubNav && subSubNav.classList.contains('sub-sub-nav')) {
             const isActive = subSubNav.classList.contains('active');
             
@@ -120,8 +160,70 @@ subSubBtns.forEach(btn => {
             } else {
                 subSubNav.classList.remove('active');
             }
+            
+            // 在窄窗口模式下，点击三级分类后滚动到对应位置
+            if (isNarrowWindow) {
+                const targetId = this.getAttribute('data-target');
+                scrollToSection(targetId);
+                
+                // 收起所有菜单
+                const parentSubNav = this.closest('.sub-nav');
+                const parentCategoryBtn = parentSubNav ? parentSubNav.previousElementSibling : null;
+                
+                if (parentSubNav && parentCategoryBtn) {
+                    parentSubNav.classList.remove('active');
+                    parentCategoryBtn.classList.remove('active');
+                }
+            }
         }
     });
+});
+
+// 点击页面其他区域时收起所有菜单（窄窗口模式）
+document.addEventListener('click', function(e) {
+    const isNarrowWindow = window.innerWidth <= 1200;
+    
+    if (isNarrowWindow) {
+        // 检查点击的是否是导航相关元素
+        const isNavElement = e.target.closest('.nav-category') || 
+                            e.target.closest('.sub-nav') || 
+                            e.target.closest('.sub-sub-nav');
+        
+        if (!isNavElement) {
+            // 收起所有展开的菜单
+            categoryBtns.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            subNavs.forEach(nav => {
+                nav.classList.remove('active');
+            });
+            
+            subSubNavs.forEach(nav => {
+                nav.classList.remove('active');
+            });
+        }
+    }
+});
+
+// 窗口大小改变时重置菜单状态
+window.addEventListener('resize', function() {
+    const isNarrowWindow = window.innerWidth <= 1200;
+    
+    if (!isNarrowWindow) {
+        // 从窄窗口切换到宽窗口时，收起所有菜单
+        categoryBtns.forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        subNavs.forEach(nav => {
+            nav.classList.remove('active');
+        });
+        
+        subSubNavs.forEach(nav => {
+            nav.classList.remove('active');
+        });
+    }
 });
 
 // 滚动到指定分类区域的函数

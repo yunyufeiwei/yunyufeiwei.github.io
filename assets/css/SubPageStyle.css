@@ -143,89 +143,7 @@ body {
     transform: scale(1);
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .page-title {
-        font-size: 1.8rem;
-    }
-
-    .gallery {
-        gap: 1.5rem;
-    }
-
-    .image-title {
-        font-size: 1.1rem;
-    }
-
-    .image-desc {
-        font-size: 0.85rem;
-    }
-
-    .enlarged-image {
-        max-width: 95%;
-        max-height: 95%;
-    }
-}
-
-@media (max-width: 992px) {
-    .sidebar-layout {
-        flex-direction: column;
-        padding-left: 0;
-    }
-
-    .sidebar {
-        position: relative;
-        width: 100%;
-        max-height: 400px;
-        transform: none;
-        left: 0;
-        top: 0;
-    }
-
-    .main-content {
-        margin-left: 0;
-    }
-
-    .nav-list {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .nav-category {
-        flex: 1 1 auto;
-    }
-
-    .sub-nav {
-        display: none;
-    }
-
-    .sub-nav.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: var(--bg-color);
-        z-index: 100;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    }
-}
-
-@media (max-width: 350px) {
-    .container {
-        padding: 0 0.75rem;
-    }
-
-    .page-title {
-        font-size: 1.5rem;
-    }
-
-    .image-description {
-        padding: 0.8rem;
-    }
-}
-
-/* 侧边栏布局 */
+/* ============ 侧边栏布局（默认：宽窗口） ============ */
 .sidebar-layout {
     display: flex;
     gap: 2rem;
@@ -278,6 +196,11 @@ body {
     gap: 0.5rem;
 }
 
+/* 分类容器 */
+.nav-category {
+    position: relative;
+}
+
 /* 分类按钮 */
 .category-btn {
     width: 100%;
@@ -292,8 +215,9 @@ body {
     transition: all 0.3s ease;
     text-align: left;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: 0.5rem;
 }
 
 .category-btn:hover {
@@ -306,6 +230,7 @@ body {
     content: '▼';
     font-size: 0.7rem;
     transition: transform 0.3s ease;
+    margin-left: auto;
 }
 
 .category-btn.active::after {
@@ -414,4 +339,227 @@ body {
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ============ 窄窗口（≤1200px）：导航栏放顶部，大分类水平排列 ============ */
+@media (max-width: 1200px) {
+    .sidebar-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-height: none;
+        transform: none;
+        padding: 0.5rem;
+        /* 不透明背景，防止滚动时内容透过导航栏 */
+        background: var(--bg-color);
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        /* 允许子菜单溢出显示 */
+        overflow: visible;
+        z-index: 1000;
+    }
+
+    .main-content {
+        margin-left: 0;
+        /* 给主内容区加上间距，避免标题被导航栏遮挡 */
+        padding-top: 0.5rem;
+    }
+
+    /* 标题区域：避免和导航栏重叠 */
+    .page-header {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 1.5rem;
+        padding-top: 0.5rem;
+    }
+
+    /* 大分类水平排列，间距8px */
+    .nav-list {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 8px;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    /* 分类容器宽度由内容决定 */
+    .nav-category {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    /* 大分类按钮：紧凑尺寸，宽度由内容决定 */
+    .category-btn {
+        width: auto;
+        padding: 6px 10px;
+        font-size: 14px;
+        white-space: nowrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .category-btn:hover {
+        transform: none;
+        background: rgba(255, 255, 255, 0.1);
+        border-color: hsl(var(--hue-color), 69%, 61%);
+    }
+
+    .category-btn::after {
+        margin-left: 4px;
+        font-size: 0.6rem;
+    }
+
+    /* 子菜单：绝对定位浮在按钮下方，宽度由内容决定（不受按钮宽度限制） */
+    .sub-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-left: 0;
+        padding: 6px;
+        border-left: none;
+        background: var(--bg-color);
+        z-index: 1001;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        width: max-content;
+        min-width: 160px;
+        max-width: 280px;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        gap: 2px;
+    }
+
+    /* 鼠标悬停在分类容器上时显示子菜单（替代点击展开） */
+    .nav-category:hover .sub-nav,
+    .nav-category .sub-nav.active {
+        display: flex;
+        animation: fadeInDown 0.2s ease;
+    }
+
+    /* 鼠标悬停时分类按钮高亮 */
+    .nav-category:hover .category-btn {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: hsl(var(--hue-color), 69%, 61%);
+    }
+
+    /* 子菜单按钮 */
+    .sub-btn {
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 13px;
+        text-align: left;
+        white-space: nowrap;
+        border-radius: 4px;
+    }
+
+    .sub-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        padding-left: 14px;
+    }
+
+    /* 三级子菜单：保持嵌套样式 */
+    .sub-sub-nav {
+        margin-left: 8px;
+        padding-left: 8px;
+        gap: 2px;
+    }
+
+    .sub-sub-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    /* 创建一个看不见的桥接区域，防止鼠标从按钮移到子菜单时菜单消失 */
+    .nav-category::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: transparent;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============ 中等小屏幕（≤768px） ============ */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .gallery {
+        gap: 1.5rem;
+    }
+
+    .image-title {
+        font-size: 1.1rem;
+    }
+
+    .image-desc {
+        font-size: 0.85rem;
+    }
+
+    .enlarged-image {
+        max-width: 95%;
+        max-height: 95%;
+    }
+
+    .nav-list {
+        gap: 6px;
+    }
+
+    .category-btn {
+        padding: 5px 8px;
+        font-size: 13px;
+    }
+
+    .sub-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
+
+/* ============ 极窄屏幕（≤350px） ============ */
+@media (max-width: 350px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .image-description {
+        padding: 0.8rem;
+    }
+
+    .nav-list {
+        gap: 4px;
+    }
+
+    .category-btn {
+        padding: 4px 6px;
+        font-size: 12px;
+    }
+
+    .sub-btn {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
 }
