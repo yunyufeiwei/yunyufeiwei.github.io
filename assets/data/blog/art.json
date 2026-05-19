@@ -2,7 +2,7 @@
   {
     "id": "scene-model-spec",
     "title": "场景模型规范：从拓扑到 UV 的几个细节",
-    "date": "2025-01-22",
+    "date": "2026-05-19",
     "summary": "汇总日常工作中容易被忽略的拓扑、UV 排布、Lightmap 通道与材质 ID 等细节，方便团队协作。",
     "tags": ["3dsMax", "UV", "Workflow"],
     "content": [
@@ -28,7 +28,7 @@
   {
     "id": "level-emotion-design",
     "title": "优秀关卡情绪表达的标准",
-    "date": "2026-05-19",
+    "date": "2025-05-16",
     "summary": "汇总关卡美术师在制作关卡时需要注意的情绪表达设计事项。",
     "tags": ["Unreal", "Art", "Workflow"],
     "content": [
