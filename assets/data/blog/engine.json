@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ue5-pcg-intro",
+    "title": "UnrealEngine 中的 PCG 工作流入门",
+    "date": "2025-08-12",
+    "summary": "从零开始介绍虚幻引擎 PCG 的基本节点、生态群落生成思路，以及在大世界场景中常见的优化方案。",
+    "tags": ["UE5", "PCG", "大世界"],
+    "content": [
+      "## PCG 是什么",
+      "",
+      "PCG（Procedural Content Generation）是 UE 5 提供的一套程序化内容生成框架，结合 Sampler、Filter、Transform 等节点，可以基于地形、样条、贴花来批量铺设植被或道具。",
+      "",
+      "## 常用节点",
+      "",
+      "- **Surface Sampler**：在 Landscape / 静态网格表面采样点",
+      "- **Density Filter**：按权重剔除点位，控制疏密",
+      "- **Transform Points**：批量给点位加随机旋转、缩放",
+      "- **Static Mesh Spawner**：把点位实例化成静态网格体",
+      "",
+      "## 性能要点",
+      "",
+      "1. 使用 HISM 替代 ISM，开启 LOD 与剔除距离",
+      "2. Partition + WorldPartition 分块，仅在视野内执行",
+      "3. 大区域用 Loose Density，小区域再做精细 Filter",
+      "",
+      "> 后续会再写一篇专门的优化笔记，把工程里实际踩过的坑也整理进来。"
+    ]
+  }
+]

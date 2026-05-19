@@ -1,0 +1,34 @@
+{
+  "categories": [
+    {
+      "key": "art",
+      "label": "美术笔记",
+      "icon": "uil-palette",
+      "file": "assets/data/blog/art.json"
+    },
+    {
+      "key": "shader",
+      "label": "Shader",
+      "icon": "uil-brackets-curly",
+      "file": "assets/data/blog/shader.json"
+    },
+    {
+      "key": "engine",
+      "label": "引擎",
+      "icon": "uil-processor",
+      "file": "assets/data/blog/engine.json"
+    },
+    {
+      "key": "tool",
+      "label": "工具/Pipeline",
+      "icon": "uil-wrench",
+      "file": "assets/data/blog/tool.json"
+    },
+    {
+      "key": "other",
+      "label": "其他",
+      "icon": "uil-bookmark",
+      "file": "assets/data/blog/other.json"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术博客</title>
+    <link rel="icon" href="assets/Image/Icon/avatar.png" sizes="32x32"/>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css"/>
+    <link href="assets/css/SubPageStyle.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/TechBlog.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<div class="container" id="mainContainer">
+    <div class="sidebar-layout">
+        <!--==================== 左侧导航分类 ====================-->
+        <aside class="sidebar">
+            <nav class="nav-list" id="blogCategoryNav">
+                <!-- 分类按钮由 TechBlog.js 动态渲染 -->
+            </nav>
+        </aside>
+
+        <!--==================== 主内容区 ====================-->
+        <main class="main-content">
+            <!--==================== 文章列表视图 ====================-->
+            <section id="blogListView">
+                <header class="page-header">
+                    <h1 class="page-title">技术博客</h1>
+                    <p class="page-subtitle">记录学习与思考 · 分享技术与经验</p>
+                </header>
+
+                <div class="blog-toolbar">
+                    <div class="blog-search">
+                        <i class="uil uil-search"></i>
+                        <input type="text" id="blogSearchInput" placeholder="搜索文章标题或标签...">
+                    </div>
+                </div>
+
+                <div class="blog-list" id="blogList">
+                    <!-- 卡片由 TechBlog.js 动态渲染 -->
+                </div>
+
+                <div class="blog-empty" id="blogEmpty" style="display:none;">
+                    <i class="uil uil-file-search-alt"></i>
+                    <p>没有匹配的文章，换个关键词或分类试试吧。</p>
+                </div>
+
+                <div class="blog-back">
+                    <a href="index.html" class="blog-back-link">
+                        <i class="uil uil-arrow-left"></i> 返回主页
+                    </a>
+                </div>
+            </section>
+
+            <!--==================== 文章详情视图 ====================-->
+            <section id="blogDetailView" style="display:none;">
+                <div class="blog-detail-back">
+                    <a href="#" id="blogDetailBack" class="blog-back-link">
+                        <i class="uil uil-arrow-left"></i> 返回文章列表
+                    </a>
+                </div>
+
+                <article class="blog-detail">
+                    <header class="blog-detail-header">
+                        <div class="blog-card-meta">
+                            <span class="blog-card-tag" id="detailCategory"></span>
+                            <span class="blog-card-date">
+                                <i class="uil uil-calendar-alt"></i>
+                                <span id="detailDate"></span>
+                            </span>
+                        </div>
+                        <h1 class="blog-detail-title" id="detailTitle"></h1>
+                        <p class="blog-detail-summary" id="detailSummary"></p>
+                        <div class="blog-detail-tags" id="detailTags"></div>
+                    </header>
+
+                    <div class="blog-detail-content" id="detailContent">
+                        <!-- 文章正文由 TechBlog.js 动态渲染 -->
+                    </div>
+                </article>
+            </section>
+        </main>
+    </div>
+</div>
+
+<!-- Markdown 渲染器 -->
+<script src="https://cdn.jsdelivr.net/npm/marked@14.1.3/marked.min.js"></script>
+<script src="assets/js/TechBlog.js"></script>
+</body>
+</html>
