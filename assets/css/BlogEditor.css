@@ -1,0 +1,350 @@
+/* ==================== 博客编辑器样式 ==================== */
+
+/* 编辑器容器 */
+.editor-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+}
+
+/* 元信息表单 */
+.editor-meta {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.editor-meta h2 {
+    font-size: 1.2rem;
+    color: hsl(var(--hue-color), 69%, 71%);
+    margin-bottom: 1rem;
+}
+
+.meta-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.meta-field {
+    flex: 1;
+    min-width: 200px;
+}
+
+.meta-field label {
+    display: block;
+    font-size: 0.85rem;
+    color: #a0a0a0;
+    margin-bottom: 0.4rem;
+}
+
+.meta-field input,
+.meta-field select {
+    width: 100%;
+    padding: 0.6rem 0.9rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #e3e3e3;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.meta-field input:focus,
+.meta-field select:focus {
+    border-color: hsl(var(--hue-color), 69%, 61%);
+}
+
+.meta-field select option {
+    background: #1e1e2e;
+    color: #e3e3e3;
+}
+
+.meta-field textarea {
+    width: 100%;
+    padding: 0.6rem 0.9rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #e3e3e3;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    resize: vertical;
+    min-height: 60px;
+    transition: border-color 0.2s;
+}
+
+.meta-field textarea:focus {
+    border-color: hsl(var(--hue-color), 69%, 61%);
+}
+
+/* 富文本编辑器区域 */
+.editor-body {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.editor-body h2 {
+    font-size: 1.2rem;
+    color: hsl(var(--hue-color), 69%, 71%);
+    padding: 1.2rem 1.5rem 0.8rem;
+    margin: 0;
+}
+
+/* Quill 编辑器暗色主题覆盖 */
+.ql-toolbar.ql-snow {
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.ql-container.ql-snow {
+    border: none !important;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.ql-editor {
+    min-height: 400px;
+    color: #e3e3e3;
+    line-height: 1.8;
+    padding: 1.5rem;
+}
+
+.ql-editor.ql-blank::before {
+    color: #666 !important;
+    font-style: normal !important;
+}
+
+/* 工具栏按钮颜色 */
+.ql-snow .ql-stroke {
+    stroke: #b0b0b0 !important;
+}
+
+.ql-snow .ql-fill {
+    fill: #b0b0b0 !important;
+}
+
+.ql-snow .ql-picker-label {
+    color: #b0b0b0 !important;
+}
+
+.ql-snow .ql-picker-options {
+    background: #1e1e2e !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+.ql-snow .ql-picker-item {
+    color: #d0d0d0 !important;
+}
+
+.ql-snow .ql-picker-item:hover {
+    color: hsl(var(--hue-color), 69%, 61%) !important;
+}
+
+.ql-snow .ql-active .ql-stroke {
+    stroke: hsl(var(--hue-color), 69%, 61%) !important;
+}
+
+.ql-snow .ql-active .ql-fill {
+    fill: hsl(var(--hue-color), 69%, 61%) !important;
+}
+
+.ql-snow .ql-active {
+    color: hsl(var(--hue-color), 69%, 61%) !important;
+}
+
+/* 编辑器内图片样式 */
+.ql-editor img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 0.8rem 0;
+}
+
+/* 编辑器内代码块 */
+.ql-editor pre.ql-syntax {
+    background: rgba(0, 0, 0, 0.4) !important;
+    color: #c9d1d9 !important;
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.85rem;
+    overflow-x: auto;
+}
+
+.ql-editor code {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.85em;
+}
+
+.ql-editor blockquote {
+    border-left: 3px solid hsl(var(--hue-color), 69%, 61%);
+    padding-left: 1rem;
+    color: #a0a0a0;
+}
+
+/* 操作按钮区 */
+.editor-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.editor-btn {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.editor-btn-primary {
+    background: hsl(var(--hue-color), 69%, 61%);
+    color: #fff;
+}
+
+.editor-btn-primary:hover {
+    background: hsl(var(--hue-color), 69%, 51%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.editor-btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #d0d0d0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.editor-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+/* 导出结果区域 */
+.editor-output {
+    margin-top: 1.5rem;
+    display: none;
+}
+
+.editor-output.visible {
+    display: block;
+}
+
+.editor-output h2 {
+    font-size: 1.2rem;
+    color: hsl(var(--hue-color), 69%, 71%);
+    margin-bottom: 0.8rem;
+}
+
+.editor-output-box {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    position: relative;
+}
+
+.editor-output-box pre {
+    color: #c9d1d9;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.8rem;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 0;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    padding: 0.3rem 0.7rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: #b0b0b0;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.copy-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* 提示信息 */
+.editor-tip {
+    margin-top: 1.5rem;
+    padding: 1rem 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    color: #888;
+    font-size: 0.82rem;
+    line-height: 1.7;
+}
+
+.editor-tip strong {
+    color: #a0a0a0;
+}
+
+/* 图片上传拖拽提示 */
+.image-drop-hint {
+    padding: 0.6rem 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    color: #666;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .editor-container {
+        padding: 0 1rem 2rem;
+    }
+
+    .meta-row {
+        flex-direction: column;
+    }
+
+    .meta-field {
+        min-width: 100%;
+    }
+
+    .ql-editor {
+        min-height: 300px;
+        padding: 1rem;
+    }
+
+    .editor-actions {
+        flex-direction: column;
+    }
+
+    .editor-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

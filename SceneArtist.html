@@ -5,177 +5,292 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>关卡地图作品集</title>
     <link rel="icon" href="assets/Image/Icon/avatar.png" sizes="32x32"/>
-    <link href="assets/css/SubPageStyle.css" rel="stylesheet" type="text/css"/>
+    <style>
+        :root {
+            --hue-color: 250;
+            --bg-color: hsl(var(--hue-color), 28%, 12%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: #e3e3e3;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.5;
+        }
+
+        /* 顶部标题栏 - sticky */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            backdrop-filter: none;
+            background: hsla(var(--hue-color), 28%, 12%, 0.98);
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            color: hsl(var(--hue-color), 69%, 61%);
+        }
+
+        /* 主内容区域 */
+        .main-content {
+            max-width: 95%;
+            margin: 0 auto;
+            padding: 12px 18px 24px;
+        }
+
+        /* 卡片网格 - 默认4列 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: zoom-in;
+            will-change: transform;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .card .image-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+        }
+
+        .card .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card:hover .image-container img {
+        }
+
+        .card .card-title {
+            padding: 6px 8px;
+            font-size: 0.8rem;
+            color: #c0c0c0;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* 放大图片的容器 */
+        .enlarged-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .enlarged-container.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .enlarged-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            cursor: zoom-out;
+        }
+
+        .enlarged-container.active .enlarged-image {
+        }
+
+        /* 响应式：3列 */
+        @media (max-width: 1200px) {
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* 响应式：2列 */
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .top-nav {
+                padding: 10px 16px;
+            }
+
+            .page-title {
+                font-size: 1.3rem;
+            }
+
+            .main-content {
+                padding: 0 16px 32px;
+            }
+        }
+
+        /* 响应式：1列 */
+        @media (max-width: 480px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .top-nav {
+                padding: 8px 12px;
+            }
+
+            .page-title {
+                font-size: 1.1rem;
+            }
+
+            .main-content {
+                padding: 0 12px 24px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-<div class="container" id="mainContainer">
-    <header class="page-header">
-        <h1 class="page-title">关卡地图作品集</h1>
-<!--        <p class="page-subtitle">展示游戏开发中的场景关卡</p>-->
-    </header>
 
-    <div class="gallery">
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Level/【Miami】酒店.png" alt="Miami】酒店" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">Miami】酒店</h3>
-                <p class="image-desc"></p>
-            </div>
-        </div>
-    </div>
+<!-- 顶部标题 -->
+<nav class="top-nav">
+</nav>
 
-    <!--  Long  -->
-    <div class="gallery">
-        <div class="gallery-item">
+<!-- 主内容区域 -->
+<div class="main-content">
+    <div class="card-grid">
+        <div class="card">
             <div class="image-container">
-                <img src="assets/ImageWork/Level/LongDemo_01.png" alt="LongDemo_01" class="gallery-image">
+                <img src="assets/ImageWork/Level/【Miami】酒店.png" alt="Miami酒店">
             </div>
-            <div class="image-description">
-                <h3 class="image-title">LongDemo_01</h3>
-                <p class="image-desc"></p>
+            <div class="card-title">Miami酒店</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/LongDemo_01.png" alt="LongDemo_01">
             </div>
+            <div class="card-title">LongDemo_01</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/LongDemo_02.png" alt="LongDemo_02">
+            </div>
+            <div class="card-title">LongDemo_02</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/废土_01.png" alt="废土_01">
+            </div>
+            <div class="card-title">废土_01</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/废土_02.png" alt="废土_02">
+            </div>
+            <div class="card-title">废土_02</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/废土_03.png" alt="废土_03">
+            </div>
+            <div class="card-title">废土_03</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/废土_04.png" alt="废土_04">
+            </div>
+            <div class="card-title">废土_04</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/【剑心】01.png" alt="剑心01">
+            </div>
+            <div class="card-title">剑心01</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/【剑心】02.png" alt="剑心02">
+            </div>
+            <div class="card-title">剑心02</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/【剑心】03.png" alt="剑心03">
+            </div>
+            <div class="card-title">剑心03</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/【剑心】04.png" alt="剑心04">
+            </div>
+            <div class="card-title">剑心04</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/【卧龙吟】国战.jpg" alt="卧龙吟国战">
+            </div>
+            <div class="card-title">卧龙吟 - 国战</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/【卧龙吟】草原.jpg" alt="卧龙吟草原">
+            </div>
+            <div class="card-title">卧龙吟 - 草原</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/【梦幻西游】江南野外1.png" alt="江南野外1">
+            </div>
+            <div class="card-title">江南野外 - 01</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/【梦幻西游】江南野外5.png" alt="江南野外5">
+            </div>
+            <div class="card-title">江南野外 - 02</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/【梦幻西游】江南野外6.png" alt="江南野外6">
+            </div>
+            <div class="card-title">江南野外 - 03</div>
+        </div>
+        <div class="card">
+            <div class="image-container">
+                <img src="assets/ImageWork/Level/【梦幻西游】大唐境外.png" alt="大唐境外">
+            </div>
+            <div class="card-title">大唐境外</div>
         </div>
     </div>
-
-    <div class="gallery">
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Level/LongDemo_02.png" alt="LongDemo_02" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">LongDemo_02</h3>
-                <p class="image-desc"></p>
-            </div>
-        </div>
-    </div>
-    
-    
-    <!-- SVL -->
-    <div class="gallery">
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Level/SVL_01.png" alt="SVL_01" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">SVL_01</h3>
-                <p class="image-desc"></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="gallery">
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Level/SVL_02.png" alt="SVL_02" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">SVL_02</h3>
-                <p class="image-desc"></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="gallery">
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Level/SVL_03.png" alt="SVL_03" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">SVL_03</h3>
-                <p class="image-desc"></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="gallery">
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Level/SVL_04.png" alt="SVL_04" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">SVL_04</h3>
-                <p class="image-desc"></p>
-            </div>
-        </div>
-    </div>
-
-    <!--  剑心  -->
-    <div class="gallery">
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Level/【剑心】01.png" alt="【剑心】01" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">【剑心】01</h3>
-                <p class="image-desc"></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="gallery">
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Level/【剑心】02.png" alt="【剑心】02" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">【剑心】02</h3>
-                <p class="image-desc"></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="gallery">
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Level/【剑心】03.png" alt="【剑心】03" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">【剑心】03</h3>
-                <p class="image-desc"></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="gallery">
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Level/【剑心】04.png" alt="【剑心】04" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">【剑心】04</h3>
-                <p class="image-desc"></p>
-            </div>
-        </div>
-    </div>
-    
-    <!-- 卧龙吟 -->
-    <div class="gallery">
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Level/【卧龙吟】国战.jpg" alt="【卧龙吟】国战" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">【卧龙吟】国战</h3>
-                <p class="image-desc"></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="gallery">
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="assets/ImageWork/Level/【卧龙吟】草原.jpg" alt="【卧龙吟】草原" class="gallery-image">
-            </div>
-            <div class="image-description">
-                <h3 class="image-title">【卧龙吟】草原</h3>
-                <p class="image-desc"></p>
-            </div>
-        </div>
-    </div>
-    
 </div>
 
 <!-- 放大图片的容器 -->
@@ -183,7 +298,37 @@
     <img id="enlargedImage" class="enlarged-image" src="" alt="放大图片">
 </div>
 
-<script src="assets/js/particles-bg.js"></script>
-<script src="assets/js/SubPage.js"></script>
+<script>
+(function() {
+    const enlargedContainer = document.getElementById('enlargedContainer');
+    const enlargedImage = document.getElementById('enlargedImage');
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            if (img) {
+                enlargedImage.src = img.src;
+                enlargedImage.alt = img.alt;
+                enlargedContainer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    enlargedContainer.addEventListener('click', function() {
+        this.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && enlargedContainer.classList.contains('active')) {
+            enlargedContainer.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+})();
+</script>
+
 </body>
 </html>

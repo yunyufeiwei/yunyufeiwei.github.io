@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客编辑器</title>
+    <link rel="icon" href="assets/Image/Icon/avatar.png" sizes="32x32"/>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css"/>
+    <!-- Quill 富文本编辑器 -->
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet"/>
+    <!-- 页面样式 -->
+    <link href="assets/css/SubPageStyle.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/BlogEditor.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<div class="editor-container">
+    <!--==================== 页面标题 ====================-->
+    <header class="page-header">
+        <h1 class="page-title">博客编辑器</h1>
+        <p class="page-subtitle">所见即所得 · 直接写作，直接插入图片</p>
+    </header>
+
+    <!--==================== 文章元信息 ====================-->
+    <section class="editor-meta">
+        <h2><i class="uil uil-info-circle"></i> 文章信息</h2>
+        <div class="meta-row">
+            <div class="meta-field">
+                <label for="postTitle">文章标题 *</label>
+                <input type="text" id="postTitle" placeholder="例如：UE5 PCG 工作流入门">
+            </div>
+            <div class="meta-field">
+                <label for="postId">文章 ID *</label>
+                <input type="text" id="postId" placeholder="英文短横线格式，如 ue5-pcg-intro">
+            </div>
+        </div>
+        <div class="meta-row">
+            <div class="meta-field">
+                <label for="postCategory">分类 *</label>
+                <select id="postCategory">
+                    <option value="">-- 选择分类 --</option>
+                    <option value="art">美术笔记</option>
+                    <option value="shader">Shader</option>
+                    <option value="engine">引擎</option>
+                    <option value="tool">工具/Pipeline</option>
+                    <option value="other">其他</option>
+                </select>
+            </div>
+            <div class="meta-field">
+                <label for="postDate">发布日期</label>
+                <input type="date" id="postDate">
+            </div>
+        </div>
+        <div class="meta-row">
+            <div class="meta-field">
+                <label for="postTags">标签（逗号分隔）</label>
+                <input type="text" id="postTags" placeholder="例如：UE5, PCG, 大世界">
+            </div>
+        </div>
+        <div class="meta-row">
+            <div class="meta-field" style="min-width:100%;">
+                <label for="postSummary">文章摘要</label>
+                <textarea id="postSummary" placeholder="一两句话概括文章内容..."></textarea>
+            </div>
+        </div>
+    </section>
+
+    <!--==================== 富文本编辑器 ====================-->
+    <section class="editor-body">
+        <h2><i class="uil uil-edit"></i> 文章正文</h2>
+        <div id="quillEditor"></div>
+        <div class="image-drop-hint">
+            <i class="uil uil-image-plus"></i> 支持直接粘贴或拖拽图片到编辑器中插入
+        </div>
+    </section>
+
+    <!--==================== 操作按钮 ====================-->
+    <div class="editor-actions">
+        <button class="editor-btn editor-btn-primary" id="btnExportJson">
+            <i class="uil uil-export"></i> 导出 JSON
+        </button>
+        <button class="editor-btn editor-btn-secondary" id="btnExportMd">
+            <i class="uil uil-file-alt"></i> 导出 Markdown
+        </button>
+        <button class="editor-btn editor-btn-secondary" id="btnPreview">
+            <i class="uil uil-eye"></i> 预览
+        </button>
+        <button class="editor-btn editor-btn-secondary" id="btnClear">
+            <i class="uil uil-trash-alt"></i> 清空
+        </button>
+        <a href="TechBlog.html" class="editor-btn editor-btn-secondary" style="text-decoration:none;">
+            <i class="uil uil-arrow-left"></i> 返回博客
+        </a>
+    </div>
+
+    <!--==================== 导出结果 ====================-->
+    <section class="editor-output" id="outputSection">
+        <h2><i class="uil uil-copy"></i> 导出结果</h2>
+        <div class="editor-output-box">
+            <button class="copy-btn" id="btnCopy">复制</button>
+            <pre id="outputContent"></pre>
+        </div>
+    </section>
+
+    <!--==================== 使用提示 ====================-->
+    <div class="editor-tip">
+        <strong>使用说明：</strong><br>
+        1. 填写文章信息（标题、ID、分类为必填）<br>
+        2. 在编辑器中直接书写内容，使用工具栏设置标题、加粗、列表等格式<br>
+        3. 图片可以直接粘贴（Ctrl+V）或从文件管理器拖入编辑器<br>
+        4. 点击「导出 JSON」生成可直接粘贴到分类 JSON 文件中的数据<br>
+        5. 点击「导出 Markdown」生成 .md 文件内容，可保存到 assets/data/posts/ 目录<br>
+        6. 编辑器内容会自动保存到浏览器本地存储，刷新页面不会丢失
+    </div>
+</div>
+
+<!-- Quill 编辑器 JS -->
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+<script src="assets/js/BlogEditor.js"></script>
+</body>
+</html>

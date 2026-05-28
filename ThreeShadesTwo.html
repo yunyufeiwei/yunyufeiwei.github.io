@@ -5,61 +5,212 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>三渲二作品集</title>
     <link rel="icon" href="assets/Image/Icon/avatar.png" sizes="32x32"/>
-    <link href="assets/css/SubPageStyle.css" rel="stylesheet" type="text/css"/>
+    <style>
+        :root {
+            --hue-color: 250;
+            --bg-color: hsl(var(--hue-color), 28%, 12%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: #e3e3e3;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.5;
+        }
+
+        /* 顶部标题栏 - sticky */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            backdrop-filter: none;
+            background: hsla(var(--hue-color), 28%, 12%, 0.98);
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            color: hsl(var(--hue-color), 69%, 61%);
+        }
+
+        /* 主内容区域 */
+        .main-content {
+            max-width: 95%;
+            margin: 0 auto;
+            padding: 12px 18px 24px;
+        }
+
+        /* 卡片网格 - 默认4列 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: zoom-in;
+            will-change: transform;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .card .image-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+        }
+
+        .card .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card:hover .image-container img {
+        }
+
+        .card .card-title {
+            padding: 6px 8px;
+            font-size: 0.8rem;
+            color: #c0c0c0;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* 放大图片的容器 */
+        .enlarged-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .enlarged-container.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .enlarged-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            cursor: zoom-out;
+        }
+
+        .enlarged-container.active .enlarged-image {
+        }
+
+        /* 响应式：3列 */
+        @media (max-width: 1200px) {
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* 响应式：2列 */
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .top-nav {
+                padding: 10px 16px;
+            }
+
+            .page-title {
+                font-size: 1.3rem;
+            }
+
+            .main-content {
+                padding: 0 16px 32px;
+            }
+        }
+
+        /* 响应式：1列 */
+        @media (max-width: 480px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .top-nav {
+                padding: 8px 12px;
+            }
+
+            .page-title {
+                font-size: 1.1rem;
+            }
+
+            .main-content {
+                padding: 0 12px 24px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-<div class="container" id="mainContainer">
-    <header class="page-header">
-        <h1 class="page-title">三渲二场景作品集</h1>
-<!--        <p class="page-subtitle">展示三渲二场景制作</p>-->
-    </header>
 
-    <div class="gallery">
-        <div class="gallery-item">
+<!-- 顶部标题 -->
+<nav class="top-nav">
+</nav>
+
+<!-- 主内容区域 -->
+<div class="main-content">
+    <div class="card-grid">
+        <div class="card">
             <div class="image-container">
-                <img src="assets/ImageWork/ThreeShadesTwo/金銮殿.png" alt="金銮殿" class="gallery-image">
+                <img src="assets/ImageWork/ThreeShadesTwo/野外山洞.png" alt="野外山洞">
             </div>
-            <div class="image-description">
-                <h3 class="image-title">金銮殿 - 场景渲染</h3>
-                <p class="image-desc"></p>
-            </div>
+            <div class="card-title">野外山洞</div>
         </div>
-    </div>
-
-    <div class="gallery">
-        <div class="gallery-item">
+        <div class="card">
             <div class="image-container">
-                <img src="assets/ImageWork/ThreeShadesTwo/东海渔村.png" alt="东海渔村" class="gallery-image">
+                <img src="assets/ImageWork/ThreeShadesTwo/金銮殿.png" alt="金銮殿">
             </div>
-            <div class="image-description">
-                <h3 class="image-title">东海渔村 - 场景渲染</h3>
-                <p class="image-desc"></p>
-            </div>
+            <div class="card-title">金銮殿</div>
         </div>
-    </div>
-
-    <div class="gallery">
-        <div class="gallery-item">
+        <div class="card">
             <div class="image-container">
-                <img src="assets/ImageWork/ThreeShadesTwo/东海龙宫.png" alt="东海龙宫" class="gallery-image">
+                <img src="assets/ImageWork/ThreeShadesTwo/东海龙宫.png" alt="东海龙宫">
             </div>
-            <div class="image-description">
-                <h3 class="image-title">东海龙宫 - 场景渲染</h3>
-                <p class="image-desc"></p>
-            </div>
+            <div class="card-title">东海龙宫</div>
         </div>
-    </div>
-
-    <div class="gallery">
-        <div class="gallery-item">
+        <div class="card">
             <div class="image-container">
-                <img src="assets/ImageWork/ThreeShadesTwo/野外山洞.png" alt="野外山洞" class="gallery-image">
+                <img src="assets/ImageWork/ThreeShadesTwo/东海渔村.png" alt="东海渔村">
             </div>
-            <div class="image-description">
-                <h3 class="image-title">野外山洞 - 场景渲染</h3>
-                <p class="image-desc"></p>
-            </div>
+            <div class="card-title">东海渔村</div>
         </div>
     </div>
 </div>
@@ -69,7 +220,37 @@
     <img id="enlargedImage" class="enlarged-image" src="" alt="放大图片">
 </div>
 
-<script src="assets/js/particles-bg.js"></script>
-<script src="assets/js/SubPage.js"></script>
+<script>
+(function() {
+    const enlargedContainer = document.getElementById('enlargedContainer');
+    const enlargedImage = document.getElementById('enlargedImage');
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            if (img) {
+                enlargedImage.src = img.src;
+                enlargedImage.alt = img.alt;
+                enlargedContainer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    enlargedContainer.addEventListener('click', function() {
+        this.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && enlargedContainer.classList.contains('active')) {
+            enlargedContainer.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+})();
+</script>
+
 </body>
 </html>
