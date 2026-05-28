@@ -62,6 +62,15 @@
                 currentCategory = btn.getAttribute('data-target') || 'all';
                 $nav.querySelectorAll('.blog-cat-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
+
+                // 如果当前在详情视图，先切换回列表视图
+                if ($detailView.style.display !== 'none') {
+                    if (location.hash) {
+                        history.pushState('', document.title, location.pathname + location.search);
+                    }
+                    showList();
+                }
+
                 renderList();
             });
         });
