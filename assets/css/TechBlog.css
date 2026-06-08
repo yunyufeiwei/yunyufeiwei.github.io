@@ -118,8 +118,17 @@
 }
 
 .blog-card-tags {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 1.5em;            /* 标签与标签之间约 4 个空格的视觉间距 */
+    row-gap: 0.25rem;
     font-size: 0.8rem;
-    color: #909090;
+}
+
+.blog-card-tag-item {
+    color: hsl(var(--hue-color), 69%, 75%);   /* 主题紫色，比原灰色更醒目 */
+    font-weight: 500;
 }
 
 .blog-card-link {
@@ -263,16 +272,17 @@
 .blog-detail-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    column-gap: 1.5em;            /* 与卡片底部标签保持一致：约 4 个空格 */
+    row-gap: 0.4rem;
     margin-top: 0.5rem;
 }
 
 .blog-detail-tag {
     font-size: 0.78rem;
     padding: 2px 10px;
-    color: hsl(var(--hue-color), 69%, 78%);
-    background: rgba(120, 120, 255, 0.1);
-    border: 1px solid rgba(120, 120, 255, 0.22);
+    color: hsl(var(--hue-color), 69%, 82%);
+    background: rgba(120, 120, 255, 0.18);
+    border: 1px solid rgba(120, 120, 255, 0.4);
     border-radius: 999px;
 }
 

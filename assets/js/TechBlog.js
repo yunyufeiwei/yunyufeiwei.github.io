@@ -111,7 +111,7 @@
                 <h2 class="blog-card-title">${escapeHTML(p.title || '')}</h2>
                 <p class="blog-card-desc">${escapeHTML(p.summary || '')}</p>
                 <div class="blog-card-footer">
-                    <span class="blog-card-tags">${(p.tags || []).map(t => '#' + escapeHTML(t)).join(' ')}</span>
+                    <span class="blog-card-tags">${(p.tags || []).map(t => `<span class="blog-card-tag-item">#${escapeHTML(t)}</span>`).join('')}</span>
                     <a href="#post=${encodeURIComponent(p.id)}" class="blog-card-link">
                         阅读全文 <i class="uil uil-arrow-right"></i>
                     </a>
@@ -292,7 +292,7 @@
         document.getElementById('detailTitle').textContent    = post.title || '';
         document.getElementById('detailSummary').textContent  = post.summary || '';
         document.getElementById('detailTags').innerHTML       = (post.tags || [])
-            .map(t => `<span class="blog-detail-tag">#${escapeHTML(t)}</span>`).join(' ');
+            .map(t => `<span class="blog-detail-tag">#${escapeHTML(t)}</span>`).join('');
 
         // 「编辑此文」链接：把原始 JSON 路径带给编辑器
         if ($detailEdit) {

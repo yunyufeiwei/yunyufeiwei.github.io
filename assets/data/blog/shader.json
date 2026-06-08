@@ -1,4 +1,5 @@
 [
   { "file": "assets/data/blog/shader/water-flowmap.json" },
-  {"file": "assets/data/blog/shader/NormalSampler.json"}
+  { "file": "assets/data/blog/shader/NormalSampler.json"},
+  { "file": "assets/data/blog/shader/shader属性的全局控制注意事项.json"}
 ]
