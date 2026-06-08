@@ -1,0 +1,8 @@
+{
+  "id": "site-build",
+  "title": "个人站搭建：基于 GitHub Pages 与 Jekyll",
+  "date": "2024-12-08",
+  "summary": "本站如何通过 GitHub Actions 自动部署，以及在静态站上接入多语言切换的简易实现思路。",
+  "tags": ["GitHubPages", "Jekyll", "Devlog"],
+  "contentFile": "assets/data/posts/site-build.md"
+}

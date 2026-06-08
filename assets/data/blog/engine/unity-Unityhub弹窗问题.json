@@ -1,0 +1,43 @@
+{
+  "id": "unityhub",
+  "title": "UnityHub弹窗解决方案",
+  "date": "2026-06-08",
+  "summary": "解决管理员账号下的UnityHub弹窗提示。",
+  "tags": [
+    "UnityEngine",
+    "软件基础"
+  ],
+  "content": [
+    "# 概述：",
+    "",
+    "解决管理员账号下的UnityHub弹窗提示。",
+    "",
+    "",
+    "# 内容：",
+    "",
+    "",
+    "## 问题描述",
+    "",
+    "打开Unity每次都弹出这个界面，原因是使用了管理员账号。",
+    "",
+    "![Unity弹窗](assets/ImageWork/Blog/engine/unity弹窗-01.png)",
+    "",
+    "",
+    "## 解决方案",
+    "",
+    "1. 在Windows搜索栏中输入secpol.msc并回车，或者从“运行”对话框（Win + R，然后输入secpol.msc）启动",
+    "",
+    "![运行](assets/ImageWork/Blog/engine/unity弹窗-02.png)",
+    "",
+    "1. 更改配置",
+    "",
+    "",
+    "```",
+    "用户账户控制：以管理员批准模式运行所有管理员 改成：已启用",
+    "",
+    "用户账户控制：用于内置管理员账户的管理员批准模式 改成：已启用",
+    "```",
+    "",
+    "![本地安全策略](assets/ImageWork/Blog/engine/unity弹窗-03.png)"
+  ]
+}

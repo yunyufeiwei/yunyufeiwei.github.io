@@ -20,6 +20,7 @@
     const $listView   = document.getElementById('blogListView');
     const $detailView = document.getElementById('blogDetailView');
     const $detailBack = document.getElementById('blogDetailBack');
+    const $detailEdit = document.getElementById('blogDetailEdit');
 
     // 状态
     let categories = [ALL_CATEGORY];   // 渲染左侧导航用：包含「全部」
@@ -151,6 +152,108 @@
         return '<pre>' + escapeHTML(text) + '</pre>';
     }
 
+    /* ---------- 代码块装饰：语言标签 + 复制按钮 + highlight.js ---------- */
+    // 语言别名 → 显示名
+    const LANG_LABELS = {
+        cpp: 'C++', 'c++': 'C++',
+        csharp: 'C#', cs: 'C#',
+        hlsl: 'HLSL',
+        glsl: 'GLSL',
+        javascript: 'JavaScript', js: 'JavaScript',
+        typescript: 'TypeScript', ts: 'TypeScript',
+        python: 'Python', py: 'Python',
+        json: 'JSON',
+        xml: 'XML', html: 'HTML',
+        css: 'CSS',
+        bash: 'Bash', shell: 'Bash', sh: 'Bash',
+        plaintext: 'Plain', text: 'Plain'
+    };
+
+    function decorateCodeBlocks(container) {
+        if (!container) return;
+        const blocks = container.querySelectorAll('pre > code');
+        blocks.forEach(function (codeEl) {
+            const preEl = codeEl.parentElement;
+            if (!preEl || preEl.dataset.decorated === '1') return;
+
+            // 解析语言
+            let lang = '';
+            const m = (codeEl.className || '').match(/language-([\w+#-]+)/i);
+            if (m) lang = m[1].toLowerCase();
+            const label = LANG_LABELS[lang] || (lang ? lang.toUpperCase() : 'Plain');
+
+            // highlight.js 高亮（只对显式语言做高亮，避免误判中文段）
+            if (typeof window.hljs !== 'undefined' && lang && window.hljs.getLanguage(lang)) {
+                try {
+                    const result = window.hljs.highlight(codeEl.textContent, {
+                        language: lang,
+                        ignoreIllegals: true
+                    });
+                    codeEl.innerHTML = result.value;
+                    codeEl.classList.add('hljs');
+                } catch (e) {
+                    /* 高亮失败就保留原内容 */
+                }
+            } else if (typeof window.hljs !== 'undefined' && !lang) {
+                // 没有标语言时，仍然走纯样式，不做猜测高亮
+                codeEl.classList.add('hljs');
+            }
+
+            // 包装成带头部的容器
+            const wrapper = document.createElement('div');
+            wrapper.className = 'code-block-wrapper';
+
+            const header = document.createElement('div');
+            header.className = 'code-block-header';
+
+            const labelEl = document.createElement('span');
+            labelEl.className = 'code-block-lang';
+            labelEl.textContent = label;
+
+            const copyBtn = document.createElement('button');
+            copyBtn.type = 'button';
+            copyBtn.className = 'code-block-copy';
+            copyBtn.innerHTML = '<i class="uil uil-copy"></i><span>复制</span>';
+            copyBtn.addEventListener('click', function () {
+                const text = codeEl.textContent;
+                const done = function () {
+                    const span = copyBtn.querySelector('span');
+                    if (span) span.textContent = '已复制';
+                    setTimeout(function () {
+                        if (span) span.textContent = '复制';
+                    }, 1500);
+                };
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(done, function () {
+                        fallbackCopy(text, done);
+                    });
+                } else {
+                    fallbackCopy(text, done);
+                }
+            });
+
+            header.appendChild(labelEl);
+            header.appendChild(copyBtn);
+
+            preEl.parentNode.insertBefore(wrapper, preEl);
+            wrapper.appendChild(header);
+            wrapper.appendChild(preEl);
+            preEl.dataset.decorated = '1';
+        });
+    }
+
+    function fallbackCopy(text, done) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done && done(); }
+        catch (e) { /* ignore */ }
+        document.body.removeChild(ta);
+    }
+
     // 已经获取过的外部 .md 文件做下缓存，避免重复请求
     const mdCache = Object.create(null);
 
@@ -191,11 +294,26 @@
         document.getElementById('detailTags').innerHTML       = (post.tags || [])
             .map(t => `<span class="blog-detail-tag">#${escapeHTML(t)}</span>`).join(' ');
 
+        // 「编辑此文」链接：把原始 JSON 路径带给编辑器
+        if ($detailEdit) {
+            if (post.sourceFile) {
+                const editUrl = 'BlogEditor.html?edit=' + encodeURIComponent(post.sourceFile);
+                $detailEdit.setAttribute('href', editUrl);
+                $detailEdit.style.display = '';
+                $detailEdit.title = '在编辑器中打开 ' + post.sourceFile;
+            } else {
+                // 旧格式（直接内联在分类索引里）暂不支持回写到原位置，先隐藏入口
+                $detailEdit.removeAttribute('href');
+                $detailEdit.style.display = 'none';
+            }
+        }
+
         const $content = document.getElementById('detailContent');
         $content.innerHTML = '<p style="color:#888;">加载中...</p>';
 
         loadPostBody(post).then(html => {
             $content.innerHTML = html;
+            decorateCodeBlocks($content);
         });
     }
 
@@ -252,6 +370,34 @@
     window.addEventListener('hashchange', syncViewByHash);
 
     /* ---------- 加载数据 ---------- */
+    // 把分类元数据回填到每篇文章上，渲染层无需关心从哪个文件来
+    function decoratePost(post, cat) {
+        return Object.assign({}, post, {
+            category: cat.key,
+            categoryLabel: cat.label
+        });
+    }
+
+    // 加载单篇文章 JSON（支持 { file: "..." } 这种引用条目）
+    function loadPostFile(path, cat) {
+        return fetch(path, { cache: 'no-cache' })
+            .then(res => {
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                return res.json();
+            })
+            .then(post => {
+                if (!post || typeof post !== 'object') return null;
+                const decorated = decoratePost(post, cat);
+                // 记录原始 JSON 文件路径，方便从详情页跳转到编辑器时直接定位文件
+                decorated.sourceFile = path;
+                return decorated;
+            })
+            .catch(err => {
+                console.error('[TechBlog] 加载文章 "' + path + '" 失败:', err);
+                return null;
+            });
+    }
+
     function loadCategoryPosts(cat) {
         if (!cat.file) return Promise.resolve([]);
         return fetch(cat.file, { cache: 'no-cache' })
@@ -261,11 +407,15 @@
             })
             .then(arr => {
                 if (!Array.isArray(arr)) return [];
-                // 把分类元数据回填到每篇文章上，渲染层无需关心从哪个文件来
-                return arr.map(p => Object.assign({}, p, {
-                    category: cat.key,
-                    categoryLabel: cat.label
-                }));
+                // 数组里每一项可以是：
+                //   1. { file: "assets/data/blog/xxx/yyy.json" } —— 单篇文章独立文件（新格式）
+                //   2. 直接内联的文章对象（旧格式，向后兼容）
+                return Promise.all(arr.map(item => {
+                    if (item && typeof item === 'object' && typeof item.file === 'string') {
+                        return loadPostFile(item.file, cat);
+                    }
+                    return Promise.resolve(decoratePost(item, cat));
+                })).then(list => list.filter(Boolean));
             })
             .catch(err => {
                 console.error('[TechBlog] 加载分类 "' + cat.key + '" 失败:', err);

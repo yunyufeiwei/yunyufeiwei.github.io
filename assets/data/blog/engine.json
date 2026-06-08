@@ -1,42 +1,5 @@
 [
-  {
-    "id": "ue5-pcg-intro",
-    "title": "UnrealEngine 中的 PCG 工作流入门",
-    "date": "2026-05-19",
-    "summary": "从零开始介绍虚幻引擎 PCG 的基本节点、生态群落生成思路，以及在大世界场景中常见的优化方案。",
-    "tags": ["UE5", "PCG", "大世界"],
-    "content": [
-      "## PCG 是什么",
-      "",
-      "PCG（Procedural Content Generation）是 UE 5 提供的一套程序化内容生成框架，结合 Sampler、Filter、Transform 等节点，可以基于地形、样条、贴花来批量铺设植被或道具。",
-      "",
-      "## 常用节点",
-      "",
-      "- **GetLandscapeData**：获取地形数据。",
-      "- **GetSplineData**:获取样条线数据，通常要拿到这个数据用来做闭合或者路径过滤，搭配CreateSurfaceFromSpline来使用，将线条转换为表面模型。",
-      "",
-      "&nbsp;",
-      "",
-      "- **Surface Sampler**：在 Landscape / 静态网格表面采样点",
-      "- **Density Filter**：根据生成点的灰度值0~1，限制不需要的灰度范围内的点，控制点密度。",
-      "- **Projection**：投影节点，输入的是点数据，Projection Target是投影到的目标物体。",
-      "- **Transform Points**：批量给点位加随机旋转、缩放",
-      "_ **BoundsModifier**:修改生成点的包裹框，这个节点可以配合Self Pruning来使用。",
-      "_ **Self Pruning**：用来过滤Bounds之间有穿插的部分，对于穿插点保留一个。",
-      "_ **Match And Set Attributes**:需要通过蓝图来传递资产时时，必须通过该节点来进行转换。",
-      "- **Static Mesh Spawner**：把点位实例化成静态网格体",
-      "",
-      "## 制作思路",
-      "PCG整体流程思路简化版说明,也就是先获取数据后采样点数据，然后对获取到的点进行过滤、变化等，最后生成模型。",
-      "![PCG 效果预览](assets/ImageWork/Blog/engine/pcg.png)",
-      "",
-      "## 性能要点",
-      "",
-      "1. 使用 HISM 替代 ISM，开启 LOD 与剔除距离",
-      "2. Partition + WorldPartition 分块，仅在视野内执行",
-      "3. 大区域用 Loose Density，小区域再做精细 Filter",
-      "",
-      "> 后续会再写一篇专门的优化笔记，把工程里实际踩过的坑也整理进来。"
-    ]
-  }
+  { "file": "assets/data/blog/engine/ue5-pcg-intro.json" },
+  { "file": "assets/data/blog/engine/unity-Unityhub弹窗问题.json" },
+  { "file": "assets/data/blog/engine/unity-多相机测试.json"}
 ]

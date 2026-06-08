@@ -234,6 +234,10 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
     padding: 2rem 2.25rem;
+    /* 防止内部超长代码行把整篇正文撑出页面级横向滚动 */
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .blog-detail-header {
@@ -277,6 +281,10 @@
     color: #d8d8d8;
     font-size: 1rem;
     line-height: 1.85;
+    /* 防止内部超长代码把整篇正文撑出滚动条 */
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
 }
 
 .blog-detail-content h2 {
@@ -333,7 +341,12 @@
     padding: 1rem 1.1rem;
     margin: 0.9rem 0;
     overflow-x: auto;
+    overflow-y: hidden;
     line-height: 1.55;
+    white-space: pre;
+    word-break: normal;
+    overflow-wrap: normal;
+    max-width: 100%;
 }
 
 .blog-detail-content pre code {
@@ -415,3 +428,149 @@
     list-style: none;
     margin-left: -1.1rem;
 }
+
+
+/* ==================== 文章正文：代码块（带头部 + 复制按钮） ==================== */
+.blog-detail-content .code-block-wrapper {
+    margin: 1rem 0;
+    border-radius: 10px;
+    overflow: hidden;            /* 维持子元素的圆角裁剪 */
+    background: #1f2329;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    /* 在 flex / grid 等弹性父容器中允许收缩到比内容更窄，以便子元素 pre 出滚动条 */
+    min-width: 0;
+    max-width: 100%;
+}
+
+.blog-detail-content .code-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.45rem 0.85rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+.blog-detail-content .code-block-lang {
+    font-size: 0.78rem;
+    color: hsl(var(--hue-color), 69%, 78%);
+    letter-spacing: 0.04em;
+    text-transform: none;
+}
+
+.blog-detail-content .code-block-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #b8b8b8;
+    font-size: 0.75rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.blog-detail-content .code-block-copy:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border-color: hsl(var(--hue-color), 69%, 61%);
+}
+
+.blog-detail-content .code-block-copy i {
+    font-size: 0.9rem;
+}
+
+/* 包到 wrapper 里之后，原本的 pre 边框/背景由 wrapper 提供 */
+.blog-detail-content .code-block-wrapper pre {
+    display: block;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    padding: 0.95rem 1rem 1.05rem;
+    /* 关键：超长不换行，溢出在 pre 自身上出现横向滚动条 */
+    white-space: pre;
+    word-break: normal;
+    word-wrap: normal;
+    overflow-wrap: normal;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+}
+
+.blog-detail-content .code-block-wrapper pre code {
+    display: block;
+    background: transparent;
+    padding: 0;
+    color: #abb2bf;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    /* code 元素也保持不换行，防止主题样式覆写 */
+    white-space: pre;
+    word-break: normal;
+    overflow-wrap: normal;
+}
+
+/* highlight.js 在 atom-one-dark 主题下的额外微调（去掉默认 padding 与可能的换行设置） */
+.blog-detail-content .hljs {
+    background: transparent !important;
+    padding: 0 !important;
+    white-space: pre !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+}
+
+/* 自定义滚动条，适配深色主题，避免代码块底部出现刺眼的灰条 */
+.blog-detail-content .code-block-wrapper pre::-webkit-scrollbar {
+    height: 8px;
+}
+
+.blog-detail-content .code-block-wrapper pre::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.blog-detail-content .code-block-wrapper pre::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 4px;
+}
+
+.blog-detail-content .code-block-wrapper pre::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+
+/* ==================== 防止整页出现水平滚动 ====================
+ * 父级 .sidebar-layout 是 flex 布局，flex 子项默认 min-width: auto，
+ * 一旦内部出现超长代码行，会把 .main-content 撑到内容最小宽度，
+ * 进而让整页出现水平滚动。这里把它收拢到只在代码块内部滚动。
+ * ============================================================ */
+.sidebar-layout {
+    min-width: 0;
+}
+
+.sidebar-layout .main-content {
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: clip; /* 兼容性兜底：clip 比 hidden 更准确，不创建滚动容器 */
+}
+
+
+/* ==================== 文章正文：图片对齐 ==================== */
+.blog-detail-content img.blog-img {
+    /* 图片本身仍受 .blog-detail-content img 的 max-width 限制 */
+    margin: 0.6rem 0;
+}
+
+.blog-detail-content img.blog-img-align-left   { display: block; margin-left: 0;     margin-right: auto; }
+.blog-detail-content img.blog-img-align-center { display: block; margin-left: auto;  margin-right: auto; }
+.blog-detail-content img.blog-img-align-right  { display: block; margin-left: auto;  margin-right: 0;    }
+
+/* 段落级对齐（少数情况下整段文字也需要居中/右对齐时使用） */
+.blog-detail-content p.blog-align-center { text-align: center; }
+.blog-detail-content p.blog-align-right  { text-align: right;  }

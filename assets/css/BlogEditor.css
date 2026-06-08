@@ -89,7 +89,6 @@
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    overflow: hidden;
     margin-bottom: 1.5rem;
 }
 
@@ -104,7 +103,16 @@
 .ql-toolbar.ql-snow {
     border: none !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    background: rgba(255, 255, 255, 0.03);
+    background: #1e1e2e;          /* 不透明背景，滚动时不会透出正文 */
+    /* 滚动时常驻视窗顶部 */
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    /* 顶部圆角与外层 .editor-body 对齐 */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    /* 一点点阴影，让 sticky 时能与下方正文区分开 */
+    box-shadow: 0 4px 10px -8px rgba(0, 0, 0, 0.6);
 }
 
 .ql-container.ql-snow {
@@ -118,6 +126,11 @@
     color: #e3e3e3;
     line-height: 1.8;
     padding: 1.5rem;
+    /* 编辑器主体不出横向滚动条；超长内容由内部代码块自己滚动 */
+    overflow-x: hidden;
+    overflow-y: auto;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
 }
 
 .ql-editor.ql-blank::before {
@@ -347,4 +360,196 @@
         width: 100%;
         justify-content: center;
     }
+}
+
+
+/* ==================== 工具栏：代码块语言下拉 ==================== */
+.ql-toolbar .ql-code-lang-formats {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 4px;
+}
+
+.ql-toolbar .ql-code-lang-select {
+    height: 24px;
+    padding: 0 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 6px;
+    color: #d0d0d0;
+    font-size: 0.78rem;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.ql-toolbar .ql-code-lang-select:hover,
+.ql-toolbar .ql-code-lang-select:focus {
+    border-color: hsl(var(--hue-color), 69%, 61%);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ql-toolbar .ql-code-lang-select option {
+    background: #1e1e2e;
+    color: #e3e3e3;
+}
+
+/* ==================== Quill 2 syntax 模块产生的代码块 ====================
+ * 用 .ql-snow 提高特异性，覆盖 quill.snow.css 自带的
+ * `.ql-snow .ql-editor .ql-code-block-container { overflow: visible; ... }` 规则
+ * ============================================================ */
+.ql-snow .ql-editor .ql-code-block-container {
+    background: #282c34 !important;            /* 配合 atom-one-dark 主题 */
+    color: #abb2bf !important;
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    margin: 0.8rem 0;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    /* 关键：代码超长时只在代码块内部出现横向滚动条 */
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* 允许在 flex 父容器内按可用宽度收缩；max-content 子元素溢出时由本容器滚动 */
+    min-width: 0;
+    max-width: 100%;
+    /* 给绝对定位的语言下拉一个相对参考点 */
+    position: relative;
+}
+
+.ql-snow .ql-editor .ql-code-block-container .ql-code-block {
+    /* 严格不换行；让长行触发父级横向滚动，而不是自动折行 */
+    white-space: pre !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    /* 行块自身宽度由内容决定，这样父级 overflow:auto 才能真正感知到溢出 */
+    min-width: max-content;
+    width: auto;
+}
+
+/* 编辑器内代码块滚动条（深色风格） */
+.ql-snow .ql-editor .ql-code-block-container::-webkit-scrollbar {
+    height: 8px;
+}
+.ql-snow .ql-editor .ql-code-block-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.04);
+}
+.ql-snow .ql-editor .ql-code-block-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 4px;
+}
+.ql-snow .ql-editor .ql-code-block-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+/* 把 Quill 自带的语言选择菜单（出现在代码块右上角）样式调整为深色 */
+.ql-snow .ql-picker.ql-code-block,
+.ql-code-block-container > select {
+    background: rgba(0, 0, 0, 0.4);
+    color: #d0d0d0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    font-size: 0.75rem;
+}
+
+
+/* ==================== 图片对齐浮窗（点击图片后浮起） ==================== */
+.img-align-popover {
+    position: absolute;
+    z-index: 60;
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    background: #1e1e2e;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    user-select: none;
+}
+
+.img-align-popover button {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #c8c8c8;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.img-align-popover button:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+.img-align-popover button.active {
+    background: rgba(120, 120, 255, 0.18);
+    border-color: hsl(var(--hue-color), 69%, 61%);
+    color: hsl(var(--hue-color), 69%, 80%);
+}
+
+.img-align-popover i {
+    font-size: 1rem;
+}
+
+/* 编辑器内的图片块在 Quill align 类下表现为左/中/右 */
+.ql-editor p.ql-align-center { text-align: center; }
+.ql-editor p.ql-align-right  { text-align: right;  }
+.ql-editor p.ql-align-center > img,
+.ql-editor p.ql-align-right  > img { display: inline-block; }
+
+
+/* ==================== 编辑已有文章工具条 ==================== */
+.edit-mode-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.edit-mode-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.45rem 0.9rem;
+    background: rgba(120, 120, 255, 0.12);
+    border: 1px solid hsl(var(--hue-color), 69%, 61%);
+    border-radius: 8px;
+    color: hsl(var(--hue-color), 69%, 80%);
+    font-size: 0.85rem;
+}
+
+.edit-mode-banner code {
+    background: rgba(0, 0, 0, 0.35);
+    color: #d0d0d0;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.78rem;
+    word-break: break-all;
+}
+
+.edit-mode-exit {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: #c8c8c8;
+    padding: 0.25rem 0.65rem;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.edit-mode-exit:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
 }

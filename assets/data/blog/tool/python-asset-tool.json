@@ -1,0 +1,11 @@
+{
+  "id": "python-asset-tool",
+  "title": "用 Blueprint 编写编辑器工具",
+  "date": "2025-03-04",
+  "summary": "从需求出发，介绍一个简单可扩展的资源批处理框架，包含命名规范校验、贴图压缩与导出报告。",
+  "tags": ["UnrealEngine", "EidtTools", "Tooling"],
+  "content": [
+    "## 需求",
+    ""
+  ]
+}
