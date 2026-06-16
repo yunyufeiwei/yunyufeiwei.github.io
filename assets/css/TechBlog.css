@@ -165,6 +165,19 @@
     content: '' !important;
 }
 
+/* 分类按钮中的图片图标（用于 Unity / Unreal 引擎 logo 等） */
+.blog-cat-icon-img {
+    width: 1.25em;
+    height: 1.25em;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+    vertical-align: middle;
+    /* 把 JPG 白底反转为黑底，再用 screen 让黑底融进深色侧栏背景 */
+    filter: invert(1) hue-rotate(180deg);
+    mix-blend-mode: screen;
+}
+
 /* 空状态 */
 .blog-empty {
     text-align: center;

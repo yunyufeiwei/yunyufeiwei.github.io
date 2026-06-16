@@ -49,14 +49,19 @@
 
     /* ---------- 渲染：左侧分类 ---------- */
     function renderCategories() {
-        $nav.innerHTML = categories.map(cat => `
+        $nav.innerHTML = categories.map(cat => {
+            const iconHtml = cat.iconImage
+                ? `<img class="blog-cat-icon-img" src="${escapeHTML(cat.iconImage)}" alt="${escapeHTML(cat.label || cat.key)}">`
+                : `<i class="uil ${escapeHTML(cat.icon || 'uil-bookmark')}"></i>`;
+            return `
             <div class="nav-category">
                 <button class="nav-btn category-btn blog-cat-btn${cat.key === currentCategory ? ' active' : ''}"
                         data-target="${escapeHTML(cat.key)}">
-                    <i class="uil ${escapeHTML(cat.icon || 'uil-bookmark')}"></i>&nbsp;${escapeHTML(cat.label || cat.key)}
+                    ${iconHtml}&nbsp;${escapeHTML(cat.label || cat.key)}
                 </button>
             </div>
-        `).join('');
+        `;
+        }).join('');
 
         $nav.querySelectorAll('.blog-cat-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -445,7 +450,8 @@
             categories = [ALL_CATEGORY].concat(list.map(c => ({
                 key: c.key,
                 label: c.label,
-                icon: c.icon
+                icon: c.icon,
+                iconImage: c.iconImage
             })));
             renderCategories();
 
