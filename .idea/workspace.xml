@@ -11,13 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bd24feb-6305-42e2-9c0d-c11437b0709f" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TechnicalArtist.html" beforeDir="false" afterPath="$PROJECT_DIR$/TechnicalArtist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ImageWork/Rendering/后期/【后处理】外描边.gif" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="151" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,7 +56,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.appearance",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -75,6 +79,7 @@
       <workItem from="1763533688178" duration="3551000" />
       <workItem from="1774250503668" duration="1912000" />
       <workItem from="1779887158411" duration="1321000" />
+      <workItem from="1783642770716" duration="1285000" />
     </task>
     <servers />
   </component>
