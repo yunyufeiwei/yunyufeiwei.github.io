@@ -262,6 +262,15 @@ img {
     /* 移动端 qualification 数据间距 */
     .qualification__subtitle {
         max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+    
+    /* 移动端 qualification 数据布局优化 */
+    .qualification__data {
+        grid-template-columns: 10px 1fr;
+        overflow: visible;
     }
 }
 
@@ -614,11 +623,11 @@ img {
 
 .qualification__data {
     display: grid;
-    grid-template-columns: 10px max-content;
+    grid-template-columns: 10px 1fr;
     column-gap: 1.5rem;
     padding-bottom: 3rem;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .qualification__title {
@@ -627,11 +636,14 @@ img {
 }
 
 .qualification__subtitle {
-    display:flex;
+    display: block;
     font-size: var(--small-font-size);
     margin-bottom: var(--mb-1);
     text-align: inherit;
     max-width: 1024px;          /* 限制了工作经历描述区域文字的最大宽度显示 */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .qualification__calendar {
@@ -940,6 +952,7 @@ img {
     }
     .qualification__data {
         gap: .5rem;
+        grid-template-columns: 10px 1fr;
     }
 
     /* 联系方式小屏适配 */
