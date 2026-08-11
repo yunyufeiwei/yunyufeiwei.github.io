@@ -96,7 +96,7 @@ let swiperPortfolio = new Swiper('.portfolio__container', {
     //作品页面自动翻页
     autoplay:
         {
-            delay: 3000,
+            delay: 2400,
             disableOnInteraction: false,
         },
 
