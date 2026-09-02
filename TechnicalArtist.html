@@ -175,8 +175,70 @@
             cursor: zoom-out;
         }
 
-        .enlarged-container.active .enlarged-image {
-            /* 无 scale 动画，避免大尺寸 GIF 渲染卡顿 */
+        /* 放大层视频：默认光标，点击不触发关闭 */
+        .enlarged-video {
+            cursor: default;
+            background: #000;
+        }
+
+        /* 放大层关闭按钮 */
+        .enlarged-close {
+            position: fixed;
+            top: 20px;
+            right: 24px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 16px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2001;
+            transition: background 0.2s;
+        }
+
+        .enlarged-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* 视频卡片缩略图 */
+        .video-thumb-container {
+            position: relative;
+        }
+
+        .video-thumb {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+        }
+
+        .video-play-icon {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.35);
+            transition: background 0.2s;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+
+        .video-card:hover .video-play-icon {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* 放大层视频 */
+        .enlarged-video {
+            background: #000;
         }
 
         /* 响应式：3列 */
@@ -387,6 +449,14 @@
                 </div>
                 <div class="card-title">Unreal - 综合效果</div>
             </div>
+
+            <div class="card video-card" data-video-src="assets/ImageWork/Rendering/WaterInteraction.mp4">
+                <div class="image-container video-thumb-container">
+                    <video class="video-thumb" src="assets/ImageWork/Rendering/WaterInteraction.mp4" muted preload="metadata"></video>
+                    <div class="video-play-icon">▶</div>
+                </div>
+                <div class="card-title">Unity - 【测试】水体交互</div>
+            </div>
         </div>
     </section>
 
@@ -467,7 +537,9 @@
 
 <!-- 放大图片的容器 -->
 <div id="enlargedContainer" class="enlarged-container">
+    <button id="enlargedClose" class="enlarged-close">✕</button>
     <img id="enlargedImage" class="enlarged-image" src="" alt="放大图片">
+    <video id="enlargedVideo" class="enlarged-image enlarged-video" src="" controls autoplay loop style="display:none;"></video>
 </div>
 
 <script>
@@ -550,13 +622,37 @@
     // 图片点击放大 - GIF 使用原始动态地址
     const enlargedContainer = document.getElementById('enlargedContainer');
     const enlargedImage = document.getElementById('enlargedImage');
+    const enlargedVideo = document.getElementById('enlargedVideo');
+
+    function closeEnlarged() {
+        enlargedContainer.classList.remove('active');
+        enlargedImage.src = '';
+        enlargedImage.style.display = '';
+        enlargedVideo.pause();
+        enlargedVideo.src = '';
+        enlargedVideo.style.display = 'none';
+        document.body.style.overflow = '';
+    }
 
     cards.forEach(card => {
         card.addEventListener('click', function() {
+            // 视频卡片
+            if (this.classList.contains('video-card')) {
+                const videoSrc = this.dataset.videoSrc;
+                enlargedImage.style.display = 'none';
+                enlargedVideo.style.display = '';
+                enlargedVideo.src = videoSrc;
+                enlargedVideo.play();
+                enlargedContainer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                return;
+            }
+            // 图片/GIF 卡片
             const img = this.querySelector('img');
             if (img) {
-                // 如果是 GIF 卡片，放大时使用原始 GIF 地址播放动画
                 const gifSrc = this.dataset.gifSrc;
+                enlargedImage.style.display = '';
+                enlargedVideo.style.display = 'none';
                 enlargedImage.src = gifSrc || img.src;
                 enlargedImage.alt = img.alt;
                 enlargedContainer.classList.add('active');
@@ -565,18 +661,21 @@
         });
     });
 
-    enlargedContainer.addEventListener('click', function() {
-        this.classList.remove('active');
-        enlargedImage.src = '';
-        document.body.style.overflow = '';
+    enlargedContainer.addEventListener('click', function(e) {
+        closeEnlarged();
     });
 
-    // ESC关闭放大图片
+    document.getElementById('enlargedClose').addEventListener('click', closeEnlarged);
+
+    // 视频、图片、关闭按钮的点击不冒泡到背景层
+    enlargedVideo.addEventListener('click', function(e) { e.stopPropagation(); });
+    enlargedImage.addEventListener('click', closeEnlarged);
+    // 关闭按钮本身已绑定 closeEnlarged，阻止二次冒泡
+    document.getElementById('enlargedClose').addEventListener('click', function(e) { e.stopPropagation(); });
+
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && enlargedContainer.classList.contains('active')) {
-            enlargedContainer.classList.remove('active');
-            enlargedImage.src = '';
-            document.body.style.overflow = '';
+            closeEnlarged();
         }
     });
 })();
