@@ -6,7 +6,7 @@
     "contact":"联系方式",
   
     "home__title":"我是陈雨",
-    "home__subtitle":"一名游戏美术师",
+    "home__subtitle":"游戏美术师",
     "home__description":[
     "热爱生活，热爱工作，对未知充满探索欲。"],
     "home__contact":"与我联系",
@@ -24,6 +24,7 @@
       "● 拥有较强的自我规划能力与主动学习意识。"],
     "about__info-name1":"年工作<br/>经验",
     "download":"下载简历",
+    "download_portfolio":"下载作品集",
     "skills__title":"技能",
     "skills__subtitle":"技术水平",
     "skills__years":"12年 + ",
