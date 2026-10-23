@@ -257,8 +257,8 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    margin: 0 0 1.25rem calc((min(1440px, 100vw - 64px) - 100vw) / 2);
-    padding: 12px max(32px, calc((100vw - 1440px) / 2));
+    margin: 0 calc(50% - 50vw) 1.25rem;
+    padding: 12px max(32px, calc((100vw - 1240px) / 2));
     background: rgba(7, 12, 29, .9);
     box-shadow: 0 5px 18px rgba(0, 0, 0, .16);
     backdrop-filter: blur(18px);
@@ -697,19 +697,6 @@ body::before {
     background-size: 72px 72px, 72px 72px, 18px 18px, 18px 18px;
 }
 
-body::after {
-    position: fixed;
-    z-index: -1;
-    inset: 0;
-    content: "";
-    pointer-events: none;
-    opacity: .34;
-    background:
-        linear-gradient(120deg, rgba(8, 13, 32, .5), rgba(52, 29, 100, .42) 52%, rgba(8, 36, 70, .5)),
-        url("../Image/Blog/数学公式背景.jpg") center / cover no-repeat;
-    filter: hue-rotate(145deg) saturate(.72) brightness(.72);
-}
-
 body.blog-detail-open::before {
     opacity: .78;
     background-image:
@@ -719,12 +706,8 @@ body.blog-detail-open::before {
         linear-gradient(90deg, rgba(130, 162, 220, .075) 1px, transparent 1px);
 }
 
-body.blog-detail-open::after {
-    opacity: .19;
-}
-
 .container {
-    width: min(1440px, calc(100% - 64px));
+    width: min(1240px, calc(100% - clamp(64px, calc(100vw - 896px), 352px) - 200px));
     max-width: none;
     margin: 0 auto;
     padding: 0;
@@ -747,8 +730,8 @@ body.blog-detail-open::after {
     z-index: 30;
     top: 0;
     width: 100vw;
-    margin: 0 calc((min(1440px, 100vw - 64px) - 100vw) / 2) 36px;
-    padding: 0 max(32px, calc((100vw - 1440px) / 2));
+    margin: 0 calc(50% - 50vw) 36px;
+    padding: 0 max(32px, calc((100vw - 1240px) / 2));
     background: rgba(7, 12, 29, .9);
     backdrop-filter: blur(18px);
 }
@@ -985,9 +968,9 @@ body.blog-detail-open::after {
 
 @media (max-width: 640px) {
     .container { width: calc(100% - 28px); }
-    .blog-detail-nav { min-height: 56px; margin: 0 0 1.25rem -14px; padding: 8px 14px; }
+    .blog-detail-nav { min-height: 56px; margin: 0 calc(50% - 50vw) 1.25rem; padding: 8px 14px; }
     .blog-detail-nav .blog-back-link { min-height: 38px; padding: 0 10px; font-size: 11px; }
-    .blog-topbar { margin: 0 -14px 24px; padding: 0 14px; }
+    .blog-topbar { margin: 0 calc(50% - 50vw) 24px; padding: 0 14px; }
     .blog-site-nav { min-height: 0; gap: 10px; padding: 10px 0 12px; }
     .blog-brand { gap: 8px; }
     .blog-brand-copy { display: grid; gap: 2px; }

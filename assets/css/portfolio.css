@@ -1377,6 +1377,25 @@ body { background: var(--ink); }
     object-fit: cover;
     object-position: center 48%;
 }
+.resources .resource-card-texture {
+    min-height: 460px;
+}
+.resources .resource-card-texture .resource-preview {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+.resources .resource-card-texture .resource-thumbnail {
+    display: block;
+    width: 100%;
+    height: clamp(190px, 25vh, 260px);
+    min-height: 0;
+    border: 1px solid rgba(130,159,204,.2);
+    background: rgba(7, 19, 35, .6);
+    object-fit: contain;
+}
 .resources .resource-link {
     display: inline-flex;
     justify-content: space-between;
@@ -1407,6 +1426,8 @@ body { background: var(--ink); }
     .resources .resource-link { font-size: 8px; }
     .resources .resource-card-material { min-height: 400px; }
     .resources .resource-card-material .resource-thumbnail { height: 180px; }
+    .resources .resource-card-texture { min-height: 400px; }
+    .resources .resource-card-texture .resource-thumbnail { height: 180px; }
 }
 @media (max-width: 640px) {
     .resources > .page-width { min-height: 0; }
@@ -1423,6 +1444,8 @@ body { background: var(--ink); }
     .resources .resource-link { gap: 4px; font-size: 8px; }
     .resources .resource-card-material { min-height: 360px; }
     .resources .resource-card-material .resource-thumbnail { height: 150px; }
+    .resources .resource-card-texture { min-height: 360px; }
+    .resources .resource-card-texture .resource-thumbnail { height: 150px; }
 }
 @media (max-width: 380px) {
     .resources .resource-grid { grid-template-columns: 1fr; }
