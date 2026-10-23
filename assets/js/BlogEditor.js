@@ -536,7 +536,7 @@
         const src = img.getAttribute('src') || '';
         // base64 图：保持占位提示，提醒手动落盘
         const finalSrc = src.startsWith('data:')
-            ? '【请将图片保存到 assets/ImageWork/Blog/ 目录并替换此路径】'
+            ? '【请将图片保存到 assets/Image/Work/Blog/ 目录并替换此路径】'
             : src;
         const cls = 'blog-img blog-img-align-' + (align || 'left');
         return '<img class="' + escapeAttr(cls) + '" src="' + escapeAttr(finalSrc) + '" alt="' + escapeAttr(alt) + '">';
@@ -633,7 +633,7 @@
                     var src = child.getAttribute('src') || '';
                     // 如果是 base64 图片，提示用户需要手动保存并替换路径
                     if (src.startsWith('data:')) {
-                        result += '![' + alt + '](【请将图片保存到 assets/ImageWork/Blog/ 目录并替换此路径】)\n\n';
+                        result += '![' + alt + '](【请将图片保存到 assets/Image/Work/Blog/ 目录并替换此路径】)\n\n';
                     } else {
                         result += '![' + alt + '](' + src + ')\n\n';
                     }
@@ -713,7 +713,7 @@
                         var src = child.getAttribute('src') || '';
                         var alt = child.getAttribute('alt') || '图片';
                         if (src.startsWith('data:')) {
-                            text += '![' + alt + '](【请将图片保存到 assets/ImageWork/Blog/ 目录并替换此路径】)';
+                            text += '![' + alt + '](【请将图片保存到 assets/Image/Work/Blog/ 目录并替换此路径】)';
                         } else {
                             text += '![' + alt + '](' + src + ')';
                         }

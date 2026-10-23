@@ -43,6 +43,6 @@
     "",
     "把法线贴入 PBR 流程后，再叠一层屏幕空间反射或 Cubemap，效果就足够撑起小溪、河流这类动态水面。",
     "",
-    "![FlowMap 效果预览](assets/ImageWork/Blog/Shader/FlowMap.gif)"
+    "![FlowMap 效果预览](assets/Image/Work/Blog/Shader/FlowMap.gif)"
   ]
 }

@@ -11,8 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bd24feb-6305-42e2-9c0d-c11437b0709f" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/TechnicalArtist.html" beforeDir="false" afterPath="$PROJECT_DIR$/TechnicalArtist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/ImageWork/Rendering/后期/【后处理】外描边.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,11 +25,73 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/assets/code/SimpleTexture.hlsl" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.003329247151186" />
+      <entry key="MS500" value="1.532518900946626" />
+      <entry key="S2" value="4.134764022948939" />
+      <entry key="S5" value="6.2974462254078745" />
+      <entry key="S10" value="7.473353975214752" />
+      <entry key="S30" value="10.071260512000734" />
+      <entry key="S60" value="15.266765893551803" />
+      <entry key="M2" value="24.56250384461332" />
+      <entry key="M5" value="42.37752239928439" />
+      <entry key="M10" value="57.84288508526391" />
+      <entry key="M15" value="66.18381349056521" />
+      <entry key="M30" value="83.06685420078195" />
+      <entry key="H1" value="121.59480947728522" />
+      <entry key="H2" value="181.1578512399674" />
+      <entry key="H4" value="236.7214028730834" />
+      <entry key="D1" value="305.8421918833954" />
+      <entry key="W1" value="320.47041966403015" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.969196913966576" />
+      <entry key="MS500" value="1.5229451071349556" />
+      <entry key="S2" value="4.128335574918326" />
+      <entry key="S5" value="6.293490877822457" />
+      <entry key="S10" value="7.471000550008095" />
+      <entry key="S30" value="10.070224335278512" />
+      <entry key="S60" value="15.265994904165696" />
+      <entry key="M2" value="24.56181835532673" />
+      <entry key="M5" value="42.37692257395969" />
+      <entry key="M10" value="57.84243664602585" />
+      <entry key="M15" value="66.18346349579777" />
+      <entry key="M30" value="83.0666346056553" />
+      <entry key="H1" value="121.59465608467724" />
+      <entry key="H2" value="181.15774140562218" />
+      <entry key="H4" value="236.721332424072" />
+      <entry key="D1" value="305.8421769022166" />
+      <entry key="W1" value="320.4704174255617" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -81,6 +143,7 @@
       <workItem from="1783642770716" duration="1285000" />
       <workItem from="1788261131191" duration="229000" />
       <workItem from="1788261373955" duration="74000" />
+      <workItem from="1792637350565" duration="5963000" />
     </task>
     <servers />
   </component>

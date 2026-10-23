@@ -302,7 +302,7 @@
         // 「编辑此文」链接：把原始 JSON 路径带给编辑器
         if ($detailEdit) {
             if (post.sourceFile) {
-                const editUrl = 'BlogEditor.html?edit=' + encodeURIComponent(post.sourceFile);
+                const editUrl = 'assets/SubPage/Blog/BlogEditor.html?edit=' + encodeURIComponent(post.sourceFile);
                 $detailEdit.setAttribute('href', editUrl);
                 $detailEdit.style.display = '';
                 $detailEdit.title = '在编辑器中打开 ' + post.sourceFile;

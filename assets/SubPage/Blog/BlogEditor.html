@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../../../">
     <title>博客编辑器</title>
     <link rel="icon" href="assets/Image/Icon/avatar.png" sizes="32x32"/>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css"/>
@@ -104,7 +105,7 @@
         <button class="editor-btn editor-btn-secondary" id="btnClear">
             <i class="uil uil-trash-alt"></i> 清空
         </button>
-        <a href="TechBlog.html" class="editor-btn editor-btn-secondary" style="text-decoration:none;">
+        <a href="assets/SubPage/Blog/TechBlog.html" class="editor-btn editor-btn-secondary" style="text-decoration:none;">
             <i class="uil uil-arrow-left"></i> 返回博客
         </a>
     </div>
@@ -124,7 +125,7 @@
         1. 填写文章信息（标题、ID、分类为必填）<br>
         2. 在编辑器中直接书写内容，使用工具栏设置标题、加粗、列表等格式<br>
         3. 工具栏的「代码块」按钮（&lt;/&gt; 图标）后面有语言下拉，支持 C++ / C# / HLSL / GLSL / JavaScript / Python / JSON / XML / CSS / Bash 等。选定语言后再粘贴代码，导出后阅读端会自动高亮<br>
-        4. 图片可以直接粘贴（Ctrl+V）或从文件管理器拖入编辑器；导出 JSON 时 base64 图片会被替换为占位提示，需手动把图片保存到 <code>assets/ImageWork/Blog/&lt;分类&gt;/</code> 并把占位文本替换为相对路径<br>
+        4. 图片可以直接粘贴（Ctrl+V）或从文件管理器拖入编辑器；导出 JSON 时 base64 图片会被替换为占位提示，需手动把图片保存到 <code>assets/Image/Work/Blog/&lt;分类&gt;/</code> 并把占位文本替换为相对路径<br>
         5. 点击「导出 JSON」会弹出系统保存对话框，请把文件保存到 <code>assets/data/blog/&lt;分类&gt;/&lt;文章ID&gt;.json</code>。保存完成后会询问是否同步更新分类索引（<code>assets/data/blog/&lt;分类&gt;.json</code>），同意后选中索引文件即可自动追加条目<br>
         6. 点击「导出 Markdown」生成 .md 文件内容，可保存到 assets/data/posts/ 目录<br>
         7. 编辑器内容会自动保存到浏览器本地存储，刷新页面不会丢失<br>

@@ -27,7 +27,7 @@
     "",
     "## 制作思路",
     "PCG整体流程思路简化版说明,也就是先获取数据后采样点数据，然后对获取到的点进行过滤、变化等，最后生成模型。",
-    "![PCG 效果预览](assets/ImageWork/Blog/engine/pcg.png)",
+    "![PCG 效果预览](assets/Image/Work/Blog/engine/pcg.png)",
     "",
     "## 性能要点",
     "",

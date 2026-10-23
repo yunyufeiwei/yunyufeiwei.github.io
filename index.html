@@ -1,705 +1,424 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8" />
-    <title>陈雨 - 个人简历</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/x-icon" href="assets/Image/Icon/avatar.png" />
-    <!--==================== UNICONS 图标====================-->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css"/>
-    <!--==================== SWIPER CSS ====================-->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
-    <!--==================== CSS ====================-->
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#11130f">
+    <meta name="description" content="陈雨的个人作品集，游戏场景美术设计与技术美术。">
+    <title>陈雨 | 游戏场景美术 · 技术美术</title>
+    <link rel="icon" href="assets/Image/Icon/avatar.png" sizes="32x32">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/portfolio.css">
 </head>
-
 <body>
-<!--==================== HEADER ====================-->
-<header class="header scroll-header" id="header">
-    <nav class="nav container">
-        <a href="#" class="nav__logo">YunYuFeiWei</a>
-
-        <div class="nav__menu" id="nav-menu">
-            <ul class="nav__list grid">
-
-                <li class="nav__item">
-                    <a href="#home" class="nav__link">
-                        <i class="uil uil-estate nav__icon"></i>
-                        <p i18n="home">主页</p>
-                    </a>
-                </li>
-
-                <li class="nav__item">
-                    <a href="#about" class="nav__link">
-                        <i class="uil uil-user nav__icon"></i>
-                        <p i18n="about">介绍</p>
-                    </a>
-                </li>
-
-                <li class="nav__item">
-                    <a href="#skills" class="nav__link">
-                        <i class="uil uil-file-alt nav__icon"></i>
-                        <p i18n="skills">技能</p>
-                    </a>
-                </li>
-
-                <li class="nav__item">
-                    <a href="#portfolio" class="nav__link">
-                        <i class="uil uil-scenery nav__icon"></i>
-                        <p i18n="portfolio">项目集</p>
-                    </a>
-                </li>
-
-                <li class="nav__item">
-                    <a href="#contact" class="nav__link">
-                        <i class="uil uil-message nav__icon"></i>
-                        <p i18n="contact">联系方式</p>
-                    </a>
-                </li>
-            </ul>
-            <i class="uil uil-times nav__close" id="nav-close"></i>
-        </div>
-
-        <div class="nav__btns">
-            <i class="uil uil-moon change-theme" id="theme-button"></i>
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="uil uil-apps"></i>
-            </div>
+<header class="site-header" id="top">
+    <nav class="nav-wrap" aria-label="主导航">
+        <a class="brand" href="#top" aria-label="陈雨作品集首页"><span class="brand-mark"><img src="assets/Image/192.png" alt=""></span><span>CHEN YU<span class="brand-dot">.</span></span></a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="打开导航" aria-expanded="false">
+            <span></span><span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+            <a href="#home">关于我</a>
+            <a href="#experience">工作经历</a>
+            <a href="#work">项目作品</a>
+            <a href="#journal">个人博客</a>
+            <a href="#resources">素材库</a>
+            <a href="#pipeline">项目工程</a>
+            <a class="nav-contact" href="#contact">联系我</a>
         </div>
     </nav>
 </header>
 
-<!--==================== MAIN ====================-->
-<main class="main">
-    <!--==================== HOME ====================-->
-    <section class="home section" id="home">
-        <div class="home__container container grid">
-            <div class="home__content grid">
-                <div class="home__social">
-                    <a  href="https://www.zhihu.com/people/XiaoYu" target="_blank" class="home__social-icon-min" >
-                        <!-- 这里使用home__social-text-min 类对颜色进行重写-->
-                        <!-- [BUG修正] <text> 不是合法的HTML元素（它是SVG内部元素），这里应使用 <span> -->
-                        <span class="home__social-text-min">
-                            <svg
-                                    viewBox="0 0 64 30"
-                                    width="64"
-                                    height="30"
-                                    class="home__social-icon"
-                            >
-                                <path d="M29.05 4.582H16.733V25.94h3.018l.403 2.572 4.081-2.572h4.815V4.582zm-5.207 18.69l-2.396 1.509-.235-1.508h-1.724V7.233h6.78v16.04h-2.425zM14.46 14.191H9.982c0-.471.033-.954.039-1.458v-5.5h5.106V5.935a1.352 1.352 0 0 0-.404-.957 1.378 1.378 0 0 0-.968-.396H5.783c.028-.088.056-.177.084-.255.274-.82 1.153-3.326 1.153-3.326a4.262 4.262 0 0 0-2.413.698c-.57.4-.912.682-1.371 1.946-.532 1.453-.997 2.856-1.31 3.693C1.444 8.674.28 11.025.28 11.025a5.85 5.85 0 0 0 2.52-.61c1.119-.593 1.679-1.502 2.054-2.883l.09-.3h2.334v5.5c0 .5-.045.982-.073 1.46h-4.12c-.71 0-1.39.278-1.893.775a2.638 2.638 0 0 0-.783 1.874h6.527a17.717 17.717 0 0 1-.778 3.649 16.796 16.796 0 0 1-3.012 5.273A33.104 33.104 0 0 1 0 28.74s3.13 1.175 5.425-.954c1.388-1.292 2.631-3.814 3.23-5.727a28.09 28.09 0 0 0 1.12-5.229h5.967v-1.37a1.254 1.254 0 0 0-.373-.899 1.279 1.279 0 0 0-.909-.37z"></path>
-                            </svg>
-                        </span>
-                        
-                    </a>
-
-                    <a href="https://github.com/yunyufeiwei" target="_blank" class="home__social-icon-medium" >
-                        <i class="uil uil-github-alt"></i>
-                    </a>
-
-                    <a href="https://space.bilibili.com/382898888" target="_blank" class="home__social-icon-min" >
-                        <svg
-                                t="1674801734735"
-                                viewBox="0 0 1024 1024"
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                p-id="4124"
-                        >
-                            <path
-                                    d="M777.514667 131.669333a53.333333 53.333333 0 0 1 0 75.434667L728.746667 255.829333h49.92A160 160 0 0 1 938.666667 415.872v320a160 160 0 0 1-160 160H245.333333A160 160 0 0 1 85.333333 735.872v-320a160 160 0 0 1 160-160h49.749334L246.4 207.146667a53.333333 53.333333 0 1 1 75.392-75.434667l113.152 113.152c3.370667 3.370667 6.186667 7.04 8.448 10.965333h137.088c2.261333-3.925333 5.12-7.68 8.490667-11.008l113.109333-113.152a53.333333 53.333333 0 0 1 75.434667 0z m1.152 231.253334H245.333333a53.333333 53.333333 0 0 0-53.205333 49.365333l-0.128 4.010667v320c0 28.117333 21.76 51.157333 49.365333 53.162666l3.968 0.170667h533.333334a53.333333 53.333333 0 0 0 53.205333-49.365333l0.128-3.968v-320c0-29.44-23.893333-53.333333-53.333333-53.333334z m-426.666667 106.666666c29.44 0 53.333333 23.893333 53.333333 53.333334v53.333333a53.333333 53.333333 0 1 1-106.666666 0v-53.333333c0-29.44 23.893333-53.333333 53.333333-53.333334z m320 0c29.44 0 53.333333 23.893333 53.333333 53.333334v53.333333a53.333333 53.333333 0 1 1-106.666666 0v-53.333333c0-29.44 23.893333-53.333333 53.333333-53.333334z"
-                                    fill="hsl(250deg 69% 61%)"
-                                    p-id="4125"
-                            ></path>
-                        </svg>
-                    </a>
-
-                    <!-- 技术博客入口 -->
-                    <a href="TechBlog.html" target="_blank" class="home__social-icon-medium" title="技术博客" aria-label="技术博客">
-                        <i class="uil uil-notebooks"></i>
-                    </a>
+<main>
+    <section class="hero" id="home" aria-label="陈雨的个人介绍">
+        <div class="hero-shade"></div>
+        <div class="hero-content page-width">
+            <div class="hero-copy">
+                <h1 class="hero-title">游戏美术师</h1>
+                <p class="eyebrow hero-eyebrow"> 场景模型师<span class="eyebrow-line"></span> 关卡美术师 <span class="eyebrow-line"></span> 技术美术师</p>
+                <ul class="hero-description">
+                    <li><span class="status-dot" aria-hidden="true"></span><span>拥有15+的游戏美术从业经验，具备扎实的专业能力。</span></li>
+                    <li><span class="status-dot" aria-hidden="true"></span><span>专注游戏美术创作与视觉实现，深耕美术全流程落地方案，熟悉全栈美术工作流程。</span></li>
+                    <li><span class="status-dot" aria-hidden="true"></span><span>喜欢实现精美的游戏画面，并且是在游戏世界中可流畅运行、可落地的。</span></li>
+                    <li><span class="status-dot" aria-hidden="true"></span><span>我的目标是将每一个想法变成游戏中真实的表现，创造像现实一样的体验。</span></li>
+                    <li><span class="status-dot" aria-hidden="true"></span><span>具有一定的团队与项目管理能力，项目风险把控意识，以及较好的团队沟通协作能力。</span></li>
+                </ul>
+                <div class="hero-actions">
+                    <a class="hero-button hero-button-primary" href="assets/pdf/个人简历-陈雨.pdf" download>下载简历 <span aria-hidden="true">↗</span></a>
+                    <a class="hero-button hero-button-secondary" href="#contact">联系我 <span aria-hidden="true">↗</span></a>
                 </div>
-
-                <div class="home__img">
-                    <!-- [BUG修正] img标签缺少alt属性，不利于可访问性和SEO -->
-                    <img src="assets/Image/192.png" alt="个人头像">
+                <nav class="social-links" aria-label="外部平台">
+                    <a href="https://www.zhihu.com/" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">知</span>知乎</a>
+                    <a href="https://www.bilibili.com/" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">B</span>哔哩哔哩</a>
+                    <a href="https://github.com/yunyufeiwei" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">⌘</span>GitHub</a>
+                </nav>
+            </div>
+            <div class="hero-code" aria-label="ShaderLab 材质着色器代码">
+                <div class="code-toolbar">
+                    <div class="code-window-dots"><i></i><i></i><i></i></div>
+                    <span>SimpleTexture.shader</span>
+                    <span class="code-language">SHADERLAB</span>
                 </div>
+                <div class="code-body" id="shader-code" role="region" aria-label="ShaderLab 源码，支持滚动查看">
+                    <p class="code-loading">正在加载 ShaderLab 代码…</p>
+                </div>
+                <div class="code-status"><span><i></i> SHADERLAB · URP</span><span>TEXTURE × COLOR</span></div>
+            </div>
+        </div>
+        <div class="tool-strip page-width" aria-label="主要创作工具">
+            <div class="tool-items">
+                <span class="tool-item" tabindex="0" aria-label="Photoshop，熟练度 90%">
+                    <img src="assets/Image/Icon/photoshop.png" alt="">
+                    <span class="tool-tooltip" aria-hidden="true"><strong>Photoshop</strong><span>熟练度 <b>90%</b></span><i><em style="width: 90%"></em></i></span>
+                </span>
+                <span class="tool-item" tabindex="0" aria-label="3ds Max，熟练度 95%">
+                    <img src="assets/Image/Icon/Max.ico" alt="">
+                    <span class="tool-tooltip" aria-hidden="true"><strong>3ds Max</strong><span>熟练度 <b>95%</b></span><i><em style="width: 95%"></em></i></span>
+                </span>
+                <span class="tool-item" tabindex="0" aria-label="Blender，熟练度 85%">
+                    <img src="assets/Image/Icon/Blender.png" alt="">
+                    <span class="tool-tooltip" aria-hidden="true"><strong>Blender</strong><span>熟练度 <b>85%</b></span><i><em style="width: 85%"></em></i></span>
+                </span>
+                <span class="tool-item" tabindex="0" aria-label="Houdini，熟练度 80%">
+                    <img src="assets/Image/Icon/houdini.jpg" alt="">
+                    <span class="tool-tooltip" aria-hidden="true"><strong>Houdini</strong><span>熟练度 <b>80%</b></span><i><em style="width: 80%"></em></i></span>
+                </span>
+                <span class="tool-item" tabindex="0" aria-label="ZBrush，熟练度 85%">
+                    <img src="assets/Image/Icon/Zbursh.png" alt="">
+                    <span class="tool-tooltip" aria-hidden="true"><strong>ZBrush</strong><span>熟练度 <b>85%</b></span><i><em style="width: 85%"></em></i></span>
+                </span>
+                <span class="tool-item" tabindex="0" aria-label="Substance Painter，熟练度 90%">
+                    <img src="assets/Image/Icon/pt.png" alt="">
+                    <span class="tool-tooltip" aria-hidden="true"><strong>Substance Painter</strong><span>熟练度 <b>90%</b></span><i><em style="width: 90%"></em></i></span>
+                </span>
+                <span class="tool-item" tabindex="0" aria-label="Substance Designer，熟练度 75%">
+                    <img src="assets/Image/Icon/SD.png" alt="">
+                    <span class="tool-tooltip" aria-hidden="true"><strong>Substance Designer</strong><span>熟练度 <b>75%</b></span><i><em style="width: 75%"></em></i></span>
+                </span>
+                <span class="tool-item" tabindex="0" aria-label="World Creator，熟练度 80%">
+                    <img src="assets/Image/Icon/worldCreator.png" alt="">
+                    <span class="tool-tooltip" aria-hidden="true"><strong>World Creator</strong><span>熟练度 <b>80%</b></span><i><em style="width: 80%"></em></i></span>
+                </span>
+                <span class="tool-item" tabindex="0" aria-label="Gaea，熟练度 75%">
+                    <img src="assets/Image/Icon/Gaea.ico" alt="">
+                    <span class="tool-tooltip" aria-hidden="true"><strong>Gaea</strong><span>熟练度 <b>75%</b></span><i><em style="width: 75%"></em></i></span>
+                </span>
+                <span class="tool-item" tabindex="0" aria-label="Unreal Engine，熟练度 90%">
+                    <img src="assets/Image/Icon/unrealEngine.jpg" alt="">
+                    <span class="tool-tooltip" aria-hidden="true"><strong>Unreal Engine</strong><span>熟练度 <b>90%</b></span><i><em style="width: 90%"></em></i></span>
+                </span>
+                <span class="tool-item" tabindex="0" aria-label="Unity，熟练度 75%">
+                    <img src="assets/Image/Icon/unityEngine.jpg" alt="">
+                    <span class="tool-tooltip" aria-hidden="true"><strong>Unity</strong><span>熟练度 <b>75%</b></span><i><em style="width: 75%"></em></i></span>
+                </span>
+                <span class="tool-item" tabindex="0" aria-label="HLSL，熟练度 85%">
+                    <img src="assets/Image/Icon/hlsl.png" alt="">
+                    <span class="tool-tooltip" aria-hidden="true"><strong>HLSL</strong><span>熟练度 <b>85%</b></span><i><em style="width: 85%"></em></i></span>
+                </span>
+                <span class="tool-item" tabindex="0" aria-label="Python，熟练度 75%">
+                    <img src="assets/Image/Icon/python.png" alt="">
+                    <span class="tool-tooltip" aria-hidden="true"><strong>Python</strong><span>熟练度 <b>75%</b></span><i><em style="width: 75%"></em></i></span>
+                </span>
+                <span class="tool-item" tabindex="0" aria-label="C#，熟练度 70%">
+                    <img src="assets/Image/Icon/C%23.png" alt="">
+                    <span class="tool-tooltip" aria-hidden="true"><strong>C#</strong><span>熟练度 <b>70%</b></span><i><em style="width: 70%"></em></i></span>
+                </span>
+            </div>
+        </div>
+    </section>
 
-                <div class="home__data">
-                    <h3 class="home__title" i18n="home__title">
-                        我是陈雨
-                    </h3>
-                    <h3 class="home__subtitle" i18n="home__subtitle">
-                        一名游戏美术师
-                    </h3>
-                    <p class="home__description" i18n="home__description">
-                        热爱生活，热爱工作，对未知充满探索欲。
-                    </p>
-                    <a href="#contact" class="button button-flex">
-                        <span i18n="home__contact">与我联系</span>
-                        <i class="uil uil-message button__icon"></i>
-                    </a>
+    <section class="experience section-space" id="experience">
+        <div class="page-width">
+            <div class="experience-heading">
+                <div>
+                    <h2>职业经历<span class="heading-period">.</span></h2>
+                </div>
+                <span class="work-count">2010 — 2026</span>
+            </div>
+            <div class="career-strip">
+                <article class="career-item">
+                    <strong>金山互动娱乐科技有限公司</strong><span>关卡美术师 / 技术美术师</span><small>2018.04 — 2026.07</small>
+                    <div class="career-details">
+                        <ul>
+                            <li>负责游戏场景模型、关卡地图制作及灯光烘焙。</li>
+                            <li>制作材质与 Shader，开发材质交互逻辑及编辑器工具。</li>
+                            <li>排查并处理渲染问题，进行美术性能优化。</li>
+                        </ul>
+                        <p><b>参与项目</b>《卧龙吟》《狩猎突袭》《科恩1939》</p>
+                        <ul>
+                            <li>参与 SLG 项目《卧龙吟》《狩猎突袭》的关卡地图制作，独立完成战斗地图，并参与多人协作的大世界地图分片制作。</li>
+                            <li>参与 FPS 项目《狩猎突袭》的场景、特效及部分 UI 材质 Shader 制作与美术编辑器工具开发；为关卡地图提供光照技术支持并处理渲染问题。</li>
+                            <li>参与 TPS 项目《科恩1939》，负责 Shader 与美术编辑器工具开发、渲染问题处理和性能优化，并制作可交互场景模型资产及关卡地图。</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="career-item">
+                    <strong>武汉水静科技有限公司</strong><span>场景模型师 / 关卡美术师</span><small>2016.05 — 2018.01</small>
+                    <div class="career-details">
+                        <ul>
+                            <li>制作 3D 手绘、三渲二及次世代场景，并进行内部质量审核。</li>
+                            <li>负责场景地图编辑。</li>
+                            <li>参与新人培养、团队与项目管理，以及甲方需求对接。</li>
+                        </ul>
+                        <p><b>参与项目</b>《通灵宝印》《大话西游手游》《梦幻西游手游3D版》</p>
+                    </div>
+                </article>
+                <article class="career-item">
+                    <strong>武汉渲奇数字科技有限公司</strong><span>场景模型师</span><small>2011.11 — 2016.05</small>
+                    <div class="career-details">
+                        <ul>
+                            <li>制作 3D 手绘及三渲二场景并进行渲染，负责内部质量审核。</li>
+                            <li>参与项目管理与甲方需求沟通。</li>
+                            <li>负责校企合作及在校场地日常管理。</li>
+                        </ul>
+                        <p><b>参与项目</b>《山脊赛车》《大唐无双》《武魂》《镇魔曲》《大话西游手游》等</p>
+                    </div>
+                </article>
+                <article class="career-item">
+                    <strong>武汉奇诺科技有限公司</strong><span>场景模型师</span><small>2010.09 — 2011.05</small>
+                    <div class="career-details">
+                        <ul>
+                            <li>制作三渲二场景。</li>
+                            <li>制作手绘场景。</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="work section-space" id="work">
+        <div class="page-width">
+            <div class="section-heading">
+                <div class="work-heading-copy">
+                    <h2>项目作品<span class="heading-period">.</span></h2>
+                </div>
+                <span class="work-count">SELECTED PROJECTS <b>·</b> <span id="showcase-current" aria-live="polite">01</span> / 04</span>
+            </div>
+            <div class="showcase" aria-roledescription="carousel" aria-label="精选作品轮播">
+                <div class="showcase-track">
+                    <article class="showcase-slide is-active" aria-hidden="false">
+                        <div class="showcase-copy">
+                            <p class="showcase-kicker">01 / SCENE MODEL</p>
+                            <h3>场景模型<span>.</span></h3>
+                            <p class="showcase-description">从结构拆解到材质塑造，专注建筑与场景资产的细节表达，让每一件模型都自然融入游戏世界。</p>
+                            <p class="showcase-tags">模块化资产 <i>·</i> 材质表现 <i>·</i> 场景搭建</p>
+                            <a class="showcase-link" href="assets/SubPage/Protfolio/SceneModel.html">查看场景模型 <span aria-hidden="true">↗</span></a>
+                        </div>
+                        <a class="showcase-visual" href="assets/SubPage/Protfolio/SceneModel.html" tabindex="0" aria-label="查看场景模型作品">
+                            <img src="assets/Image/Work/Model/城墙.png" alt="城墙场景模型作品">
+                            <span class="showcase-image-index">SCENE MODEL / 01</span>
+                        </a>
+                    </article>
+                    <article class="showcase-slide" aria-hidden="true">
+                        <div class="showcase-copy">
+                            <p class="showcase-kicker">02 / STYLIZED WORLD</p>
+                            <h3>三渲二地图<span>.</span></h3>
+                            <p class="showcase-description">探索风格化渲染与东方美术语言的结合，以清晰的色彩层次和造型设计，呈现具有辨识度的幻想地图。</p>
+                            <p class="showcase-tags">风格化场景 <i>·</i> 东方幻想 <i>·</i> 三渲二</p>
+                            <a class="showcase-link" href="assets/SubPage/Protfolio/ThreeRenderingTwo.html">查看地图作品 <span aria-hidden="true">↗</span></a>
+                        </div>
+                        <a class="showcase-visual" href="assets/SubPage/Protfolio/ThreeRenderingTwo.html" tabindex="-1" aria-label="查看关卡地编作品">
+                            <img src="assets/Image/Work/Level/【三渲二】东海龙宫.png" alt="三渲二风格的东海龙宫地图" loading="lazy">
+                            <span class="showcase-image-index">STYLIZED MAP / 02</span>
+                        </a>
+                    </article>
+                    <article class="showcase-slide" aria-hidden="true">
+                        <div class="showcase-copy">
+                            <p class="showcase-kicker">03 / LEVEL ART</p>
+                            <h3>关卡地编<span>.</span></h3>
+                            <p class="showcase-description">以玩家体验为线索组织空间节奏，将地形、植被、光影与路径融合，构建可探索、有情绪的游戏场景。</p>
+                            <p class="showcase-tags">地形塑造 <i>·</i> 关卡氛围 <i>·</i> 灯光表现</p>
+                            <a class="showcase-link" href="assets/SubPage/Protfolio/SceneArtist.html">查看关卡作品 <span aria-hidden="true">↗</span></a>
+                        </div>
+                        <a class="showcase-visual" href="assets/SubPage/Protfolio/SceneArtist.html" tabindex="-1" aria-label="查看三渲二地图作品">
+                            <img src="assets/Image/Work/Level/LongDemo_01.png" alt="林间关卡地编场景作品" loading="lazy">
+                            <span class="showcase-image-index">LEVEL ART / 03</span>
+                        </a>
+                    </article>
+                    <article class="showcase-slide" aria-hidden="true">
+                        <div class="showcase-copy">
+                            <p class="showcase-kicker">04 / TECHNICAL ART</p>
+                            <h3>技术美术<span>.</span></h3>
+                            <p class="showcase-description">连接美术表现与引擎实现，运用程序化生成、材质与工具流程，让高质量场景更高效、更稳定地落地。</p>
+                            <p class="showcase-tags">PCG 工作流 <i>·</i> 材质开发 <i>·</i> 场景优化</p>
+                            <a class="showcase-link" href="assets/SubPage/Protfolio/TechnicalArtist.html">查看技术美术作品 <span aria-hidden="true">↗</span></a>
+                        </div>
+                        <a class="showcase-visual" href="assets/SubPage/Protfolio/TechnicalArtist.html" tabindex="-1" aria-label="查看技术美术作品">
+                            <img src="assets/Image/Work/Rendering/【Role】雷音.png" alt="雷音" loading="lazy">
+                            <span class="showcase-image-index">TECH ART / 04</span>
+                        </a>
+                    </article>
                 </div>
             </div>
-            
-            <div class="home__scroll">
-                <a href="#about" class="home__scroll-button button--flex">
-                    <i class="uil uil-mouse-alt-2 home__scroll-mouse"></i>
-                    <span class="home__scroll-name" i18n="home__scroll-name">往下滑</span>
-                    <i class="uil uil-arrow-down home__scroll-arrow"></i>
+            <div class="showcase-controls" aria-label="作品轮播控制">
+                <div class="showcase-pagination">
+                    <button class="showcase-dot is-active" type="button" aria-label="显示第 1 个作品" aria-current="true"></button>
+                    <button class="showcase-dot" type="button" aria-label="显示第 2 个作品" aria-current="false"></button>
+                    <button class="showcase-dot" type="button" aria-label="显示第 3 个作品" aria-current="false"></button>
+                    <button class="showcase-dot" type="button" aria-label="显示第 4 个作品" aria-current="false"></button>
+                </div>
+                <div class="showcase-arrows">
+                    <button class="showcase-arrow showcase-prev" type="button" aria-label="上一个作品">←</button>
+                    <button class="showcase-arrow showcase-next" type="button" aria-label="下一个作品">→</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journal section-space" id="journal">
+        <div class="page-width">
+            <div class="section-heading">
+                <div class="work-heading-copy">
+                    <h2>个人博客<span class="heading-period">.</span></h2>
+                    <p>关于关卡、材质与制作流程的一些实践记录。</p>
+                </div>
+            </div>
+            <div class="journal-grid">
+                <a class="journal-card" href="assets/SubPage/Blog/TechBlog.html#post=ue5-pcg-intro">
+                    <div class="journal-image"><img src="assets/Image/Work/Blog/engine/PCG.png" alt="PCG 生态群落效果预览" loading="lazy"><span class="journal-image-label">WORKFLOW / 01</span></div>
+                    <div class="journal-content">
+                        <h3>Unreal Engine 中的 PCG 工作流入门</h3>
+                        <div class="journal-meta"><span>UE5 · PCG</span><time datetime="2026-05-19">2026.05.19</time></div>
+                        <p>从节点思路到生态群落生成，聊聊大世界场景里的程序化工作流。</p>
+                        <span class="journal-read">WORKFLOW / 01 <b aria-hidden="true">↗</b></span>
+                    </div>
+                </a>
+                <a class="journal-card" href="assets/SubPage/Blog/TechBlog.html#post=water-flowmap">
+                    <div class="journal-image"><img src="assets/Image/Work/Blog/Shader/FlowMap.gif" alt="FlowMap 水体动态效果" loading="lazy"><span class="journal-image-label">SHADER / 02</span></div>
+                    <div class="journal-content">
+                        <h3>水体渲染笔记：FlowMap 与法线扰动</h3>
+                        <div class="journal-meta"><span>HLSL · MATERIAL</span><time datetime="2026-05-19">2026.05.19</time></div>
+                        <p>整理 FlowMap 的采样逻辑，用方向信息为水面带来持续的流动感。</p>
+                        <span class="journal-read">SHADER / 02 <b aria-hidden="true">↗</b></span>
+                    </div>
+                </a>
+                <a class="journal-card" href="assets/SubPage/Blog/TechBlog.html#post=scene-model-spec">
+                    <div class="journal-image"><img src="assets/Image/Work/Blog/Shader/切线空间下的法线采样.png" alt="场景模型制作笔记配图" loading="lazy"><span class="journal-image-label">ART PIPELINE / 03</span></div>
+                    <div class="journal-content">
+                        <h3>场景模型规范：从拓扑到 UV 的几个细节</h3>
+                        <div class="journal-meta"><span>SCENE ART · WORKFLOW</span><time datetime="2026-05-19">2026.05.19</time></div>
+                        <p>把拓扑、UV、Lightmap 与材质 ID 中容易遗漏的细节整理成制作清单。</p>
+                        <span class="journal-read">ART PIPELINE / 03 <b aria-hidden="true">↗</b></span>
+                    </div>
+                </a>
+                <a class="journal-card" href="assets/SubPage/Blog/TechBlog.html#post=level-emotion-design">
+                    <div class="journal-image"><img src="assets/Image/Work/Level/LongDemo_02.png" alt="关卡情绪与空间氛围设计" loading="lazy"><span class="journal-image-label">LEVEL ART / 04</span></div>
+                    <div class="journal-content">
+                        <h3>优秀关卡情绪表达的标准</h3>
+                        <div class="journal-meta"><span>LEVEL DESIGN · ART</span><time datetime="2026-05-19">2026.05.19</time></div>
+                        <p>从空间节奏、色彩和光影入手，整理关卡场景情绪表达的设计要点。</p>
+                        <span class="journal-read">LEVEL ART / 04 <b aria-hidden="true">↗</b></span>
+                    </div>
+                </a>
+            </div>
+            <div class="journal-footer">
+                <a class="text-link journal-all" href="assets/SubPage/Blog/TechBlog.html">全部文章 <span aria-hidden="true">↗</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="resources section-space" id="resources">
+        <div class="page-width">
+            <div class="section-heading">
+                <div class="work-heading-copy">
+                    <h2>素材库<span class="heading-period">.</span></h2>
+                    <p>按资源类型整理常用美术资料与制作工具，点击分类查看详情。</p>
+                </div>
+                <span class="work-count">COLLECTION / 04</span>
+            </div>
+            <div class="resource-grid" aria-label="素材库分类">
+                <a class="resource-card resource-card-material" href="assets/SubPage/Library/MaterialReferences.html">
+                    <span class="resource-identity"><span class="resource-index">01</span><span class="project-type">MATERIAL REFERENCES</span></span>
+                    <strong class="resource-title">材质参考图</strong>
+                    <span class="resource-preview">
+                        <span class="resource-description">整理材质表现、色彩、光照与场景氛围参考。</span>
+                        <img class="resource-thumbnail" src="assets/Image/Library/Material.jpg" alt="游戏材质参考球与不同表面纹理展示" loading="lazy">
+                    </span>
+                    <span class="resource-link">查看分类 <span aria-hidden="true">↗</span></span>
+                </a>
+                <a class="resource-card" href="assets/SubPage/Library/TextureLibrary.html">
+                    <span class="resource-identity"><span class="resource-index">02</span><span class="project-type">TEXTURE COLLECTION</span></span>
+                    <strong class="resource-title">纹理贴图集</strong>
+                    <span class="resource-description">收录可用于场景制作的纹理、贴图与相关素材。</span>
+                    <span class="resource-link">查看分类 <span aria-hidden="true">↗</span></span>
+                </a>
+                <a class="resource-card" href="assets/SubPage/Library/MaterialFunctions.html">
+                    <span class="resource-identity"><span class="resource-index">03</span><span class="project-type">MATERIAL FUNCTIONS</span></span>
+                    <strong class="resource-title">材质函数库</strong>
+                    <span class="resource-description">沉淀可复用的材质函数、节点逻辑与使用说明。</span>
+                    <span class="resource-link">查看分类 <span aria-hidden="true">↗</span></span>
+                </a>
+                <a class="resource-card" href="assets/SubPage/Library/ToolResources.html">
+                    <span class="resource-identity"><span class="resource-index">04</span><span class="project-type">TOOLS & RESOURCE PACKS</span></span>
+                    <strong class="resource-title">工具资源包</strong>
+                    <span class="resource-description">整理制作工具、脚本插件与可复用的项目资源包。</span>
+                    <span class="resource-link">查看分类 <span aria-hidden="true">↗</span></span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!--==================== ABOUT ====================-->
-    <section class="about section" id="about">
-        <h2 class="section__title" i18n="about__title">关于我</h2>
-        <span class="section__subtitle" i18n="about__subtitle">简单介绍</span>
-
-        <div class="about__container container">
-            <div class="about__data">
-                <p class="about__description" i18n="about__description">
-                    ● 具备扎实的专业能力，对游戏开发中美术全流程拥有系统且深入的理解，熟练掌握游戏美术从前期设计到最终落地的各个环节、制作规范与开发周期。<br/>
-                    <br/>
-                    ● 专注游戏美术创作与视觉实现，深耕美术全流程落地。先后担任场景模型师、关卡美术师、技术美术师等岗位，拥有多岗位复合经验，主要擅长场景方向与项目管理。<br/>
-                    <br/>
-                    ● 具有一定的团队与项目管理能力以及项目风险把控意识，可以较好的沟通协作团队之间的配合。有较强的责任心，时间观念与执行力突出，能够高效推进个人与团队任务。<br/>
-                    <br/>
-                    ● 拥有较强的自我规划能力与主动学习意识。
-                </p>
-
-                <div class="about__info">
-                    <div>
-                        <span class="about__info-title">15+</span>
-                        <span class="about__info-name" i18n="about__info-name1">年工作<br/>经验</span>
-                    </div>
-
+    <section class="pipeline section-space" id="pipeline">
+        <div class="page-width">
+            <div class="section-heading">
+                <div class="work-heading-copy">
+                    <h2>项目工程<span class="heading-period">.</span></h2>
+                    <p>从需求拆解到资产交付，展示游戏美术项目的协作流程与技术实践。</p>
                 </div>
-
-                <div class="about__buttons">
-                    <a
-                            download=""
-                            href="assets/pdf/个人简历-陈雨.pdf"
-                            class="button button--flex"
-                    >
-                        <span i18n="download">下载简历</span>
-                        <i class="uil uil-download-alt button__icon"></i>
-                    </a>
-                </div>
+                <span class="work-count">PIPELINE / 01</span>
+            </div>
+            <div class="pipeline-grid">
+                <article class="pipeline-card"><span>01 / PLAN</span><h3>需求与制作规划</h3><p>拆解目标、评估工作量，明确美术品质与交付节点。</p></article>
+                <article class="pipeline-card"><span>02 / BUILD</span><h3>资产与场景制作</h3><p>统一规范与资源组织，推进模型、材质和关卡的协作落地。</p></article>
+                <article class="pipeline-card"><span>03 / OPTIMIZE</span><h3>整合与质量验证</h3><p>检查场景表现、运行性能与制作流程，形成可持续迭代的交付。</p></article>
+                <article class="pipeline-card"><span>03 / OPTIMIZE</span><h3>整合与质量验证</h3><p>检查场景表现、运行性能与制作流程，形成可持续迭代的交付。</p></article>
             </div>
         </div>
     </section>
 
-    <!--==================== SKILLS ====================-->
-    <section class="skills section" id="skills">
-        <h2 class="section__title" i18n="skills__title">技能</h2>
-        <span class="section__subtitle" i18n="skills__subtitle">技术水平</span>
-
-        <div class="skills__container container grid">
-            <div>
-                <!--==================== SKILLS 1 ====================-->
-                <div class="skills__content skills__close">
-                    <div class="skills__header">
-                        <i class="uil uil-brackets-curly skills__icon"></i>
-                        <div>
-                            <h1 class="skills__title" i18n="home__subtitle">游戏美术师</h1>
-                            <span class="skills__subtitle" i18n="skills__years">12年 +</span>
-                        </div>
-                        <i class="uil uil-angle-down skills__arrow"></i>
-                    </div>
-
-                    <!-- 进度条由 skills-blocks.js 根据 skills__number 的百分比值动态生成 10 个彩虹方格 -->
-                    <div class="skills__list grid">
-                        <!------------------------ 3dsMax ------------------------>
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <div class="skills__titles">
-                                    <img class="skill_img" src="assets/Image/Icon/Max.ico">
-                                    <h3 class="skills__name">3dsMax</h3>
-                                </div>
-                                <span class="skills__number">90%</span>
-                            </div>
-
-                            <div class="skills__bar"></div>
-                        </div>
-
-                        <!------------------------ Blender ------------------------>
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <div class="skills__titles">
-                                    <img class="skill_img" src="assets/Image/Icon/Blender.png">
-                                    <h3 class="skills__name">Blender</h3>
-                                </div>
-                                <span class="skills__number">40%</span>
-                            </div>
-
-                            <div class="skills__bar"></div>
-                        </div>
-
-                        <!------------------------ Houdini ------------------------>
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <div class="skills__titles">
-                                    <img class="skill_img" src="assets/Image/Icon/houdini.jpg">
-                                    <h3 class="skills__name">Houdini</h3>
-                                </div>
-                                <span class="skills__number">10%</span>
-                            </div>
-
-                            <div class="skills__bar"></div>
-                        </div>
-
-                        <!------------------------ Zbrush ------------------------>
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <div class="skills__titles">
-                                    <img class="skill_img" src="assets/Image/Icon/Zbursh.png">
-                                    <h3 class="skills__name">Zbrush</h3>
-                                </div>
-                                <span class="skills__number">45%</span>
-                            </div>
-                            <div class="skills__bar"></div>
-                        </div>
-
-                        <!------------------------ Photoshop ------------------------>
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <div class="skills__titles">
-                                    <img class="skill_img" src="assets/Image/Icon/photoshop.png">
-                                    <!-- [BUG修正] 拼写错误: "Phoptshop" → "Photoshop" -->
-                    <h3 class="skills__name">Photoshop</h3>
-                                </div>
-                                <span class="skills__number">85%</span>
-                            </div>
-                            <div class="skills__bar"></div>
-                        </div>
-
-                        <!------------------------ SubstancePainter ------------------------>
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <div class="skills__titles">
-                                    <img class="skill_img" src="assets/Image/Icon/pt.png">
-                                    <h3 class="skills__name">SubstancePainter</h3>
-                                </div>
-                                <span class="skills__number">75%</span>
-                            </div>
-                            <div class="skills__bar"></div>
-                        </div>
-
-                        <!------------------------ SubstanceDesigner ------------------------>
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <div class="skills__titles">
-                                    <img class="skill_img" src="assets/Image/Icon/SD.png">
-                                    <h3 class="skills__name">SubstanceDesigner</h3>
-                                </div>
-                                <span class="skills__number">65%</span>
-                            </div>
-                            <div class="skills__bar"></div>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <div class="skills__titles">
-                                    <img class="skill_img" src="assets/Image/Icon/worldCreator.png">
-                                    <h3 class="skills__name">worldCreator</h3>
-                                </div>
-                                <span class="skills__number">60%</span>
-                            </div>
-                            <div class="skills__bar"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--==================== SKILLS 2 ====================-->
-                <div class="skills__content skills__open">
-                    <div class="skills__header">
-                        <i class="uil uil-server-network skills__icon"></i>
-                        <div>
-                            <h1 class="skills__title" i18n="skills__title2">技术美术师</h1>
-                            <span class="skills__subtitle" i18n="skills__years2">3年 +</span>
-                        </div>
-                        <i class="uil uil-angle-down skills__arrow"></i>
-                    </div>
-
-                    <div class="skills__list grid">
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <div class="skills__titles">
-                                    <img class="skill_img" src="assets/Image/Icon/unityEngine.jpg">
-                                    <h3 class="skills__name">UnityEngine</h3>
-                                </div>
-                                <span class="skills__number">85%</span>
-                            </div>
-                            <div class="skills__bar"></div>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <div class="skills__titles">
-                                    <img class="skill_img" src="assets/Image/Icon/unrealEngine.jpg">
-                                    <h3 class="skills__name">UnrealEngine</h3>
-                                </div>
-                                <span class="skills__number">80%</span>
-                            </div>
-                            <div class="skills__bar"></div>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <div class="skills__titles">
-                                    <img class="skill_img" src="assets/Image/Icon/hlsl.png">
-                                    <h3 class="skills__name">HLSL</h3>
-                                </div>
-                                <span class="skills__number">90%</span>
-                            </div>
-                            <div class="skills__bar"></div>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <div class="skills__titles">
-                                    <img class="skill_img" src="assets/Image/Icon/C%23.png">
-                                    <h3 class="skills__name">C#</h3>
-                                </div>
-                                <span class="skills__number">60%</span>
-                            </div>
-                            <div class="skills__bar"></div>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <div class="skills__titles">
-                                    <img class="skill_img" src="assets/Image/Icon/python.png">
-                                    <h3 class="skills__name">Python</h3>
-                                </div>
-                                <span class="skills__number">45%</span>
-                            </div>
-                            <div class="skills__bar"></div>
-                        </div>
-
-                    </div>
-                </div>
+    <section class="contact section-space" id="contact">
+        <div class="page-width contact-panel">
+            <div class="contact-intro">
+                <p class="contact-eyebrow">LET'S CONNECT</p>
+                <h2>联系我<span class="heading-period">.</span></h2>
+                <p>期待与你合作，欢迎通过以下方式联系。</p>
             </div>
-        </div>
-    </section>
-
-    <!--==================== QUALIFICATION ====================-->
-    <section class="qualification section">
-        <h2 class="section__title" i18n="qualification__title">
-            工作经历
-        </h2>
-        <span class="section__subtitle" i18n="qualification__subtitle">
-              个人履历
-        </span>
-
-        <div class="qualification__container container">
-            <div class="qualification__tabs">
-                <div class="qualification__button button--flex qualification__active" data-target="#education">
-                    <i class="uil uil-graduation-cap qualification__icon"></i>
-                    <span i18n="education">教育</span>
-                </div>
-
-                <div class="qualification__button button--flex" data-target="#work">
-                    <i class="uil uil-briefcase-alt qualification__icon"></i>
-                    <span i18n="work">工作</span>
-                </div>
-            </div>
-
-            <div class="qualification__sections">
-                <!--==================== 教育经历 ====================-->
-                <div
-                        class="qualification__content qualification__active"
-                        data-content
-                        id="education"
-                >
-                    <!--==================== 教育经历 2 ====================-->
-                    <div class="qualification__data">
-                        <div>
-                            <span class="qualification__rounder"></span>
-                             <span class="qualification__line"></span>
-                        </div>
-
-                        <div>
-                            <h3 class="qualification__title" i18n="qualification2__title">
-                                动漫设计
-                            </h3>
-                            <span class="qualification__subtitle" i18n="qualification2__subtitle">武汉奇诺科技有限公司<br/><br/>在项目实践中学习。</span>
-                            <div class="qualification__calendar">
-                                <i class="uil uil-calendar-alt"></i>
-                                2009.09-2010.06
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--==================== 教育经历 1 ====================-->
-                    <div class="qualification__data">
-                        <div>
-                            <span class="qualification__rounder"></span>
-                        </div>
-                        
-                        <div>
-                            <h3 class="qualification__title" i18n="qualification1__title">
-                                计算机科学及应用
-                            </h3>
-                            <span class="qualification__subtitle" i18n="qualification1__subtitle">武汉大学</span>
-                            <div class="qualification__calendar">
-                                <i class="uil uil-calendar-alt"></i>
-                                2008.09-2010.06
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--==================== 工作经历 ====================-->
-                <div class="qualification__content" data-content id="work">
-                    <!--==================== 工作经历 4 ====================-->
-                    <div class="qualification__data">
-
-                        <div>
-                            <span class="qualification__rounder"></span>
-                            <span class="qualification__line"></span>
-                        </div>
-
-                        <div>
-                            <h3 class="qualification__title" i18n="qualification7__title">
-                                场景美术师/技术美术师
-                            </h3>
-                            <span class="qualification__subtitle" i18n="qualification7__subtitle">武汉金山软件<br/><br/>1.3D场景模型贴图制作。<br/>2.游戏关卡地图制作、灯光烘焙，对接TA与程序实现材质效果与逻辑功能。<br/>3.推进项目优化中场景相关的优化事项与技术跟进。<br/>4.Shader开发、材质交互逻辑、美术工具开发，以及美术制作流程的规范等。<br/><br/>参与项目：《卧龙吟》《狩猎突袭》等</span>
-                            <div class="qualification__calendar">
-                                <i class="uil uil-calendar-alt"></i>
-                                2018.04 ~ 2026.07
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--==================== 工作经历 3 ====================-->
-                    <div class="qualification__data">
-                        <div>
-                            <span class="qualification__rounder"></span>
-                            <span class="qualification__line"></span>
-                        </div>
-                        <div>
-                            <h3 class="qualification__title" i18n="qualification6__title">
-                                3D模型师/场景美术师
-                            </h3>
-                            <span class="qualification__subtitle" i18n="qualification6__subtitle">武汉水静科技有限公司<br/><br/>1.主要制作3D手绘场景、三渲二场景、渲染，对内部提交文件质量审核与修改。<br/>2.负责对接甲方需求，管理团队及项目排期、内部质量审核。<br/>3.场景地图制作。<br/><br/>参与项目：《通灵宝印》《大话西游手游》《梦幻西游手游3D版》等</span>
-                            <div class="qualification__calendar">
-                                <i class="uil uil-calendar-alt"></i>
-                                2016.05 ~ 2018.01
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--==================== 工作经历 2 ====================-->
-                    <div class="qualification__data">
-                        <div>
-                            <span class="qualification__rounder"></span>
-                            <span class="qualification__line"></span>
-                        </div>
-                        <div>
-                            <h3 class="qualification__title" i18n="qualification5__title">
-                                3D场景模型师
-                            </h3>
-                            <span class="qualification__subtitle" i18n="qualification5__subtitle">武汉渲奇科技有限公司<br/><br/>1.制作3D手绘、次世代、三渲二场景，对内部文件提交质量审核与修改。<br/>2.主要负责对接甲方需求、项目管理排气分配、项目质量与进审核，以及场景相关内容制作。<br/>3.负责校企合作事项、在校场地管理，在校实习生培养。<br/><br/>参与项目：《山脊赛车》《大唐无双》《武魂》《斩魂》《镇魔曲》《大话西游手游》《梦想星城》《秘宝猎人》等</span>
-                            <div class="qualification__calendar">
-                                <i class="uil uil-calendar-alt"></i>
-                                2011.11 ~ 2016.05
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--==================== 工作经历 1 ====================-->
-                    <div class="qualification__data">
-                        <div>
-                            <span class="qualification__rounder"></span>
-                        </div>
-                        <div>
-                            <h3 class="qualification__title" i18n="qualification4__title">
-                                3D场景模型师
-                            </h3>
-                            <span class="qualification__subtitle" i18n="qualification4__subtitle">武汉奇诺科技有限公司<br/><br/>3D场景模型，主要制作三渲二场景、手绘场景模型贴图。</span>
-                            <div class="qualification__calendar">
-                                <i class="uil uil-calendar-alt"></i>
-                                2010.06 ~ 2011.05
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--==================== PORTFOLIO ====================-->
-    <section class="portfolio section" id="portfolio">
-        <h2 class="section__title" i18n="portfolio__title">作品集合</h2>
-        <span class="section__subtitle" i18n="portfolio__subtitle">项目作品与个人练习</span>
-
-        <div class="portfolio__container container swiper-container">
-            <div class="swiper-wrapper">
-
-                <!--==================== PORTFOLIO 1 ====================-->
-                <div class="portfolio__content grid swiper-slide">
-                    <img src="assets/ImageWork/Rendering/【Role】雷音.png" alt="" class="portfolio__img"/>
-                    <!-- [BUG修正] class="portfolio_" 缺少后半部分，应为 "portfolio__data" 或其他完整类名 -->
-                    <div class="portfolio__data">
-                        <h3 class="portfolio__title" i18n="portfolio1__title">技术美术</h3>
-                        <p class="portfolio__description" i18n="portfolio1__description">
-                            这里是实现美术表现与技术实现的项目以及练习作品集，主要注重于常用在项目中可落地使用的技术方案。
-                        </p>
-                        <a href="TechnicalArtist.html" target="_blank" class="button button--flex button--small portfolio__button">
-                            Demo
-                            <i class="uil uil-arrow-right button__icon"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!--==================== PORTFOLIO 2 ====================-->
-                <div class="portfolio__content grid swiper-slide">
-                    <img src="assets/ImageWork/Level/LongDemo_01.png" alt="" class="portfolio__img"/>
-                    <!-- [BUG修正] 同上，class="portfolio_" → "portfolio__data" -->
-                    <div class="portfolio__data">
-                        <h3 class="portfolio__title" i18n="portfolio2__title">关卡美术</h3>
-                        <p class="portfolio__description" i18n="portfolio2__description">
-                            这里是实现关卡美术师的地编作品集，展示了不同类型、不同主题风格的关卡地图。
-                        </p>
-                        <a href="SceneArtist.html" target="_blank" class="button button--flex button--small portfolio__button" >
-                            Demo
-                            <i class="uil uil-arrow-right button__icon"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="portfolio__content grid swiper-slide">
-                    <img src="assets/ImageWork/Model/势力守护兽.png" alt="" class="portfolio__img"/>
-                    <!-- [BUG修正] 同上，class="portfolio_" → "portfolio__data" -->
-                    <div class="portfolio__data">
-                        <h3 class="portfolio__title" i18n="portfolio4__title">场景模型</h3>
-                        <p class="portfolio__description" i18n="portfolio4__description">
-                            这里是不同风格与主题的3D模型，展示了对场景模型不同风格、比例和细节的制作能力。
-                        </p>
-                        <a href="SceneModel.html" target="_blank" class="button button--flex button--small portfolio__button">
-                            Demo
-                            <i class="uil uil-arrow-right button__icon"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- add arrows-->
-            <div class="swiper-button-next">
-                <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
-            </div>
-
-            <div class="swiper-button-prev">
-                <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
-            </div>
-
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
-        </div>
-    </section>
-
-    <!--==================== CONTACT ME ====================-->
-    <section class="contact section" id="contact">
-        <h2 class="section__title" i18n="contact__title">联系方式</h2>
-        <span class="section__subtitle" i18n="contact__subtitle">与我联系</span>
-        <div class="contact__container container grid">
-            <div>
-                <div class="contact__information">
-                    <i class="uil uil-phone-alt contact__icon"></i>
-                    <h3 class="contact__title" i18n="tel">电话(微信)</h3>
-                    <span class="contact__separator">：</span>
-                    <span class="contact__subtitle" i18n="tel__number">13667122095</span>
-                </div>
-
-                <div class="contact__information">
-                    <i class="uil uil-envelope contact__icon"></i>
-                    <h3 class="contact__title" i18n="email">电子邮箱</h3>
-                    <span class="contact__separator">：</span>
-                    <span class="contact__subtitle" i18n="email__address">328800436@qq.com</span>
-                </div>
-
-                <div class="contact__information">
-                    <i class="uil uil-map-marker contact__icon"></i>
-                    <h3 class="contact__title" i18n="location">位置</h3>
-                    <span class="contact__separator">：</span>
-                    <span class="contact__subtitle" i18n="location__detail">湖北省武汉市</span>
+            <div class="contact-card">
+                <a class="contact-row" href="QQ:328800436">
+                    <span class="contact-row-label"><svg class="contact-row-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c-3.1 0-5.5 2.7-5.5 6 0 1.1.3 2.1.8 3-.8.9-1.3 2.1-1.3 3.4 0 1.6.7 2.8 1.7 2.8.8 0 1.2-.7 1.4-1.6.8.5 1.8.8 2.9.8s2.1-.3 2.9-.8c.2.9.6 1.6 1.4 1.6 1 0 1.7-1.2 1.7-2.8 0-1.3-.5-2.5-1.3-3.4.5-.9.8-1.9.8-3 0-3.3-2.4-6-5.5-6Z"/><path d="M10 10h.01M14 10h.01M10 13.5c1.2.8 2.8.8 4 0"/></svg>QQ</span>
+                    <span class="contact-row-value">328800436</span>
+                    <span class="contact-row-arrow" aria-hidden="true">›</span>
+                </a>
+                <a class="contact-row" href="wechat:cy328800436">
+                    <span class="contact-row-label"><svg class="contact-row-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 11.5c0-2.8-2.4-5-5.4-5s-5.4 2.2-5.4 5c0 1.6.8 3 2.1 3.9l-.5 1.9 2.3-1.2c.5.2 1 .3 1.5.3" transform="translate(4 0)"/><path d="M14 12.5c-3.1 0-5.6 2-5.6 4.5s2.5 4.5 5.6 4.5c.7 0 1.4-.1 2-.3l2.3 1.1-.5-1.8c1.1-.8 1.8-2 1.8-3.5 0-2.5-2.5-4.5-5.6-4.5Z"/><path d="M7 10h.01M11 10h.01M12 17h.01M15.5 17h.01"/></svg>微信</span>
+                    <span class="contact-row-value">cy328800436</span>
+                    <span class="contact-row-arrow" aria-hidden="true">›</span>
+                </a>
+                <a class="contact-row" href="mailto:328800436@qq.com">
+                    <span class="contact-row-label"><svg class="contact-row-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="m4.5 7 7.5 6 7.5-6"/></svg>电子邮箱</span>
+                    <span class="contact-row-value">328800436@qq.com</span>
+                    <span class="contact-row-arrow" aria-hidden="true">›</span>
+                </a>
+                <div class="contact-row">
+                    <span class="contact-row-label"><svg class="contact-row-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.2"/></svg>所在位置</span>
+                    <span class="contact-row-value">中国 · 武汉</span>
+                    <span class="contact-row-arrow" aria-hidden="true"></span>
                 </div>
             </div>
         </div>
     </section>
 </main>
 
-<!--==================== FOOTER ====================-->
-<footer class="footer">
-    <div class="footer__bg">
-        <div class="footer__container container grid">
-            <div>
-                <h1 class="footer__title">YunYuFeiWei</h1>
-                <!--                    <span class="footer__subtitle" i18n="home__subtitle">Frontend developer</span>-->
-            </div>
-
-            <ul class="footer__links">
-                <li>
-                    <a href="#skills" class="footer__link" i18n="skills">Skills</a>
-                </li>
-                <li>
-                    <a href="#portfolio" class="footer__link" i18n="portfolio">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#contact" class="footer__link" i18n="contact">Contact</a>
-                </li>
-            </ul>
-
-            <div class="footer__socials">
-                <a href="https://www.zhihu.com/people/XiaoYu" target="_blank">
-                    <svg class="icon footer__social" aria-hidden="true">
-                        <use xlink:href="#icon-zhihu"></use>
-                    </svg>
-                </a>
-                <a href="https://github.com/yunyufeiwei" target="_blank">
-                    <svg class="icon footer__social" aria-hidden="true">
-                        <use xlink:href="#icon-github"></use>
-                    </svg>
-                </a>
-                <a href="https://space.bilibili.com/382898888" target="_blank">
-                    <svg class="icon footer__social" aria-hidden="true">
-                        <use xlink:href="#icon-bilibili-line"></use>
-                    </svg>
-                </a>
-            </div>
-        </div>
-
-        <p class="footer__copy">
-            &#169; YunYuFeiWei.Copy from
-            <a class="footer__copy" href="https://www.youtube.com/c/Bedimcode" target="_blank">Bedimcode</a>
-        </p>
+<footer class="site-footer">
+    <div class="page-width footer-inner">
+        <a class="brand" href="#top" aria-label="回到作品集首页"><span class="brand-mark"><img src="assets/Image/192.png" alt=""></span><span>CHEN YU<span class="brand-dot">.</span></span></a>
+        <span>生命不息 · 热爱不止</span>
+        <small>© <span id="current-year">2026</span> 陈雨 · 个人网页</small>
     </div>
 </footer>
-
-<!--==================== SCROLL TOP ====================-->
-<a href="#" class="scrollup" id="scroll-up">
-    <i class="uil uil-arrow-up scrollup__icon"></i>
-</a>
-<!--==================== SWIPER JS ====================-->
-<script src="assets/js/swiper-bundle.min.js"></script>
-
-<!-- 粒子三角形背景 -->
-<script src="assets/js/particles-bg.js"></script>
-
-<!-- iconfont JS -->
-<script src="assets/js/iconfont.js"></script>
-<!-- jquery -->
-<script src="assets/js/jquery2.1.4.min.js"></script>
-<script src="assets/js/jquery.i18n.min.js"></script>
-<!--==================== MAIN JS ====================-->
-<script src="assets/js/main.js"></script>
-
-<!-- 技能方格进度条 -->
-<script src="assets/js/skills-blocks.js"></script>
-
-<!-- translate JS - 只加载中文 -->
-<script src="assets/js/cn-en-translate.js"></script>
-
+<script src="assets/js/portfolio.js"></script>
 </body>
 </html>
