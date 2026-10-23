@@ -19,10 +19,32 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            position: relative;
+            isolation: isolate;
+            min-height: 100vh;
+            background:
+                radial-gradient(ellipse at 18% 20%, rgba(20, 148, 171, 0.16), transparent 42%),
+                radial-gradient(ellipse at 88% 76%, rgba(100, 42, 181, 0.24), transparent 45%),
+                linear-gradient(115deg, #071323, #0a172c 55%, #10152e);
+            background-attachment: fixed;
             color: #e3e3e3;
             font-family: 'Poppins', sans-serif;
             line-height: 1.5;
+        }
+
+        body::before {
+            position: fixed;
+            z-index: -1;
+            inset: 0;
+            content: "";
+            opacity: 0.62;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(86, 129, 188, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(86, 129, 188, 0.1) 1px, transparent 1px),
+                linear-gradient(rgba(86, 129, 188, 0.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(86, 129, 188, 0.045) 1px, transparent 1px);
+            background-size: 72px 72px, 72px 72px, 18px 18px, 18px 18px;
         }
 
         /* 顶部标题栏 - sticky */
@@ -37,8 +59,8 @@
             justify-content: center;
             gap: 12px;
             flex-wrap: wrap;
-            backdrop-filter: none;
-            background: hsla(var(--hue-color), 28%, 12%, 0.98);
+            backdrop-filter: blur(14px);
+            background: rgba(7, 19, 35, 0.88);
         }
 
         .page-title {
@@ -48,9 +70,10 @@
 
         /* 主内容区域 */
         .main-content {
-            max-width: 95%;
+            width: calc(100% - 48px);
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 12px 18px 24px;
+            padding: 12px 0 24px;
         }
 
         /* 卡片网格 - 默认4列 */
@@ -79,6 +102,8 @@
             width: 100%;
             aspect-ratio: 16 / 9;
             overflow: hidden;
+            border-radius: 8px;
+            box-shadow: none;
         }
 
         .card .image-container img {
@@ -92,13 +117,7 @@
         }
 
         .card .card-title {
-            padding: 6px 8px;
-            font-size: 0.8rem;
-            color: #c0c0c0;
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            display: none;
         }
 
         /* 放大图片的容器 */
@@ -155,7 +174,25 @@
             }
 
             .main-content {
-                padding: 0 16px 32px;
+                padding: 0 0 32px;
+            }
+        }
+
+        @media (min-width: 1500px) {
+            .main-content {
+                width: calc(100% - 80px);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .main-content {
+                width: calc(100% - 28px);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .main-content {
+                width: calc(100% - 20px);
             }
         }
 
@@ -174,7 +211,363 @@
             }
 
             .main-content {
-                padding: 0 12px 24px;
+                padding: 0 0 24px;
+            }
+        }
+
+        .top-nav {
+            position: sticky;
+            justify-content: flex-start;
+            min-height: 70px;
+            padding: 10px max(24px, calc((100% - 1600px) / 2));
+            border-bottom: 0;
+            background: rgba(7, 19, 35, 0.84);
+        }
+
+        .top-nav::after {
+            position: absolute;
+            right: 0;
+            bottom: 16px;
+            left: 0;
+            height: 1px;
+            content: "";
+            background: linear-gradient(90deg, #31e3e4 0%, #5681bc 48%, #a65aff 100%);
+            box-shadow: 0 0 6px rgba(91, 133, 224, 0.28);
+            pointer-events: none;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            min-width: 0;
+            padding-bottom: 14px;
+        }
+
+        .nav-mark {
+            width: 34px;
+            height: 34px;
+            flex: 0 0 34px;
+            border: 1px solid rgba(49, 227, 228, 0.75);
+            transform: rotate(45deg) scale(0.74);
+            box-shadow: 0 0 18px rgba(49, 227, 228, 0.18);
+        }
+
+        .nav-brand-copy {
+            display: flex;
+            align-items: baseline;
+            gap: clamp(12px, 2vw, 24px);
+            min-width: 0;
+            height: 38px;
+            align-items: center;
+        }
+
+        .nav-brand-copy strong {
+            position: relative;
+            color: #f2f5fb;
+            font-size: clamp(18px, 2vw, 25px);
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+        }
+
+        .nav-divider {
+            width: 2px;
+            height: 34px;
+            flex: 0 0 2px;
+            align-self: center;
+            margin-inline: 2px;
+            background: linear-gradient(180deg, #a65aff, #5681bc 52%, #31e3e4);
+            box-shadow: 0 0 9px rgba(122, 105, 234, 0.45);
+            transform: translateY(6px);
+        }
+
+        .nav-brand-copy span {
+            overflow: hidden;
+            color: #9baec8;
+            font-size: 13px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .main-content {
+            padding-top: 28px;
+        }
+
+        .card-grid {
+            gap: 18px;
+        }
+
+        .card {
+            padding: 7px;
+            border: 1px solid rgba(128, 157, 199, 0.18);
+            border-radius: 12px;
+            background: linear-gradient(145deg, rgba(20, 38, 65, 0.7), rgba(12, 23, 43, 0.82));
+            cursor: default;
+        }
+
+        .card:hover {
+            border-color: rgba(49, 227, 228, 0.42);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+        }
+
+        .card .image-container {
+            aspect-ratio: 16 / 10;
+            border-radius: 7px;
+            background: rgba(7, 19, 35, 0.6);
+            cursor: zoom-in;
+        }
+
+        .card .card-title {
+            display: block;
+            overflow: hidden;
+            margin: 12px 4px 10px;
+            color: #eef3fb;
+            font-size: 14px;
+            font-weight: 600;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .card-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 0 3px 3px;
+        }
+
+        .card-type,
+        .card-view {
+            min-height: 30px;
+            padding: 5px 12px;
+            border: 1px solid rgba(128, 157, 199, 0.28);
+            border-radius: 999px;
+            color: #aebbd0;
+            font: inherit;
+            font-size: 11px;
+            line-height: 1.2;
+        }
+
+        .card-type {
+            background: rgba(12, 26, 47, 0.6);
+        }
+
+        .card-view {
+            border-color: rgba(49, 227, 228, 0.42);
+            color: #7de8eb;
+            background: rgba(49, 227, 228, 0.08);
+            cursor: pointer;
+            transition: color 0.2s, background 0.2s, border-color 0.2s;
+        }
+
+        .card-view:hover,
+        .card-view:focus-visible {
+            border-color: #31e3e4;
+            color: #071323;
+            background: #31e3e4;
+        }
+
+        .detail-backdrop {
+            position: fixed;
+            z-index: 1100;
+            inset: 0;
+            background: rgba(2, 8, 18, 0.58);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        .detail-panel {
+            position: fixed;
+            z-index: 1101;
+            inset: 0 0 0 auto;
+            display: flex;
+            width: min(420px, 100%);
+            flex-direction: column;
+            padding: clamp(20px, 4vw, 34px);
+            border-left: 1px solid rgba(49, 227, 228, 0.28);
+            background:
+                radial-gradient(ellipse at 95% 8%, rgba(100, 42, 181, 0.2), transparent 42%),
+                linear-gradient(150deg, #0d2039, #0a1429 72%);
+            box-shadow: -20px 0 60px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(100%);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        body.detail-open .detail-backdrop {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        body.detail-open .detail-panel {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(0);
+        }
+
+        .detail-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .detail-heading h2 {
+            color: #f2f5fb;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .detail-close {
+            display: grid;
+            width: 36px;
+            height: 36px;
+            place-items: center;
+            border: 1px solid rgba(128, 157, 199, 0.28);
+            border-radius: 50%;
+            color: #c4d0e1;
+            background: rgba(255, 255, 255, 0.04);
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .detail-preview {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            border: 1px solid rgba(128, 157, 199, 0.22);
+            border-radius: 10px;
+            background: rgba(7, 19, 35, 0.7);
+            object-fit: contain;
+        }
+
+        .detail-specs {
+            display: grid;
+            gap: 0;
+            margin-top: 18px;
+            border-top: 1px solid rgba(171, 197, 230, 0.18);
+        }
+
+        .detail-spec-row {
+            display: grid;
+            grid-template-columns: 110px minmax(0, 1fr);
+            gap: 12px;
+            padding: 13px 0;
+            border-bottom: 1px solid rgba(171, 197, 230, 0.14);
+            font-size: 12px;
+        }
+
+        .detail-spec-row span:first-child {
+            color: #7f91aa;
+        }
+
+        .detail-spec-row span:last-child {
+            color: #e0e7f2;
+            overflow-wrap: anywhere;
+        }
+
+        .detail-name {
+            margin-top: 22px;
+            color: #f2f5fb;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .detail-type {
+            display: inline-flex;
+            align-self: flex-start;
+            margin-top: 10px;
+            padding: 5px 11px;
+            border: 1px solid rgba(49, 227, 228, 0.32);
+            border-radius: 999px;
+            color: #7de8eb;
+            background: rgba(49, 227, 228, 0.08);
+            font-size: 11px;
+        }
+
+        .detail-description {
+            margin-top: 22px;
+            color: #aebbd0;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .detail-divider {
+            height: 1px;
+            margin: 24px 0 18px;
+            border: 0;
+            background: rgba(171, 197, 230, 0.18);
+        }
+
+        .detail-note {
+            color: #7f91aa;
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .enlarged-container {
+            z-index: 1200;
+            cursor: zoom-out;
+        }
+
+        .enlarged-image {
+            max-width: 94vw;
+            max-height: 92vh;
+            border: 1px solid rgba(128, 157, 199, 0.24);
+            border-radius: 8px;
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .top-nav {
+                padding-inline: 16px;
+            }
+
+            .nav-divider {
+                height: 30px;
+                transform: translateY(6px);
+            }
+
+            .nav-brand-copy {
+                display: grid;
+                gap: 1px;
+            }
+
+            .nav-brand-copy span {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-nav {
+                min-height: 62px;
+                padding-inline: 12px;
+            }
+
+            .main-content {
+                padding-top: 16px;
+            }
+
+            .card-grid {
+                gap: 10px;
+            }
+
+            .card {
+                padding: 5px;
+            }
+
+            .card .card-title {
+                margin: 9px 3px 8px;
+                font-size: 12px;
+            }
+
+            .card-type,
+            .card-view {
+                min-height: 27px;
+                padding: 4px 9px;
+                font-size: 10px;
             }
         }
     </style>
@@ -182,107 +575,165 @@
 
 <body>
 
-<!-- 顶部标题 -->
-<nav class="top-nav">
-</nav>
-
-<!-- 主内容区域 -->
-<div class="main-content">
-    <div class="card-grid">
-        <div class="card">
-            <div class="image-container">
-                <img src="assets/Image/Work/Model/势力守护兽.png" alt="势力守护兽">
-            </div>
-            <div class="card-title">势力守护兽</div>
-        </div>
-        <div class="card">
-            <div class="image-container">
-                <img src="assets/Image/Work/Model/主城小飞机.png" alt="主城小飞机">
-            </div>
-            <div class="card-title">主城小飞机</div>
-        </div>
-        <div class="card">
-            <div class="image-container">
-                <img src="assets/Image/Work/Model/战场平台.png" alt="战场平台">
-            </div>
-            <div class="card-title">战场平台</div>
-        </div>
-        <div class="card">
-            <div class="image-container">
-                <img src="assets/Image/Work/Model/七星台.png" alt="七星台">
-            </div>
-            <div class="card-title">七星台</div>
-        </div>
-        <div class="card">
-            <div class="image-container">
-                <img src="assets/Image/Work/Model/城墙.png" alt="城墙">
-            </div>
-            <div class="card-title">城墙</div>
-        </div>
-        <div class="card">
-            <div class="image-container">
-                <img src="assets/Image/Work/Model/复杂墙体.png" alt="复杂墙体">
-            </div>
-            <div class="card-title">复杂墙体</div>
-        </div>
-        <div class="card">
-            <div class="image-container">
-                <img src="assets/Image/Work/Model/残桥.png" alt="残桥">
-            </div>
-            <div class="card-title">残桥</div>
-        </div>
-        <div class="card">
-            <div class="image-container">
-                <img src="assets/Image/Work/Model/武器.png" alt="武器">
-            </div>
-            <div class="card-title">武器</div>
-        </div>
-        <div class="card">
-            <div class="image-container">
-                <img src="assets/Image/Work/Model/Building_ladder.png" alt="Building_ladder">
-            </div>
-            <div class="card-title">Building_ladder</div>
-        </div>
-        <div class="card">
-            <div class="image-container">
-                <img src="assets/Image/Work/Model/Building_Wall.png" alt="Building_Wall">
-            </div>
-            <div class="card-title">Building_Wall</div>
+<nav class="top-nav" aria-label="页面导航">
+    <div class="nav-brand">
+        <span class="nav-mark" aria-hidden="true"></span>
+        <div class="nav-brand-copy">
+            <strong>我的作品</strong>
+            <span class="nav-divider" aria-hidden="true"></span>
+            <span>游戏资产模型展示库</span>
         </div>
     </div>
-</div>
+</nav>
 
-<!-- 放大图片的容器 -->
-<div id="enlargedContainer" class="enlarged-container">
-    <img id="enlargedImage" class="enlarged-image" src="" alt="放大图片">
+<main class="main-content">
+    <div class="card-grid">
+        <article class="card" data-title="势力守护兽" data-type="生物" data-face-count="未提供" data-description="游戏角色与场景资产模型作品，重点呈现守护兽的整体造型与结构细节。">
+            <div class="image-container"><img src="assets/Image/Work/Model/势力守护兽.png" alt="势力守护兽"></div>
+            <h2 class="card-title">势力守护兽</h2>
+            <div class="card-actions"><span class="card-type">生物</span><button class="card-view" type="button">查看</button></div>
+        </article>
+        <article class="card" data-title="主城小飞机" data-type="载具" data-face-count="未提供" data-description="游戏载具模型作品，展示小型飞行器的外观轮廓与造型设计。">
+            <div class="image-container"><img src="assets/Image/Work/Model/主城小飞机.png" alt="主城小飞机"></div>
+            <h2 class="card-title">主城小飞机</h2>
+            <div class="card-actions"><span class="card-type">载具</span><button class="card-view" type="button">查看</button></div>
+        </article>
+        <article class="card" data-title="战场平台" data-type="场景" data-face-count="未提供" data-description="游戏场景模型作品，呈现战场平台的空间布局与整体结构。">
+            <div class="image-container"><img src="assets/Image/Work/Model/战场平台.png" alt="战场平台"></div>
+            <h2 class="card-title">战场平台</h2>
+            <div class="card-actions"><span class="card-type">场景</span><button class="card-view" type="button">查看</button></div>
+        </article>
+        <article class="card" data-title="七星台" data-type="建筑" data-face-count="未提供" data-description="游戏建筑模型作品，展示七星台的建筑形态与主体结构。">
+            <div class="image-container"><img src="assets/Image/Work/Model/七星台.png" alt="七星台"></div>
+            <h2 class="card-title">七星台</h2>
+            <div class="card-actions"><span class="card-type">建筑</span><button class="card-view" type="button">查看</button></div>
+        </article>
+        <article class="card" data-title="城墙" data-type="建筑" data-face-count="未提供" data-description="游戏建筑资产模型，展示城墙模块的造型与结构表现。">
+            <div class="image-container"><img src="assets/Image/Work/Model/城墙.png" alt="城墙"></div>
+            <h2 class="card-title">城墙</h2>
+            <div class="card-actions"><span class="card-type">建筑</span><button class="card-view" type="button">查看</button></div>
+        </article>
+        <article class="card" data-title="复杂墙体" data-type="建筑" data-face-count="未提供" data-description="游戏建筑资产模型，呈现复杂墙体的结构组合与造型细节。">
+            <div class="image-container"><img src="assets/Image/Work/Model/复杂墙体.png" alt="复杂墙体"></div>
+            <h2 class="card-title">复杂墙体</h2>
+            <div class="card-actions"><span class="card-type">建筑</span><button class="card-view" type="button">查看</button></div>
+        </article>
+        <article class="card" data-title="残桥" data-type="建筑" data-face-count="未提供" data-description="游戏场景建筑模型，展示残桥结构与破损形态的视觉表现。">
+            <div class="image-container"><img src="assets/Image/Work/Model/残桥.png" alt="残桥"></div>
+            <h2 class="card-title">残桥</h2>
+            <div class="card-actions"><span class="card-type">建筑</span><button class="card-view" type="button">查看</button></div>
+        </article>
+        <article class="card" data-title="武器" data-type="道具" data-face-count="未提供" data-description="游戏道具模型作品，展示武器的整体造型与外观细节。">
+            <div class="image-container"><img src="assets/Image/Work/Model/武器.png" alt="武器"></div>
+            <h2 class="card-title">武器</h2>
+            <div class="card-actions"><span class="card-type">道具</span><button class="card-view" type="button">查看</button></div>
+        </article>
+        <article class="card" data-title="Building Ladder" data-type="建筑" data-face-count="未提供" data-description="游戏建筑模块模型，展示梯子类构件的造型与结构。">
+            <div class="image-container"><img src="assets/Image/Work/Model/Building_ladder.png" alt="Building ladder"></div>
+            <h2 class="card-title">Building Ladder</h2>
+            <div class="card-actions"><span class="card-type">建筑</span><button class="card-view" type="button">查看</button></div>
+        </article>
+        <article class="card" data-title="Building Wall" data-type="建筑" data-face-count="未提供" data-description="游戏建筑模块模型，展示墙体构件的造型与结构。">
+            <div class="image-container"><img src="assets/Image/Work/Model/Building_Wall.png" alt="Building wall"></div>
+            <h2 class="card-title">Building Wall</h2>
+            <div class="card-actions"><span class="card-type">建筑</span><button class="card-view" type="button">查看</button></div>
+        </article>
+    </div>
+</main>
+
+<div class="detail-backdrop" data-close-detail aria-hidden="true"></div>
+<aside class="detail-panel" id="detailPanel" role="dialog" aria-modal="true" aria-labelledby="detailName" aria-hidden="true">
+    <div class="detail-heading">
+        <h2>作品信息</h2>
+        <button class="detail-close" type="button" aria-label="关闭作品信息" data-close-detail>×</button>
+    </div>
+    <img class="detail-preview" src="" alt="">
+    <h3 class="detail-name" id="detailName"></h3>
+    <span class="detail-type"></span>
+    <div class="detail-specs" aria-label="模型参数">
+        <div class="detail-spec-row"><span>模型名称</span><span class="detail-model-name"></span></div>
+        <div class="detail-spec-row"><span>模型面数</span><span class="detail-face-count"></span></div>
+    </div>
+    <p class="detail-description"></p>
+    <hr class="detail-divider">
+    <p class="detail-note">作品展示以页面图片为准，包含场景、建筑、道具等游戏资产模型创作。</p>
+</aside>
+
+<div id="enlargedContainer" class="enlarged-container" role="presentation">
+    <img id="enlargedImage" class="enlarged-image" src="" alt="">
 </div>
 
 <script>
 (function() {
+    const detailPanel = document.getElementById('detailPanel');
+    const preview = detailPanel.querySelector('.detail-preview');
+    const name = detailPanel.querySelector('.detail-name');
+    const type = detailPanel.querySelector('.detail-type');
+    const modelName = detailPanel.querySelector('.detail-model-name');
+    const faceCount = detailPanel.querySelector('.detail-face-count');
+    const description = detailPanel.querySelector('.detail-description');
     const enlargedContainer = document.getElementById('enlargedContainer');
     const enlargedImage = document.getElementById('enlargedImage');
-    document.addEventListener('click', function(event) {
-        const card = event.target.closest('.card');
-        if (!card) return;
 
-        const img = card.querySelector('img');
-        if (img) {
-            enlargedImage.src = img.src;
-            enlargedImage.alt = img.alt;
+    function closeDetails() {
+        document.body.classList.remove('detail-open');
+        detailPanel.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    function closeEnlargedImage() {
+        enlargedContainer.classList.remove('active');
+        enlargedImage.src = '';
+        enlargedImage.alt = '';
+        if (!document.body.classList.contains('detail-open')) {
+            document.body.style.overflow = '';
+        }
+    }
+
+    document.addEventListener('click', function(event) {
+        const cardImage = event.target.closest('.card .image-container img');
+        if (cardImage) {
+            enlargedImage.src = cardImage.src;
+            enlargedImage.alt = cardImage.alt;
             enlargedContainer.classList.add('active');
             document.body.style.overflow = 'hidden';
+            return;
+        }
+
+        const viewButton = event.target.closest('.card-view');
+        if (viewButton) {
+            const card = viewButton.closest('.card');
+            const image = card.querySelector('img');
+            preview.src = image.src;
+            preview.alt = image.alt;
+            name.textContent = card.dataset.title;
+            type.textContent = card.dataset.type;
+            modelName.textContent = card.dataset.title;
+            faceCount.textContent = card.dataset.faceCount;
+            description.textContent = card.dataset.description;
+            document.body.classList.add('detail-open');
+            detailPanel.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            detailPanel.querySelector('.detail-close').focus();
+            return;
+        }
+
+        if (event.target.closest('[data-close-detail]')) {
+            closeDetails();
+        }
+
+        if (event.target === enlargedContainer || event.target === enlargedImage) {
+            closeEnlargedImage();
         }
     });
 
-    enlargedContainer.addEventListener('click', function() {
-        this.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && enlargedContainer.classList.contains('active')) {
-            enlargedContainer.classList.remove('active');
-            document.body.style.overflow = '';
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            if (enlargedContainer.classList.contains('active')) {
+                closeEnlargedImage();
+            } else if (document.body.classList.contains('detail-open')) {
+                closeDetails();
+            }
         }
     });
 })();

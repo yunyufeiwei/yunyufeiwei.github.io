@@ -804,7 +804,8 @@ body { background: var(--ink); }
 .experience-heading h2 { margin: 0; color: var(--paper); font-size: clamp(30px, 4vw, 48px); font-weight: 600; letter-spacing: -.05em; }
 .experience-heading .work-count { padding-bottom: 6px; }
 .experience .career-strip { display: grid; flex: 1 1 auto; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 22px; min-height: 0; overflow-y: auto; margin: 0 8px 0 20px; padding: 4px 18px 24px 30px; border: 0; border-left: 1px solid rgba(130,159,204,.3); scrollbar-color: rgba(49,227,228,.55) rgba(130,159,204,.1); scrollbar-width: thin; }
-.experience .career-item { position: relative; display: grid; grid-template-columns: minmax(180px, .8fr) minmax(150px, .7fr) auto; align-items: baseline; gap: 8px 18px; min-height: 0; padding: 16px 20px; border: 1px solid rgba(130,159,204,.2); border-radius: 8px; background: rgba(11,24,45,.65); }
+.experience .career-item { position: relative; display: grid; grid-template-columns: minmax(180px, .8fr) minmax(150px, .7fr) auto; align-items: baseline; gap: 8px 18px; min-height: 0; padding: 16px 20px; border: 1px solid rgba(130,159,204,.2); border-radius: 8px; background: rgba(11,24,45,.65); transition: border-color .25s ease, box-shadow .25s ease; }
+.experience .career-item:hover { border-color: rgba(49,227,228,.7); box-shadow: 0 0 18px rgba(49,227,228,.12); }
 .experience .career-item::before { position: absolute; top: 24px; left: -36px; width: 10px; height: 10px; border: 2px solid #0b1a2f; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px rgba(49,227,228,.5); content: ""; }
 .experience .career-item strong { font-size: 16px; }
 .experience .career-item span { color: #a8b6c9; font-size: 12px; }
