@@ -364,30 +364,6 @@
             </div>
             <div class="card-title">大唐境外</div>
         </div>
-        <div class="card">
-            <div class="image-container">
-                <img src="assets/Image/Work/Level/【三渲二】野外山洞.png" alt="野外山洞">
-            </div>
-            <div class="card-title">野外山洞</div>
-        </div>
-        <div class="card">
-            <div class="image-container">
-                <img src="assets/Image/Work/Level/【三渲二】金銮殿.png" alt="金銮殿">
-            </div>
-            <div class="card-title">金銮殿</div>
-        </div>
-        <div class="card">
-            <div class="image-container">
-                <img src="assets/Image/Work/Level/【三渲二】东海龙宫.png" alt="东海龙宫">
-            </div>
-            <div class="card-title">东海龙宫</div>
-        </div>
-        <div class="card">
-            <div class="image-container">
-                <img src="assets/Image/Work/Level/【三渲二】东海渔村.png" alt="东海渔村">
-            </div>
-            <div class="card-title">东海渔村</div>
-        </div>
     </div>
 </div>
 
@@ -403,8 +379,6 @@
     const enlargedContainer = document.getElementById('enlargedContainer');
     const enlargedImage = document.getElementById('enlargedImage');
     const enlargedVideo = document.getElementById('enlargedVideo');
-    const cards = document.querySelectorAll('.card');
-
     function closeEnlarged() {
         enlargedContainer.classList.remove('active');
         enlargedImage.src = '';
@@ -415,38 +389,37 @@
         document.body.style.overflow = '';
     }
 
-    cards.forEach(card => {
-        card.addEventListener('click', function() {
-            if (this.classList.contains('video-card')) {
-                const videoSrc = this.dataset.videoSrc;
-                enlargedImage.style.display = 'none';
-                enlargedVideo.style.display = '';
-                enlargedVideo.src = videoSrc;
-                enlargedVideo.play();
-                enlargedContainer.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                return;
-            }
+    document.addEventListener('click', function(event) {
+        const card = event.target.closest('.card');
+        if (!card) return;
 
-            const img = this.querySelector('img');
-            if (img) {
-                enlargedVideo.style.display = 'none';
-                enlargedImage.src = img.src;
-                enlargedImage.alt = img.alt;
-                enlargedContainer.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        });
+        if (card.classList.contains('video-card')) {
+            const videoSrc = card.dataset.videoSrc;
+            enlargedImage.style.display = 'none';
+            enlargedVideo.style.display = '';
+            enlargedVideo.src = videoSrc;
+            enlargedVideo.play();
+            enlargedContainer.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            return;
+        }
+
+        const img = card.querySelector('img');
+        if (img) {
+            enlargedVideo.style.display = 'none';
+            enlargedImage.src = img.src;
+            enlargedImage.alt = img.alt;
+            enlargedContainer.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
     });
 
-    enlargedContainer.addEventListener('click', function() {
-        closeEnlarged();
+    enlargedContainer.addEventListener('click', function(event) {
+        if (event.target === enlargedContainer) closeEnlarged();
     });
 
     document.getElementById('enlargedClose').addEventListener('click', closeEnlarged);
-    enlargedVideo.addEventListener('click', function(e) { e.stopPropagation(); });
     enlargedImage.addEventListener('click', closeEnlarged);
-    document.getElementById('enlargedClose').addEventListener('click', function(e) { e.stopPropagation(); });
 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && enlargedContainer.classList.contains('active')) {

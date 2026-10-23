@@ -124,15 +124,6 @@
             </article>
         `).join('');
 
-        // 整张卡片都可点击进入详情
-        $list.querySelectorAll('.blog-card').forEach(card => {
-            card.addEventListener('click', e => {
-                // 如果点的就是内部链接，让它自己走 hash 切换
-                if (e.target.closest('.blog-card-link')) return;
-                const id = card.getAttribute('data-id');
-                if (id) location.hash = '#post=' + encodeURIComponent(id);
-            });
-        });
     }
 
     /* ---------- 渲染：文章详情 ---------- */
@@ -354,6 +345,15 @@
     }
 
     /* ---------- 事件绑定 ---------- */
+    $list.addEventListener('click', e => {
+        const target = e.target;
+        if (!(target instanceof Element) || target.closest('.blog-card-link')) return;
+
+        const card = target.closest('.blog-card');
+        const id = card && card.getAttribute('data-id');
+        if (id) location.hash = '#post=' + encodeURIComponent(id);
+    });
+
     if ($search) {
         $search.addEventListener('input', e => {
             currentKeyword = e.target.value || '';

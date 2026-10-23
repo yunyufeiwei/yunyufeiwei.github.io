@@ -738,7 +738,7 @@
                 btn.classList.add('active');
             }
         });
-    });
+    }, { passive: true });
 
     // 图片点击放大 - GIF 使用原始动态地址
     const enlargedContainer = document.getElementById('enlargedContainer');
@@ -755,44 +755,40 @@
         document.body.style.overflow = '';
     }
 
-    cards.forEach(card => {
-        card.addEventListener('click', function() {
-            // 视频卡片
-            if (this.classList.contains('video-card')) {
-                const videoSrc = this.dataset.videoSrc;
-                enlargedImage.style.display = 'none';
-                enlargedVideo.style.display = '';
-                enlargedVideo.src = videoSrc;
-                enlargedVideo.play();
-                enlargedContainer.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                return;
-            }
-            // 图片/GIF 卡片
-            const img = this.querySelector('img');
-            if (img) {
-                const gifSrc = this.dataset.gifSrc;
-                enlargedImage.style.display = '';
-                enlargedVideo.style.display = 'none';
-                enlargedImage.src = gifSrc || img.src;
-                enlargedImage.alt = img.alt;
-                enlargedContainer.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        });
+    document.addEventListener('click', function(event) {
+        const card = event.target.closest('.card');
+        if (!card) return;
+
+        if (card.classList.contains('video-card')) {
+            const videoSrc = card.dataset.videoSrc;
+            enlargedImage.style.display = 'none';
+            enlargedVideo.style.display = '';
+            enlargedVideo.src = videoSrc;
+            enlargedVideo.play();
+            enlargedContainer.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            return;
+        }
+
+        const img = card.querySelector('img');
+        if (img) {
+            const gifSrc = card.dataset.gifSrc;
+            enlargedImage.style.display = '';
+            enlargedVideo.style.display = 'none';
+            enlargedImage.src = gifSrc || img.src;
+            enlargedImage.alt = img.alt;
+            enlargedContainer.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
     });
 
     enlargedContainer.addEventListener('click', function(e) {
-        closeEnlarged();
+        if (e.target === enlargedContainer) closeEnlarged();
     });
 
     document.getElementById('enlargedClose').addEventListener('click', closeEnlarged);
 
-    // 视频、图片、关闭按钮的点击不冒泡到背景层
-    enlargedVideo.addEventListener('click', function(e) { e.stopPropagation(); });
     enlargedImage.addEventListener('click', closeEnlarged);
-    // 关闭按钮本身已绑定 closeEnlarged，阻止二次冒泡
-    document.getElementById('enlargedClose').addEventListener('click', function(e) { e.stopPropagation(); });
 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && enlargedContainer.classList.contains('active')) {

@@ -261,18 +261,17 @@
 (function() {
     const enlargedContainer = document.getElementById('enlargedContainer');
     const enlargedImage = document.getElementById('enlargedImage');
-    const cards = document.querySelectorAll('.card');
+    document.addEventListener('click', function(event) {
+        const card = event.target.closest('.card');
+        if (!card) return;
 
-    cards.forEach(card => {
-        card.addEventListener('click', function() {
-            const img = this.querySelector('img');
-            if (img) {
-                enlargedImage.src = img.src;
-                enlargedImage.alt = img.alt;
-                enlargedContainer.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        });
+        const img = card.querySelector('img');
+        if (img) {
+            enlargedImage.src = img.src;
+            enlargedImage.alt = img.alt;
+            enlargedContainer.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
     });
 
     enlargedContainer.addEventListener('click', function() {
