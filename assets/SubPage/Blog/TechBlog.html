@@ -15,29 +15,56 @@
 
 <body>
 <div class="container" id="mainContainer">
-    <div class="sidebar-layout">
-        <!--==================== 左侧导航分类 ====================-->
-        <aside class="sidebar">
-            <nav class="nav-list" id="blogCategoryNav">
-                <!-- 分类按钮由 TechBlog.js 动态渲染 -->
-            </nav>
-        </aside>
-
-        <!--==================== 主内容区 ====================-->
         <main class="main-content">
             <!--==================== 文章列表视图 ====================-->
             <section id="blogListView">
-                <header class="page-header">
-                    <h1 class="page-title">技术博客</h1>
-                    <p class="page-subtitle">记录学习与思考 · 分享技术与经验</p>
+                <header class="blog-topbar">
+                    <nav class="blog-site-nav" aria-label="主导航">
+                        <a class="blog-brand" href="index.html">
+                            <span class="blog-brand-mark" aria-hidden="true"></span>
+                            <span class="blog-brand-copy">
+                                <strong>技术博客</strong>
+                                <span class="blog-brand-subtitle">记录学习与思考 · 分享技术与经验</span>
+                            </span>
+                        </a>
+                        <div class="blog-toolbar">
+                            <div class="blog-search">
+                                <i class="uil uil-search"></i>
+                                <input type="search" id="blogSearchInput" placeholder="搜索文章、标签、技术关键词..." aria-label="搜索博客文章">
+                                <button class="blog-search-submit" type="button" aria-label="搜索">搜索</button>
+                            </div>
+                            <div class="blog-filter">
+                                <button class="blog-filter-toggle" id="blogFilterToggle" type="button" aria-expanded="false" aria-controls="blogFilterMenu">
+                                    <i class="uil uil-filter"></i><span>筛选</span><span class="blog-filter-count" id="blogFilterCount" hidden></span>
+                                </button>
+                                <div class="blog-filter-menu" id="blogFilterMenu">
+                                    <div class="blog-filter-menu-heading">
+                                        <div><strong>筛选文章</strong><span>可在不同标签组间组合筛选</span></div>
+                                        <button id="blogFilterClear" type="button">重置</button>
+                                    </div>
+                                    <section class="blog-filter-group">
+                                        <h2>软件</h2>
+                                        <div class="blog-filter-options" data-facet-group="software"></div>
+                                    </section>
+                                    <section class="blog-filter-group">
+                                        <h2>模块</h2>
+                                        <div class="blog-filter-options" data-facet-group="module"></div>
+                                    </section>
+                                    <section class="blog-filter-group">
+                                        <h2>类型</h2>
+                                        <div class="blog-filter-options" data-facet-group="type"></div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="blog-site-links">
+                                <a class="blog-home-link" href="index.html">返回主页</a>
+                                <a class="blog-write-link" href="assets/SubPage/Blog/BlogEditor.html">写新文章</a>
+                            </div>
+                        </div>
+                    </nav>
                 </header>
 
-                <div class="blog-toolbar">
-                    <div class="blog-search">
-                        <i class="uil uil-search"></i>
-                        <input type="text" id="blogSearchInput" placeholder="搜索文章标题或标签...">
-                    </div>
-                </div>
+                <nav class="blog-category-nav" id="blogCategoryNav" hidden></nav>
 
                 <div class="blog-list" id="blogList">
                     <!-- 卡片由 TechBlog.js 动态渲染 -->
@@ -48,26 +75,19 @@
                     <p>没有匹配的文章，换个关键词或分类试试吧。</p>
                 </div>
 
-                <div class="blog-back" style="display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap;">
-                    <a href="index.html" class="blog-back-link">
-                        <i class="uil uil-arrow-left"></i> 返回主页
-                    </a>
-                    <a href="assets/SubPage/Blog/BlogEditor.html" class="blog-back-link" style="color:hsl(var(--hue-color),69%,61%);">
-                        <i class="uil uil-edit"></i> 写新文章
-                    </a>
-                </div>
+                <div class="blog-back"><a href="index.html" class="blog-back-link"><i class="uil uil-arrow-left"></i> 返回主页</a></div>
             </section>
 
             <!--==================== 文章详情视图 ====================-->
             <section id="blogDetailView" style="display:none;">
-                <div class="blog-detail-back" style="display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap;">
+                <nav class="blog-detail-nav" aria-label="文章操作">
                     <a href="#" id="blogDetailBack" class="blog-back-link">
                         <i class="uil uil-arrow-left"></i> 返回文章列表
                     </a>
-                    <a href="#" id="blogDetailEdit" class="blog-back-link" style="color:hsl(var(--hue-color),69%,61%);">
+                    <a href="#" id="blogDetailEdit" class="blog-back-link blog-detail-edit">
                         <i class="uil uil-edit"></i> 编辑此文
                     </a>
-                </div>
+                </nav>
 
                 <article class="blog-detail">
                     <header class="blog-detail-header">
@@ -89,7 +109,6 @@
                 </article>
             </section>
         </main>
-    </div>
 </div>
 
 <!-- Markdown 渲染器 -->
