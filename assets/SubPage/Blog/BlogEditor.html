@@ -17,13 +17,15 @@
 </head>
 
 <body>
+<header class="editor-topbar">
+    <nav class="editor-site-nav" aria-label="编辑器导航">
+        <a href="assets/SubPage/Blog/TechBlog.html" class="editor-nav-link">
+            <i class="uil uil-arrow-left"></i> 返回博客
+        </a>
+        <span class="editor-nav-context">文章编辑</span>
+    </nav>
+</header>
 <div class="editor-container">
-    <!--==================== 页面标题 ====================-->
-    <header class="page-header">
-        <h1 class="page-title">博客编辑器</h1>
-        <p class="page-subtitle">所见即所得 · 直接写作，直接插入图片</p>
-    </header>
-
     <!--==================== 编辑模式工具条 ====================-->
     <section class="edit-mode-bar">
         <button class="editor-btn editor-btn-secondary" id="btnLoadArticle" type="button">
@@ -55,12 +57,16 @@
                 <label for="postCategory">分类 *</label>
                 <select id="postCategory">
                     <option value="">-- 选择分类 --</option>
-                    <option value="art">美术笔记</option>
-                    <option value="shader">Shader</option>
-                    <option value="UnityEngine">Unity引擎</option>
-                    <option value="UnrealEngine">虚幻引擎</option>
-                    <option value="tool">工具/Pipeline</option>
-                    <option value="other">其他</option>
+                    <option value="art-theory">美术理论</option>
+                    <option value="3dsmax">3dMax</option>
+                    <option value="blender">Blender</option>
+                    <option value="zbrush">Zbrush</option>
+                    <option value="houdini">Houdini</option>
+                    <option value="substance-painter">Substance Painter</option>
+                    <option value="substance-designer">Substance Designer</option>
+                    <option value="graphics">图形学</option>
+                    <option value="UnityEngine">UnityEngine</option>
+                    <option value="UnrealEngine">UnrealEngine</option>
                 </select>
             </div>
             <div class="meta-field">
@@ -70,8 +76,24 @@
         </div>
         <div class="meta-row">
             <div class="meta-field">
-                <label for="postTags">标签（逗号分隔）</label>
-                <input type="text" id="postTags" placeholder="例如：UE5, PCG, 大世界">
+                <label for="tagsToggle">标签</label>
+                <div class="tag-select" id="tagSelect">
+                    <button type="button" class="tag-select-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagOptions">
+                        <span id="tagsSummary">选择标签</span>
+                        <i class="uil uil-angle-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="tag-select-options" id="tagOptions" hidden>
+                        <label class="tag-option"><input type="checkbox" value="角色"><span>角色</span></label>
+                        <label class="tag-option"><input type="checkbox" value="场景"><span>场景</span></label>
+                        <label class="tag-option"><input type="checkbox" value="动画"><span>动画</span></label>
+                        <label class="tag-option"><input type="checkbox" value="特效"><span>特效</span></label>
+                        <label class="tag-option"><input type="checkbox" value="UI"><span>UI</span></label>
+                        <label class="tag-option"><input type="checkbox" value="材质Shader"><span>材质Shader</span></label>
+                        <label class="tag-option"><input type="checkbox" value="工具开发"><span>工具开发</span></label>
+                        <label class="tag-option"><input type="checkbox" value="脚本"><span>脚本</span></label>
+                    </div>
+                    <input type="hidden" id="postTags">
+                </div>
             </div>
         </div>
         <div class="meta-row">
@@ -105,9 +127,6 @@
         <button class="editor-btn editor-btn-secondary" id="btnClear">
             <i class="uil uil-trash-alt"></i> 清空
         </button>
-        <a href="assets/SubPage/Blog/TechBlog.html" class="editor-btn editor-btn-secondary" style="text-decoration:none;">
-            <i class="uil uil-arrow-left"></i> 返回博客
-        </a>
     </div>
 
     <!--==================== 导出结果 ====================-->

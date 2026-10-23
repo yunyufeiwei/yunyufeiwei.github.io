@@ -1,6 +1,54 @@
 {
   "categories": [
     {
+      "key": "art-theory",
+      "label": "美术理论",
+      "icon": "uil-palette",
+      "file": "assets/data/blog/art-theory.json"
+    },
+    {
+      "key": "3dsmax",
+      "label": "3dMax",
+      "icon": "uil-cube",
+      "file": "assets/data/blog/3dsmax.json"
+    },
+    {
+      "key": "blender",
+      "label": "Blender",
+      "icon": "uil-cube",
+      "file": "assets/data/blog/blender.json"
+    },
+    {
+      "key": "zbrush",
+      "label": "Zbrush",
+      "icon": "uil-cube",
+      "file": "assets/data/blog/zbrush.json"
+    },
+    {
+      "key": "houdini",
+      "label": "Houdini",
+      "icon": "uil-cube",
+      "file": "assets/data/blog/houdini.json"
+    },
+    {
+      "key": "substance-painter",
+      "label": "Substance Painter",
+      "icon": "uil-brush-alt",
+      "file": "assets/data/blog/substance-painter.json"
+    },
+    {
+      "key": "substance-designer",
+      "label": "Substance Designer",
+      "icon": "uil-brush-alt",
+      "file": "assets/data/blog/substance-designer.json"
+    },
+    {
+      "key": "graphics",
+      "label": "图形学",
+      "icon": "uil-brackets-curly",
+      "file": "assets/data/blog/graphics.json"
+    },
+    {
       "key": "art",
       "label": "美术笔记",
       "icon": "uil-palette",
@@ -14,14 +62,14 @@
     },
     {
       "key": "UnityEngine",
-      "label": "Unity引擎",
+      "label": "UnityEngine",
       "icon": "uil-processor",
       "iconImage": "assets/Image/Icon/unityEngine.jpg",
       "file": "assets/data/blog/UnityEngine.json"
     },
     {
       "key": "UnrealEngine",
-      "label": "虚幻引擎",
+      "label": "UnrealEngine",
       "icon": "uil-processor",
       "iconImage": "assets/Image/Icon/unrealEngine.jpg",
       "file": "assets/data/blog/UnrealEngine.json"

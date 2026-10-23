@@ -302,13 +302,89 @@
     const $category = document.getElementById('postCategory');
     const $date     = document.getElementById('postDate');
     const $tags     = document.getElementById('postTags');
+    const $tagSelect = document.getElementById('tagSelect');
+    const $tagsToggle = document.getElementById('tagsToggle');
+    const $tagOptions = document.getElementById('tagOptions');
+    const $tagsSummary = document.getElementById('tagsSummary');
     const $summary  = document.getElementById('postSummary');
     const $output   = document.getElementById('outputSection');
     const $outputPre = document.getElementById('outputContent');
 
-    /* ---------- 设置默认日期为今天 ---------- */
+    function updateTagsValue() {
+        const selected = Array.from($tagOptions.querySelectorAll('input[type="checkbox"]:checked'))
+            .map(function (checkbox) { return checkbox.value; });
+        $tags.value = selected.join(', ');
+        $tagsSummary.textContent = selected.length ? selected.join('、') : '选择标签';
+        $tagsToggle.setAttribute('aria-expanded', String(!$tagOptions.hidden));
+    }
+
+    function setTags(values) {
+        const selected = parseTags(values);
+        $tagOptions.querySelectorAll('.tag-option-legacy').forEach(function (option) {
+            option.remove();
+        });
+
+        const available = new Set(Array.from($tagOptions.querySelectorAll('input[type="checkbox"]'))
+            .map(function (checkbox) { return checkbox.value; }));
+        selected.forEach(function (tag) {
+            if (available.has(tag)) return;
+            const option = document.createElement('label');
+            option.className = 'tag-option tag-option-legacy';
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.value = tag;
+            const text = document.createElement('span');
+            text.textContent = tag;
+            option.append(checkbox, text);
+            $tagOptions.appendChild(option);
+        });
+
+        const selectedSet = new Set(selected);
+        $tagOptions.querySelectorAll('input[type="checkbox"]').forEach(function (checkbox) {
+            checkbox.checked = selectedSet.has(checkbox.value);
+        });
+        updateTagsValue();
+    }
+
+    function setCategoryValue(category) {
+        if (!category) return;
+        let option = Array.from($category.options).find(function (item) {
+            return item.value === category;
+        });
+        if (!option) {
+            option = document.createElement('option');
+            option.value = category;
+            option.textContent = '历史分类：' + category;
+            option.dataset.legacy = 'true';
+            $category.appendChild(option);
+        }
+        $category.value = category;
+    }
+
+    $tagsToggle.addEventListener('click', function () {
+        $tagOptions.hidden = !$tagOptions.hidden;
+        updateTagsValue();
+    });
+    $tagOptions.addEventListener('change', function () {
+        updateTagsValue();
+        saveDraft();
+    });
+    document.addEventListener('click', function (event) {
+        if (!$tagSelect.contains(event.target)) {
+            $tagOptions.hidden = true;
+            updateTagsValue();
+        }
+    });
+    $tagSelect.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            $tagOptions.hidden = true;
+            updateTagsValue();
+            $tagsToggle.focus();
+        }
+    });
+
+    /* ---------- 旧文章缺少日期时的兼容值 ---------- */
     const today = new Date().toISOString().slice(0, 10);
-    $date.value = today;
 
     /* ---------- 自动生成 ID ---------- */
     $title.addEventListener('input', function () {
@@ -436,7 +512,7 @@
             id: $id.value,
             category: $category.value,
             date: $date.value,
-            tags: $tags.value,
+            tags: parseTags($tags.value),
             summary: $summary.value,
             content: quill.root.innerHTML,
             delta: quill.getContents(),
@@ -458,9 +534,9 @@
             const draft = JSON.parse(raw);
             if (draft.title) $title.value = draft.title;
             if (draft.id) { $id.value = draft.id; $id.dataset.auto = 'false'; }
-            if (draft.category) $category.value = draft.category;
+            if (draft.category) setCategoryValue(draft.category);
             if (draft.date) $date.value = draft.date;
-            if (draft.tags) $tags.value = draft.tags;
+            if (draft.tags) setTags(draft.tags);
             if (draft.summary) $summary.value = draft.summary;
             if (draft.delta) {
                 quill.setContents(draft.delta);
@@ -477,8 +553,15 @@
         }
     }
 
-    // 加载草稿
-    loadDraft();
+    // 新开编辑器时从空白表单开始；刷新当前页面时才恢复自动保存的草稿。
+    const navigationEntry = performance.getEntriesByType('navigation')[0];
+    const isPageReload = navigationEntry && navigationEntry.type === 'reload';
+    const isEditingArticle = new URLSearchParams(window.location.search).has('edit');
+    if (isPageReload && !isEditingArticle) {
+        loadDraft();
+    } else if (!isEditingArticle) {
+        localStorage.removeItem(STORAGE_KEY);
+    }
 
     // 定时保存（每 3 秒）
     setInterval(saveDraft, 3000);
@@ -918,16 +1001,14 @@
         $id.dataset.auto = 'false';
         $date.value     = post.date     || today;
         $summary.value  = post.summary  || '';
-        $tags.value     = Array.isArray(post.tags) ? post.tags.join(', ') : (post.tags || '');
+        setTags(post.tags || []);
 
         // 通过文件路径推断分类；如果无法推断，保留下拉框现值
         const m = /assets\/data\/blog\/([^/]+)\//.exec(hintName || '');
-        if (m && $category.querySelector('option[value="' + m[1] + '"]')) {
-            $category.value = m[1];
-            currentEditCategory = m[1];
-        } else if (post.category && $category.querySelector('option[value="' + post.category + '"]')) {
-            $category.value = post.category;
-            currentEditCategory = post.category;
+        const category = (m && m[1]) || post.category || '';
+        if (category) {
+            setCategoryValue(category);
+            currentEditCategory = category;
         }
 
         // 正文：优先 inline content；contentFile 暂不支持回写编辑
@@ -1196,8 +1277,8 @@
         $id.value = '';
         $id.dataset.auto = 'true';
         $category.value = '';
-        $date.value = today;
-        $tags.value = '';
+        $date.value = '';
+        setTags([]);
         $summary.value = '';
         quill.setContents([]);
         $output.classList.remove('visible');
@@ -1240,7 +1321,10 @@
     }
 
     function parseTags(str) {
-        return (str || '').split(/[,，、]/)
+        if (Array.isArray(str)) {
+            return str.map(function (tag) { return String(tag).trim(); }).filter(Boolean);
+        }
+        return String(str || '').split(/[,，、]/)
             .map(function (t) { return t.trim(); })
             .filter(function (t) { return t.length > 0; });
     }
