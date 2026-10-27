@@ -29,6 +29,27 @@
         module: ['美术', '动画', '渲染', '工具', '引擎', '其他'],
         type: ['角色', '动画', '场景', 'UI', '特效', '道具', '地形', '其他']
     };
+    const allowedTags = new Set(Object.values(facetOptions).flat());
+    const tagAliases = {
+        '3dsmax': '3ds Max',
+        'unrealengine': 'Unreal Engine',
+        'ue5': 'Unreal Engine',
+        'unityengine': 'Unity',
+        'art': '美术',
+        'eidttools': '工具',
+        'edittools': '工具',
+        'tooling': '工具',
+        'shader': '渲染',
+        '材质shader': '渲染'
+    };
+
+    function normalizeTags(tags) {
+        return [...new Set((Array.isArray(tags) ? tags : [])
+            .map(tag => String(tag).trim())
+            .filter(Boolean)
+            .map(tag => tagAliases[tag.toLowerCase()] || tag)
+            .filter(tag => allowedTags.has(tag)))];
+    }
 
     /* ---------- 工具函数 ---------- */
     function escapeHTML(str) {
@@ -525,6 +546,7 @@
     // 把分类元数据回填到每篇文章上，渲染层无需关心从哪个文件来
     function decoratePost(post, cat) {
         return Object.assign({}, post, {
+            tags: normalizeTags(post.tags),
             category: cat.key,
             categoryLabel: cat.label
         });

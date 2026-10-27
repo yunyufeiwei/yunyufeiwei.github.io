@@ -27,11 +27,25 @@
 
     // 让 Quill 的 syntax 模块知道有 hljs 可用
     const hasHljs = typeof window.hljs !== 'undefined';
+    const Block = Quill.import('blots/block');
+
+    class HighlightBlock extends Block {
+        static blotName = 'highlight-block';
+        static tagName = 'DIV';
+        static className = 'ql-highlight-block';
+
+        static formats(node) {
+            return node.classList.contains('ql-highlight-block') ? true : undefined;
+        }
+    }
+
+    Quill.register(HighlightBlock, true);
 
     const quill = new Quill('#quillEditor', {
         theme: 'snow',
         placeholder: '在这里开始写作...\n\n可以直接粘贴图片（Ctrl+V），或从文件夹拖入图片。\n插入代码请先点击工具栏的「代码块」按钮，再选择语言。',
         modules: {
+            table: true,
             syntax: hasHljs ? {
                 hljs: window.hljs,
                 languages: CODE_LANGS.map(function (l) {
@@ -52,9 +66,49 @@
 
     /* ---------- 给「代码块」按钮挂一个语言下拉 ---------- */
     setupCodeBlockLangPicker();
+    setupExtraToolbarButtons();
     overrideCodeBlockToolbarHandler();
     suppressDataUrlImagesFromClipboardHtml();
     setupImageAlignPopover();
+
+    function setupExtraToolbarButtons() {
+        const toolbarEl = document.querySelector('.ql-toolbar');
+        const tableModule = quill.getModule('table');
+        if (!toolbarEl || !tableModule || typeof tableModule.insertTable !== 'function') {
+            throw new Error('Quill 表格模块不可用，无法初始化表格工具。');
+        }
+
+        const tableButton = document.createElement('button');
+        tableButton.type = 'button';
+        tableButton.className = 'editor-insert-table';
+        tableButton.textContent = '表格';
+        tableButton.title = '插入 3 × 3 表格（拖动表格右下角可调整大小）';
+        tableButton.addEventListener('click', function () {
+            quill.focus();
+            if (!quill.getSelection(true)) return;
+            tableModule.insertTable(3, 3);
+        });
+
+        const highlightButton = document.createElement('button');
+        highlightButton.type = 'button';
+        highlightButton.className = 'editor-insert-highlight';
+        highlightButton.textContent = '高亮块';
+        highlightButton.title = '切换当前段落的高亮提示块';
+        highlightButton.addEventListener('click', function () {
+            quill.focus();
+            const range = quill.getSelection(true);
+            if (!range) return;
+            const active = Boolean(quill.getFormat(range)['highlight-block']);
+            quill.formatLine(range.index, Math.max(range.length, 1), 'highlight-block', !active, 'user');
+        });
+
+        const formats = toolbarEl.querySelector('.ql-code-lang-formats');
+        if (formats) {
+            formats.after(tableButton, highlightButton);
+        } else {
+            toolbarEl.append(tableButton, highlightButton);
+        }
+    }
 
     /**
      * Quill 在粘贴时会同时解析剪贴板里的 HTML，遇到 <img src="data:..."> 也会被它当成
@@ -302,48 +356,12 @@
     const $category = document.getElementById('postCategory');
     const $date     = document.getElementById('postDate');
     const $tags     = document.getElementById('postTags');
-    const $tagSelect = document.getElementById('tagSelect');
-    const $tagsToggle = document.getElementById('tagsToggle');
-    const $tagOptions = document.getElementById('tagOptions');
-    const $tagsSummary = document.getElementById('tagsSummary');
     const $summary  = document.getElementById('postSummary');
     const $output   = document.getElementById('outputSection');
     const $outputPre = document.getElementById('outputContent');
 
-    function updateTagsValue() {
-        const selected = Array.from($tagOptions.querySelectorAll('input[type="checkbox"]:checked'))
-            .map(function (checkbox) { return checkbox.value; });
-        $tags.value = selected.join(', ');
-        $tagsSummary.textContent = selected.length ? selected.join('、') : '选择标签';
-        $tagsToggle.setAttribute('aria-expanded', String(!$tagOptions.hidden));
-    }
-
     function setTags(values) {
-        const selected = parseTags(values);
-        $tagOptions.querySelectorAll('.tag-option-legacy').forEach(function (option) {
-            option.remove();
-        });
-
-        const available = new Set(Array.from($tagOptions.querySelectorAll('input[type="checkbox"]'))
-            .map(function (checkbox) { return checkbox.value; }));
-        selected.forEach(function (tag) {
-            if (available.has(tag)) return;
-            const option = document.createElement('label');
-            option.className = 'tag-option tag-option-legacy';
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.value = tag;
-            const text = document.createElement('span');
-            text.textContent = tag;
-            option.append(checkbox, text);
-            $tagOptions.appendChild(option);
-        });
-
-        const selectedSet = new Set(selected);
-        $tagOptions.querySelectorAll('input[type="checkbox"]').forEach(function (checkbox) {
-            checkbox.checked = selectedSet.has(checkbox.value);
-        });
-        updateTagsValue();
+        $tags.value = parseTags(values).join(', ');
     }
 
     function setCategoryValue(category) {
@@ -360,28 +378,6 @@
         }
         $category.value = category;
     }
-
-    $tagsToggle.addEventListener('click', function () {
-        $tagOptions.hidden = !$tagOptions.hidden;
-        updateTagsValue();
-    });
-    $tagOptions.addEventListener('change', function () {
-        updateTagsValue();
-        saveDraft();
-    });
-    document.addEventListener('click', function (event) {
-        if (!$tagSelect.contains(event.target)) {
-            $tagOptions.hidden = true;
-            updateTagsValue();
-        }
-    });
-    $tagSelect.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') {
-            $tagOptions.hidden = true;
-            updateTagsValue();
-            $tagsToggle.focus();
-        }
-    });
 
     /* ---------- 旧文章缺少日期时的兼容值 ---------- */
     const today = new Date().toISOString().slice(0, 10);
@@ -543,6 +539,7 @@
             } else if (draft.content) {
                 quill.root.innerHTML = draft.content;
             }
+            if (draft.content) applyTableWidthsFromHtml(draft.content);
             // 恢复编辑模式（文件 handle 不能持久化，下次保存仍需选一次文件）
             if (draft.editPath) {
                 currentEditPath = draft.editPath;
@@ -664,6 +661,11 @@
                 result += '\n```' + lang + '\n' + codeText + '\n```\n\n';
                 continue;
             }
+            if (tag === 'div' && child.classList && child.classList.contains('ql-highlight-block')) {
+                result += '<div class="ql-highlight-block blog-highlight-block">\n' +
+                    nodeToMd(child).trim() + '\n</div>\n\n';
+                continue;
+            }
 
             switch (tag) {
                 case 'h1':
@@ -739,6 +741,9 @@
                     if (lang === 'plaintext') lang = '';
                     result += '```' + lang + '\n' + code.textContent + '\n```\n\n';
                     break;
+                case 'table':
+                    result += tableToMarkdown(child) + '\n\n';
+                    break;
                 case 'code':
                     result += '`' + child.textContent + '`';
                     break;
@@ -763,6 +768,30 @@
         }
 
         return result;
+    }
+
+    function tableToMarkdown(table) {
+        const rows = Array.from(table.querySelectorAll('tr')).map(function (row) {
+            return Array.from(row.querySelectorAll('th, td')).map(function (cell) {
+                return processInline(cell).trim().replace(/\|/g, '\\|').replace(/\s*\n\s*/g, '<br>');
+            });
+        }).filter(function (row) { return row.length > 0; });
+        if (rows.length === 0) return '';
+
+        const columns = Math.max.apply(null, rows.map(function (row) { return row.length; }));
+        const normalized = rows.map(function (row) {
+            return Array.from({ length: columns }, function (_, index) { return row[index] || ''; });
+        });
+        const width = table.style.width || '100%';
+        const renderRow = function (row, tag) {
+            return '<tr>' + row.map(function (cell) {
+                return '<' + tag + '>' + cell + '</' + tag + '>';
+            }).join('') + '</tr>';
+        };
+        const header = renderRow(normalized[0], 'th');
+        const body = normalized.slice(1).map(function (row) { return renderRow(row, 'td'); }).join('\n');
+        return '<table style="width:' + escapeAttr(width) + '">\n<thead>' + header +
+            '</thead>\n<tbody>' + body + '</tbody>\n</table>';
     }
 
     function processInline(el) {
@@ -899,6 +928,16 @@
         return html;
     }
 
+    function applyTableWidthsFromHtml(html) {
+        const source = new DOMParser().parseFromString(html, 'text/html');
+        const sourceTables = source.querySelectorAll('table');
+        const editorTables = quill.root.querySelectorAll('table');
+        for (let i = 0; i < Math.min(sourceTables.length, editorTables.length); i++) {
+            const width = sourceTables[i].style.width || sourceTables[i].getAttribute('data-editor-width');
+            if (width) editorTables[i].style.width = width;
+        }
+    }
+
     function setupEditMode() {
         const $btnLoad   = document.getElementById('btnLoadArticle');
         const $banner    = document.getElementById('editModeBanner');
@@ -1016,6 +1055,7 @@
             const html = articleMarkdownToEditorHtml(post.content);
             const delta = quill.clipboard.convert({ html: html });
             quill.setContents(delta, 'silent');
+            applyTableWidthsFromHtml(html);
         } else if (post.contentFile) {
             quill.setContents([], 'silent');
             alert('该文章正文存放在外部 Markdown 文件（' + post.contentFile +
@@ -1260,7 +1300,9 @@
             '<title>预览 - ' + ($title.value || '未命名') + '</title>' +
             '<style>body{max-width:800px;margin:2rem auto;padding:0 1.5rem;font-family:sans-serif;line-height:1.8;color:#333;}' +
             'img{max-width:100%;border-radius:8px;}pre{background:#f5f5f5;padding:1rem;border-radius:8px;overflow-x:auto;}' +
-            'code{background:#f0f0f0;padding:2px 5px;border-radius:3px;}blockquote{border-left:3px solid #6c63ff;padding-left:1rem;color:#666;}</style>' +
+            'code{background:#f0f0f0;padding:2px 5px;border-radius:3px;}blockquote{border-left:3px solid #6c63ff;padding-left:1rem;color:#666;}' +
+            '.blog-highlight-block{margin:1rem 0;padding:.8rem 1rem;border-left:3px solid #8a72ff;border-radius:0 8px 8px 0;background:#f0eaff;color:#333;}' +
+            'table{display:block;width:100%;max-width:100%;overflow:auto;border-collapse:collapse;}th,td{border:1px solid #ccc;padding:.4rem .6rem;}</style>' +
             '</head><body>' +
             '<h1>' + escapeHTML($title.value || '未命名文章') + '</h1>' +
             '<p style="color:#888;">' + $date.value + ' · ' + parseTags($tags.value).map(function (t) { return '#' + t; }).join(' ') + '</p>' +

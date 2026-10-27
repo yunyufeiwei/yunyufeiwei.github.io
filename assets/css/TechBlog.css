@@ -467,10 +467,22 @@
 }
 
 .blog-detail-content table {
+    display: block;
     width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
     border-collapse: collapse;
     margin: 1rem 0;
     font-size: 0.92rem;
+}
+
+.blog-detail-content .blog-highlight-block {
+    margin: 1rem 0;
+    padding: .8rem 1rem;
+    border-left: 3px solid #a98aff;
+    border-radius: 0 8px 8px 0;
+    background: linear-gradient(100deg, rgba(166, 90, 255, .18), rgba(49, 227, 228, .08));
+    color: #e8e4ff;
 }
 
 .blog-detail-content th,

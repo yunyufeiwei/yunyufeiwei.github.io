@@ -92,13 +92,6 @@
     margin-bottom: 1.5rem;
 }
 
-.editor-body h2 {
-    font-size: 1.2rem;
-    color: hsl(var(--hue-color), 69%, 71%);
-    padding: 1.2rem 1.5rem 0.8rem;
-    margin: 0;
-}
-
 /* Quill 编辑器暗色主题覆盖 */
 .ql-toolbar.ql-snow {
     border: none !important;
@@ -106,7 +99,7 @@
     background: #1e1e2e;          /* 不透明背景，滚动时不会透出正文 */
     /* 滚动时常驻视窗顶部 */
     position: sticky;
-    top: 0;
+    top: 66px;
     z-index: 20;
     /* 顶部圆角与外层 .editor-body 对齐 */
     border-top-left-radius: 12px;
@@ -208,6 +201,56 @@
     border-left: 3px solid hsl(var(--hue-color), 69%, 61%);
     padding-left: 1rem;
     color: #a0a0a0;
+}
+
+.ql-snow .ql-editor table {
+    display: block;
+    width: 100%;
+    min-width: 240px;
+    max-width: 100%;
+    margin: 1rem 0;
+    overflow: auto;
+    resize: both;
+    table-layout: auto;
+    border-collapse: collapse;
+    border: 1px solid rgba(255, 255, 255, .18);
+}
+
+.ql-snow .ql-editor td {
+    min-width: 80px;
+    padding: .5rem .7rem;
+    border: 1px solid rgba(255, 255, 255, .16);
+}
+
+.ql-snow .ql-editor .ql-highlight-block {
+    margin: .9rem 0;
+    padding: .75rem 1rem;
+    border-left: 3px solid #a98aff;
+    border-radius: 0 8px 8px 0;
+    background: linear-gradient(100deg, rgba(166, 90, 255, .18), rgba(49, 227, 228, .08));
+    color: #e8e4ff;
+}
+
+.ql-toolbar .editor-insert-highlight {
+    width: auto;
+    padding: 3px 8px;
+    color: #b0b0b0;
+    font-size: 12px;
+}
+
+.ql-toolbar .editor-insert-highlight:hover {
+    color: hsl(var(--hue-color), 69%, 61%);
+}
+
+.ql-toolbar .editor-insert-table {
+    width: auto;
+    padding: 3px 8px;
+    color: #b0b0b0;
+    font-size: 12px;
+}
+
+.ql-toolbar .editor-insert-table:hover {
+    color: hsl(var(--hue-color), 69%, 61%);
 }
 
 /* 操作按钮区 */
@@ -351,6 +394,8 @@
         min-height: 300px;
         padding: 1rem;
     }
+
+    .ql-toolbar.ql-snow { top: 56px; }
 
     .editor-actions {
         flex-direction: column;
@@ -663,8 +708,7 @@ body::before {
     padding: 14px 18px;
 }
 
-.editor-meta h2,
-.editor-body h2 {
+.editor-meta h2 {
     margin-bottom: 10px;
     color: #a98aff;
     font-size: 1rem;
@@ -757,7 +801,6 @@ body::before {
 
 .edit-mode-bar { margin-bottom: 12px; }
 .editor-body { margin-bottom: 1rem; }
-.editor-body h2 { padding: 14px 18px 8px; }
 .ql-toolbar.ql-snow { background: rgba(7, 12, 29, .94); }
 .ql-container.ql-snow { background: rgba(10, 17, 39, .45); }
 .ql-editor { min-height: 360px; }

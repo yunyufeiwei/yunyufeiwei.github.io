@@ -12,6 +12,24 @@
   <component name="ChangeListManager">
     <list default="true" id="1bd24feb-6305-42e2-9c0d-c11437b0709f" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/SubPage/Blog/BlogEditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/SubPage/Blog/BlogEditor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/BlogEditor.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/BlogEditor.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/TechBlog.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/TechBlog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/portfolio.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/portfolio.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/data/blog/art/level-emotion-design.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/data/blog/art/level-emotion-design.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/data/blog/art/scene-model-spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/data/blog/art/scene-model-spec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/data/blog/engine/FeiShuContinue.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/data/blog/engine/FeiShuContinue.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/data/blog/engine/ue5-pcg-intro.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/data/blog/engine/ue5-pcg-intro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/data/blog/engine/unity-Unityhub弹窗问题.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/data/blog/engine/unity-Unityhub弹窗问题.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/data/blog/engine/unity-多相机测试.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/data/blog/engine/unity-多相机测试.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/data/blog/other/site-build.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/data/blog/other/site-build.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/data/blog/shader/NormalSampler.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/data/blog/shader/NormalSampler.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/data/blog/shader/shader属性的全局控制注意事项.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/data/blog/shader/shader属性的全局控制注意事项.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/data/blog/shader/water-flowmap.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/data/blog/shader/water-flowmap.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/data/blog/tool/Graphics.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/data/blog/tool/Graphics.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/data/blog/tool/python-asset-tool.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/data/blog/tool/python-asset-tool.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/BlogEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/BlogEditor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/TechBlog.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/TechBlog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,23 +53,23 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.003329247151186" />
-      <entry key="MS500" value="1.532518900946626" />
-      <entry key="S2" value="4.134764022948939" />
-      <entry key="S5" value="6.2974462254078745" />
-      <entry key="S10" value="7.473353975214752" />
-      <entry key="S30" value="10.071260512000734" />
-      <entry key="S60" value="15.266765893551803" />
-      <entry key="M2" value="24.56250384461332" />
-      <entry key="M5" value="42.37752239928439" />
-      <entry key="M10" value="57.84288508526391" />
-      <entry key="M15" value="66.18381349056521" />
-      <entry key="M30" value="83.06685420078195" />
-      <entry key="H1" value="121.59480947728522" />
-      <entry key="H2" value="181.1578512399674" />
-      <entry key="H4" value="236.7214028730834" />
-      <entry key="D1" value="305.8421918833954" />
-      <entry key="W1" value="320.47041966403015" />
+      <entry key="MS100" value="1.003099019835248" />
+      <entry key="MS500" value="1.4442156563585344" />
+      <entry key="S2" value="3.4259761438984637" />
+      <entry key="S5" value="6.728284721898046" />
+      <entry key="S10" value="10.250798527209897" />
+      <entry key="S30" value="19.104387713802907" />
+      <entry key="S60" value="31.931447868454576" />
+      <entry key="M2" value="48.93697454787432" />
+      <entry key="M5" value="75.3172891223702" />
+      <entry key="M10" value="98.10998574571141" />
+      <entry key="M15" value="111.69109804293542" />
+      <entry key="M30" value="132.50954526774694" />
+      <entry key="H1" value="152.55393398708605" />
+      <entry key="H2" value="221.3793050081159" />
+      <entry key="H4" value="487.35931855214267" />
+      <entry key="D1" value="2219.995990490274" />
+      <entry key="W1" value="3315.9544605123083" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -60,42 +78,45 @@
       <entry key="S5" value="0.0" />
       <entry key="S10" value="0.0" />
       <entry key="S30" value="0.0" />
-      <entry key="S60" value="0.0" />
-      <entry key="M2" value="0.0" />
-      <entry key="M5" value="0.0" />
-      <entry key="M10" value="0.0" />
-      <entry key="M15" value="0.0" />
-      <entry key="M30" value="0.0" />
-      <entry key="H1" value="0.0" />
-      <entry key="H2" value="0.0" />
-      <entry key="H4" value="0.0" />
-      <entry key="D1" value="0.0" />
-      <entry key="W1" value="0.0" />
+      <entry key="S60" value="1.7936311912640967E-175" />
+      <entry key="M2" value="4.2351283271438695E-88" />
+      <entry key="M5" value="1.1245470207454878E-35" />
+      <entry key="M10" value="3.50488946237693E-18" />
+      <entry key="M15" value="2.6942516174863363E-12" />
+      <entry key="M30" value="2.9202385551587545E-6" />
+      <entry key="H1" value="0.00394616443518337" />
+      <entry key="H2" value="0.15992742608956162" />
+      <entry key="H4" value="1.0633163164918502" />
+      <entry key="D1" value="5.984915940780587" />
+      <entry key="W1" value="8.470552151087617" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.969196913966576" />
-      <entry key="MS500" value="1.5229451071349556" />
-      <entry key="S2" value="4.128335574918326" />
-      <entry key="S5" value="6.293490877822457" />
-      <entry key="S10" value="7.471000550008095" />
-      <entry key="S30" value="10.070224335278512" />
-      <entry key="S60" value="15.265994904165696" />
-      <entry key="M2" value="24.56181835532673" />
-      <entry key="M5" value="42.37692257395969" />
-      <entry key="M10" value="57.84243664602585" />
-      <entry key="M15" value="66.18346349579777" />
-      <entry key="M30" value="83.0666346056553" />
-      <entry key="H1" value="121.59465608467724" />
-      <entry key="H2" value="181.15774140562218" />
-      <entry key="H4" value="236.721332424072" />
-      <entry key="D1" value="305.8421769022166" />
-      <entry key="W1" value="320.4704174255617" />
+      <entry key="MS100" value="0.975566716518514" />
+      <entry key="MS500" value="1.4336105255667044" />
+      <entry key="S2" value="3.41884699477146" />
+      <entry key="S5" value="6.722607734110684" />
+      <entry key="S10" value="10.246384866225316" />
+      <entry key="S30" value="19.10135223798023" />
+      <entry key="S60" value="31.92884966063243" />
+      <entry key="M2" value="48.93498524420156" />
+      <entry key="M5" value="75.31602953488495" />
+      <entry key="M10" value="98.1091416699439" />
+      <entry key="M15" value="111.69045021594046" />
+      <entry key="M30" value="132.50916006899467" />
+      <entry key="H1" value="152.55765867149577" />
+      <entry key="H2" value="221.5390615557533" />
+      <entry key="H4" value="488.4223939660911" />
+      <entry key="D1" value="2225.980697530661" />
+      <entry key="W1" value="3324.4249685104487" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="31wxM96ZUMzU30Nyv6bQ23DDtS3" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -117,7 +138,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMThirdPartyAiProvidersConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -143,7 +164,12 @@
       <workItem from="1783642770716" duration="1285000" />
       <workItem from="1788261131191" duration="229000" />
       <workItem from="1788261373955" duration="74000" />
-      <workItem from="1792637350565" duration="5963000" />
+      <workItem from="1792637350565" duration="45781000" />
+      <workItem from="1792972276914" duration="1654000" />
+      <workItem from="1793023921925" duration="2805000" />
+      <workItem from="1793059625570" duration="3424000" />
+      <workItem from="1793107745935" duration="202000" />
+      <workItem from="1793108075158" duration="506000" />
     </task>
     <servers />
   </component>
@@ -172,5 +198,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

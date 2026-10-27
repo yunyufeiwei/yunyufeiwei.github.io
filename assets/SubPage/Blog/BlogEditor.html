@@ -74,28 +74,7 @@
                 <input type="date" id="postDate">
             </div>
         </div>
-        <div class="meta-row">
-            <div class="meta-field">
-                <label for="tagsToggle">标签</label>
-                <div class="tag-select" id="tagSelect">
-                    <button type="button" class="tag-select-toggle" id="tagsToggle" aria-expanded="false" aria-controls="tagOptions">
-                        <span id="tagsSummary">选择标签</span>
-                        <i class="uil uil-angle-down" aria-hidden="true"></i>
-                    </button>
-                    <div class="tag-select-options" id="tagOptions" hidden>
-                        <label class="tag-option"><input type="checkbox" value="角色"><span>角色</span></label>
-                        <label class="tag-option"><input type="checkbox" value="场景"><span>场景</span></label>
-                        <label class="tag-option"><input type="checkbox" value="动画"><span>动画</span></label>
-                        <label class="tag-option"><input type="checkbox" value="特效"><span>特效</span></label>
-                        <label class="tag-option"><input type="checkbox" value="UI"><span>UI</span></label>
-                        <label class="tag-option"><input type="checkbox" value="材质Shader"><span>材质Shader</span></label>
-                        <label class="tag-option"><input type="checkbox" value="工具开发"><span>工具开发</span></label>
-                        <label class="tag-option"><input type="checkbox" value="脚本"><span>脚本</span></label>
-                    </div>
-                    <input type="hidden" id="postTags">
-                </div>
-            </div>
-        </div>
+        <input type="hidden" id="postTags">
         <div class="meta-row">
             <div class="meta-field" style="min-width:100%;">
                 <label for="postSummary">文章摘要</label>
@@ -106,7 +85,6 @@
 
     <!--==================== 富文本编辑器 ====================-->
     <section class="editor-body">
-        <h2><i class="uil uil-edit"></i> 文章正文</h2>
         <div id="quillEditor"></div>
         <div class="image-drop-hint">
             <i class="uil uil-image-plus"></i> 支持直接粘贴或拖拽图片到编辑器中插入
@@ -143,7 +121,7 @@
         <strong>使用说明：</strong><br>
         1. 填写文章信息（标题、ID、分类为必填）<br>
         2. 在编辑器中直接书写内容，使用工具栏设置标题、加粗、列表等格式<br>
-        3. 工具栏的「代码块」按钮（&lt;/&gt; 图标）后面有语言下拉，支持 C++ / C# / HLSL / GLSL / JavaScript / Python / JSON / XML / CSS / Bash 等。选定语言后再粘贴代码，导出后阅读端会自动高亮<br>
+        3. 工具栏的「代码块」按钮（&lt;/&gt; 图标）后面有语言下拉，支持 C++ / C# / HLSL / GLSL / JavaScript / Python / JSON / XML / CSS / Bash 等。选定语言后再粘贴代码，导出后阅读端会自动高亮；「表格」可插入表格并拖动右下角调整大小，「高亮块」可插入强调提示块<br>
         4. 图片可以直接粘贴（Ctrl+V）或从文件管理器拖入编辑器；导出 JSON 时 base64 图片会被替换为占位提示，需手动把图片保存到 <code>assets/Image/Work/Blog/&lt;分类&gt;/</code> 并把占位文本替换为相对路径<br>
         5. 点击「导出 JSON」会弹出系统保存对话框，请把文件保存到 <code>assets/data/blog/&lt;分类&gt;/&lt;文章ID&gt;.json</code>。保存完成后会询问是否同步更新分类索引（<code>assets/data/blog/&lt;分类&gt;.json</code>），同意后选中索引文件即可自动追加条目<br>
         6. 点击「导出 Markdown」生成 .md 文件内容，可保存到 assets/data/posts/ 目录<br>

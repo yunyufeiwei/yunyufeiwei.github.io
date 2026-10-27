@@ -3,7 +3,7 @@
   "title": "水体渲染笔记：FlowMap 与法线扰动",
   "date": "2026-05-19",
   "summary": "简单整理 FlowMap 的原理、采样方式，以及如何用法线扰动模拟流动水面的质感。",
-  "tags": ["HLSL", "Water", "FlowMap"],
+  "tags": [],
   "content": [
     "## FlowMap 原理",
     "",

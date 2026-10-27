@@ -4,10 +4,8 @@
   "date": "2026-06-08",
   "summary": "使用C#脚本来控制Shader中的属性的一些注意事项。",
   "tags": [
-    "材质Shader",
-    "UnityEngine",
-    "shader",
-    "C#"
+    "Unity",
+    "渲染"
   ],
   "content": [
     "# 概述",
