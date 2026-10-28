@@ -1,13 +1,35 @@
 (function() {
     const nav = document.querySelector('.top-nav');
+    const fileName = window.location.pathname.split('/').pop();
     const pageTitle = {
         'ThreeRenderingTwo.html': '三渲二场景作品展示库',
         'SceneArtist.html': '场景美术作品展示库',
         'TechnicalArtist.html': '技术美术作品展示库'
-    }[window.location.pathname.split('/').pop()] || '游戏作品展示库';
+    }[fileName] || '游戏作品展示库';
 
     if (nav) {
         nav.innerHTML = '<div class="nav-brand"><span class="nav-mark" aria-hidden="true"></span><div class="nav-brand-copy"><strong>我的作品</strong><span class="nav-divider" aria-hidden="true"></span><span>' + pageTitle + '</span></div></div>';
+        const linkItems = {
+            'SceneArtist.html': [{ label: '更多关卡地编 ↗', href: 'https://my.feishu.cn/wiki/RMz3waM1jiYyLvkB24kccMdpnGh?fromScene=spaceOverview' }],
+            'TechnicalArtist.html': [
+                { label: 'Unity更多作品 ↗', href: 'https://my.feishu.cn/wiki/OvUFwFGnSi5LA2kvERcccy93n6S?fromScene=spaceOverview' },
+                { label: 'Unreal更多作品 ↗', href: 'https://my.feishu.cn/wiki/TCXrwTJWdi1SIOkenIacKxyQnNU?fromScene=spaceOverview' }
+            ]
+        }[fileName] || [];
+        if (linkItems.length) {
+            const links = document.createElement('div');
+            links.className = 'nav-links';
+            linkItems.forEach(function(item) {
+                const link = document.createElement('a');
+                link.className = 'nav-link-btn';
+                link.href = item.href;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.textContent = item.label;
+                links.append(link);
+            });
+            nav.append(links);
+        }
     }
 
     const categoryNames = {
