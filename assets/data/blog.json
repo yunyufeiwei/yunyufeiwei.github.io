@@ -4,87 +4,43 @@
       "key": "art-theory",
       "label": "美术理论",
       "icon": "uil-palette",
-      "file": "assets/data/blog/art-theory.json"
-    },
-    {
-      "key": "3dsmax",
-      "label": "3dMax",
-      "icon": "uil-cube",
-      "file": "assets/data/blog/3dsmax.json"
-    },
-    {
-      "key": "blender",
-      "label": "Blender",
-      "icon": "uil-cube",
-      "file": "assets/data/blog/blender.json"
-    },
-    {
-      "key": "zbrush",
-      "label": "Zbrush",
-      "icon": "uil-cube",
-      "file": "assets/data/blog/zbrush.json"
-    },
-    {
-      "key": "houdini",
-      "label": "Houdini",
-      "icon": "uil-cube",
-      "file": "assets/data/blog/houdini.json"
-    },
-    {
-      "key": "substance-painter",
-      "label": "Substance Painter",
-      "icon": "uil-brush-alt",
-      "file": "assets/data/blog/substance-painter.json"
-    },
-    {
-      "key": "substance-designer",
-      "label": "Substance Designer",
-      "icon": "uil-brush-alt",
-      "file": "assets/data/blog/substance-designer.json"
-    },
-    {
-      "key": "graphics",
-      "label": "图形学",
-      "icon": "uil-brackets-curly",
-      "file": "assets/data/blog/graphics.json"
+      "iconImage": "assets/Image/Blog/美术理论.jpeg",
+      "externalUrl": "https://my.feishu.cn/wiki/OvfKwLXAWi3eVXkFrE8cnbT7nJc?fromScene=spaceOverview"
     },
     {
       "key": "art",
-      "label": "美术笔记",
+      "label": "游戏美术",
       "icon": "uil-palette",
-      "file": "assets/data/blog/art.json"
+      "iconImage": "assets/Image/Blog/游戏美术.jpeg",
+      "externalUrl": "https://my.feishu.cn/wiki/UzWkwPTjXit8jBkSDuIckEAYnve?fromScene=spaceOverview"
     },
     {
-      "key": "shader",
-      "label": "Shader",
+      "key": "graphics",
+      "label": "计算机图形学",
       "icon": "uil-brackets-curly",
-      "file": "assets/data/blog/shader.json"
-    },
-    {
-      "key": "UnityEngine",
-      "label": "UnityEngine",
-      "icon": "uil-processor",
-      "iconImage": "assets/Image/Icon/unityEngine.jpg",
-      "file": "assets/data/blog/UnityEngine.json"
+      "iconImage": "assets/Image/Blog/计算机图形学.jpeg",
+      "externalUrl": "https://my.feishu.cn/wiki/E6dkwXF5eikuQTkEXtYcnUYcnYb?fromScene=spaceOverview"
     },
     {
       "key": "UnrealEngine",
       "label": "UnrealEngine",
       "icon": "uil-processor",
-      "iconImage": "assets/Image/Icon/unrealEngine.jpg",
-      "file": "assets/data/blog/UnrealEngine.json"
+      "iconImage": "assets/Image/Blog/unrealEngine.jpeg",
+      "externalUrl": "https://my.feishu.cn/wiki/IvVDwSNXviwiuek91c2cVIsrn8b"
     },
     {
-      "key": "tool",
-      "label": "工具/Pipeline",
-      "icon": "uil-wrench",
-      "file": "assets/data/blog/tool.json"
+      "key": "UnityEngine",
+      "label": "UnityEngine",
+      "icon": "uil-processor",
+      "iconImage": "assets/Image/Blog/unityEngine.jpeg",
+      "externalUrl": "https://my.feishu.cn/wiki/C9XOwywneiI59PkAxSfcW9dknRe?fromScene=spaceOverview"
     },
     {
-      "key": "other",
-      "label": "其他",
-      "icon": "uil-bookmark",
-      "file": "assets/data/blog/other.json"
+      "key": "project-management",
+      "label": "项目管理",
+      "icon": "uil-clipboard-notes",
+      "iconImage": "assets/Image/Blog/项目管理.jpeg",
+      "externalUrl": "https://my.feishu.cn/wiki/QbrYwRilaiZ8nUkpEasc1BYInlf?fromScene=spaceOverview"
     }
   ]
 }

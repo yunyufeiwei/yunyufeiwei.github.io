@@ -140,6 +140,18 @@
             </div>
             <div class="career-strip">
                 <article class="career-item">
+                    <strong>武汉当看科技有限公司</strong><span>技术美术师</span><small>2026.10 — 至今</small>
+                    <div class="career-details">
+                        <ul>
+                            <li>游戏场景模型，制作材质与 Shader。</li>
+                        </ul>
+                        <p><b>参与项目</b></p>
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                </article>
+                <article class="career-item">
                     <strong>金山互动娱乐科技有限公司</strong><span>关卡美术师 / 技术美术师</span><small>2018.04 — 2026.07</small>
                     <div class="career-details">
                         <ul>
@@ -273,47 +285,13 @@
         <div class="page-width">
             <div class="section-heading">
                 <div class="work-heading-copy">
-                    <h2>个人博客<span class="heading-period">.</span></h2>
-                    <p>场景全栈美术相关的内容，包含模型、关卡、特效、UI、材质shader与制作流程的一些实践记录。</p>
+                    <h2>博客分类<span class="heading-period">.</span></h2>
+                    <p>按主题整理外部笔记与资料，点击分类卡片直接访问对应链接。</p>
                 </div>
-                <a class="text-link journal-all" href="assets/SubPage/Blog/TechBlog.html">全部文章 <span aria-hidden="true">↗</span></a>
+                <a class="text-link journal-all" href="assets/SubPage/Blog/TechBlog.html">全部分类 <span aria-hidden="true">↗</span></a>
             </div>
-            <div class="journal-grid">
-                <a class="journal-card" href="assets/SubPage/Blog/TechBlog.html#post=scene-model-spec">
-                    <div class="journal-image"><img src="assets/Image/Work/Blog/Shader/切线空间下的法线采样.png" alt="场景模型制作笔记配图" loading="lazy"><span class="journal-image-label">ART PIPELINE / 03</span></div>
-                    <div class="journal-content">
-                        <h3>场景模型规范：从拓扑到 UV 的几个细节</h3>
-                        <div class="journal-meta"><span>SCENE ART · WORKFLOW</span><time datetime="2026-05-19">2026.05.19</time></div>
-                        <p>把拓扑、UV、Lightmap 与材质 ID 中容易遗漏的细节整理成制作清单。</p>
-                        <span class="journal-read">ART PIPELINE / 03 <b aria-hidden="true">↗</b></span>
-                    </div>
-                </a>
-                <a class="journal-card" href="assets/SubPage/Blog/TechBlog.html#post=level-emotion-design">
-                    <div class="journal-image"><img src="assets/Image/Work/Level/LongDemo_02.png" alt="关卡情绪与空间氛围设计" loading="lazy"><span class="journal-image-label">LEVEL ART / 04</span></div>
-                    <div class="journal-content">
-                        <h3>优秀关卡情绪表达的标准</h3>
-                        <div class="journal-meta"><span>LEVEL DESIGN · ART</span><time datetime="2026-05-19">2026.05.19</time></div>
-                        <p>从空间节奏、色彩和光影入手，整理关卡场景情绪表达的设计要点。</p>
-                        <span class="journal-read">LEVEL ART / 04 <b aria-hidden="true">↗</b></span>
-                    </div>
-                </a>
-                <a class="journal-card" href="assets/SubPage/Blog/TechBlog.html#post=water-flowmap">
-                    <div class="journal-image"><img src="assets/Image/Work/Blog/Shader/FlowMap.gif" alt="FlowMap 水体动态效果" loading="lazy"><span class="journal-image-label">SHADER / 02</span></div>
-                    <div class="journal-content">
-                        <h3>水体渲染笔记：FlowMap 与法线扰动</h3>
-                        <div class="journal-meta"><span>HLSL · MATERIAL</span><time datetime="2026-05-19">2026.05.19</time></div>
-                        <p>整理 FlowMap 的采样逻辑，用方向信息为水面带来持续的流动感。</p>
-                        <span class="journal-read">SHADER / 02 <b aria-hidden="true">↗</b></span>
-                    </div>
-                </a>
-                <a class="journal-card" href="assets/SubPage/Blog/TechBlog.html#post=ue5-pcg-intro">
-                    <div class="journal-image"><img src="assets/Image/Work/Blog/engine/PCG.png" alt="PCG 生态群落效果预览" loading="lazy"><span class="journal-image-label">WORKFLOW / 01</span></div>
-                    <div class="journal-content">
-                        <h3>Unreal Engine 中的 PCG 工作流入门</h3>
-                        <div class="journal-meta"><span>UE5 · PCG</span><time datetime="2026-05-19">2026.05.19</time></div>
-                        <p>从节点思路到生态群落生成，聊聊大世界场景里的程序化工作流。</p>
-                        <span class="journal-read">WORKFLOW / 01 <b aria-hidden="true">↗</b></span>
-                    </div>
+            <div class="journal-grid journal-category-grid" id="journalCategoryGrid">
+                <p class="journal-category-loading">正在加载分类...</p>
                 </a>
             </div>
         </div>
@@ -368,15 +346,13 @@
             <div class="section-heading">
                 <div class="work-heading-copy">
                     <h2>项目工程<span class="heading-period">.</span></h2>
-                    <p>从需求拆解到资产交付，展示游戏美术项目的协作流程与技术实践。</p>
+                    <p>研究与学习一些项目工程，分析制作方式与使用到的技术，对已分析研究过的工程进行归档。</p>
                 </div>
                 <span class="work-count">PIPELINE / 01</span>
             </div>
             <div class="pipeline-grid">
-                <article class="pipeline-card"><span>01 / PLAN</span><h3>需求与制作规划</h3><p>拆解目标、评估工作量，明确美术品质与交付节点。</p></article>
-                <article class="pipeline-card"><span>02 / BUILD</span><h3>资产与场景制作</h3><p>统一规范与资源组织，推进模型、材质和关卡的协作落地。</p></article>
-                <article class="pipeline-card"><span>03 / OPTIMIZE</span><h3>整合与质量验证</h3><p>检查场景表现、运行性能与制作流程，形成可持续迭代的交付。</p></article>
-                <article class="pipeline-card"><span>03 / OPTIMIZE</span><h3>整合与质量验证</h3><p>检查场景表现、运行性能与制作流程，形成可持续迭代的交付。</p></article>
+                <a class="pipeline-card" href="assets/SubPage/Project/UnityEngine.html"><span>01 / PLAN</span><h3>UnityEngine项目</h3><p>分析使用到的代码编程、材质算法，效果表现等使用技巧。</p></a>
+                <a class="pipeline-card" href="assets/SubPage/Project/UnrealEngine.html"><span>02 / BUILD</span><h3>UnrealEngine项目</h3><p>分析使用到的蓝图编程、材质算法，效果表现等使用技巧。</p></a>
             </div>
         </div>
     </section>
@@ -422,5 +398,6 @@
     </div>
 </footer>
 <script src="assets/js/portfolio.js"></script>
+<script src="assets/js/TechBlog.js"></script>
 </body>
 </html>

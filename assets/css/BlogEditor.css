@@ -203,14 +203,17 @@
     color: #a0a0a0;
 }
 
+.ql-snow .ql-editor .ql-table-wrapper {
+    position: relative;
+}
+
 .ql-snow .ql-editor table {
     display: block;
     width: 100%;
-    min-width: 240px;
+    min-width: 180px;
     max-width: 100%;
-    margin: 1rem 0;
+    margin: .8rem 0;
     overflow: auto;
-    resize: both;
     table-layout: auto;
     border-collapse: collapse;
     border: 1px solid rgba(255, 255, 255, .18);
@@ -222,13 +225,112 @@
     border: 1px solid rgba(255, 255, 255, .16);
 }
 
+/* ---------- 表格拖拽调整宽高手柄 ---------- */
+.table-resize-handle {
+    position: fixed;
+    z-index: 70;
+    display: flex;
+    width: 18px;
+    height: 18px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, .55);
+    border-radius: 5px;
+    background: rgba(169, 138, 255, .95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .4);
+    cursor: nwse-resize;
+    touch-action: none;
+}
+
+.table-resize-handle[hidden] {
+    display: none;
+}
+
+.table-resize-handle::before {
+    width: 7px;
+    height: 7px;
+    border-right: 1.5px solid #fff;
+    border-bottom: 1.5px solid #fff;
+    content: "";
+    opacity: .9;
+    transform: translate(-1px, -1px);
+}
+
+body.table-resizing,
+body.table-resizing * {
+    cursor: nwse-resize !important;
+    user-select: none !important;
+}
+
+/* ---------- 飞书式高亮块 ---------- */
 .ql-snow .ql-editor .ql-highlight-block {
-    margin: .9rem 0;
-    padding: .75rem 1rem;
-    border-left: 3px solid #a98aff;
-    border-radius: 0 8px 8px 0;
-    background: linear-gradient(100deg, rgba(166, 90, 255, .18), rgba(49, 227, 228, .08));
+    --hl-bg: rgba(166, 90, 255, .16);
+    --hl-border: rgba(166, 90, 255, .32);
+    position: relative;
+    margin: 0;
+    padding: .55rem .95rem;
+    border: 1px solid var(--hl-border);
+    border-radius: 0;
+    background: var(--hl-bg);
     color: #e8e4ff;
+}
+
+.ql-snow .ql-editor .ql-highlight-block[data-emoji] {
+    padding-left: 2.7rem;
+}
+
+.ql-snow .ql-editor .ql-highlight-block[data-emoji]::before {
+    position: absolute;
+    top: .5rem;
+    left: .85rem;
+    content: attr(data-emoji);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.ql-snow .ql-editor .ql-highlight-block + .ql-highlight-block {
+    padding-top: .12rem;
+    border-top: none;
+}
+
+.ql-snow .ql-editor .ql-highlight-block + .ql-highlight-block[data-emoji]::before {
+    content: none;
+}
+
+.ql-snow .ql-editor .ql-highlight-block:not(.ql-highlight-block + .ql-highlight-block) {
+    margin-top: .9rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.ql-snow .ql-editor .ql-highlight-block:not(:has(+ .ql-highlight-block)) {
+    margin-bottom: .9rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.ql-editor .ql-highlight-block[data-color="blue"] {
+    --hl-bg: rgba(64, 158, 255, .14);
+    --hl-border: rgba(64, 158, 255, .32);
+    color: #e4f0ff;
+}
+
+.ql-editor .ql-highlight-block[data-color="green"] {
+    --hl-bg: rgba(52, 199, 143, .13);
+    --hl-border: rgba(52, 199, 143, .3);
+    color: #e2fbf0;
+}
+
+.ql-editor .ql-highlight-block[data-color="yellow"] {
+    --hl-bg: rgba(240, 180, 41, .13);
+    --hl-border: rgba(240, 180, 41, .3);
+    color: #fdf4dd;
+}
+
+.ql-editor .ql-highlight-block[data-color="red"] {
+    --hl-bg: rgba(255, 99, 99, .13);
+    --hl-border: rgba(255, 99, 99, .3);
+    color: #ffe7e7;
 }
 
 .ql-toolbar .editor-insert-highlight {
@@ -251,6 +353,150 @@
 
 .ql-toolbar .editor-insert-table:hover {
     color: hsl(var(--hue-color), 69%, 61%);
+}
+
+.ql-toolbar .editor-insert-table.active,
+.ql-toolbar .editor-insert-highlight.active {
+    color: hsl(var(--hue-color), 69%, 61%);
+    background: rgba(169, 138, 255, .14);
+}
+
+/* ---------- 表格插入尺寸面板 ---------- */
+.table-size-picker {
+    position: absolute;
+    z-index: 80;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 9px;
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 9px;
+    background: #1b2238;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .5);
+}
+
+.table-size-picker[hidden] {
+    display: none;
+}
+
+.table-size-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 16px);
+    gap: 3px;
+}
+
+.table-size-cell {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 3px;
+    background: rgba(255, 255, 255, .04);
+    cursor: pointer;
+}
+
+.table-size-cell.active {
+    border-color: #a98aff;
+    background: rgba(169, 138, 255, .45);
+}
+
+.table-size-label {
+    color: #c8c8c8;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* ---------- 高亮块面板 ---------- */
+.highlight-picker {
+    position: absolute;
+    z-index: 80;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    width: 196px;
+    padding: 11px;
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 9px;
+    background: #1b2238;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .5);
+}
+
+.highlight-picker[hidden] {
+    display: none;
+}
+
+.highlight-picker-title {
+    color: #d8d8d8;
+    font-size: 12px;
+}
+
+.highlight-picker-colors {
+    display: flex;
+    gap: 9px;
+}
+
+.highlight-color {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.highlight-color[data-color="purple"] { background: #a65aff; }
+.highlight-color[data-color="blue"] { background: #409eff; }
+.highlight-color[data-color="green"] { background: #34c78f; }
+.highlight-color[data-color="yellow"] { background: #f0b429; }
+.highlight-color[data-color="red"] { background: #ff6363; }
+
+.highlight-color.active {
+    border-color: #fff;
+    box-shadow: 0 0 0 2px rgba(169, 138, 255, .5);
+}
+
+.highlight-picker-emojis {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.highlight-emoji {
+    display: flex;
+    width: 26px;
+    height: 26px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, .04);
+    color: #cfcfcf;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.highlight-emoji.active {
+    border-color: #a98aff;
+    background: rgba(169, 138, 255, .2);
+}
+
+.highlight-picker-remove {
+    padding: 5px 8px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 6px;
+    background: transparent;
+    color: #b9b9b9;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.highlight-picker-remove[hidden] {
+    display: none;
+}
+
+.highlight-picker-remove:hover {
+    color: #ff8a8a;
+    border-color: rgba(255, 138, 138, .4);
 }
 
 /* 操作按钮区 */
@@ -821,3 +1067,10 @@ body::before {
     .editor-meta .meta-row:last-child .meta-field { grid-column: auto; }
     .tag-select-options { grid-template-columns: 1fr; }
 }
+
+.link-editor-hint { margin: 0 0 1.25rem; color: #aab3c7; font-size: 12px; line-height: 1.7; }
+#categoryLinksForm .meta-row { margin-bottom: 12px; }
+#linkEditorStatus { min-height: 1.5em; color: #91e2d0; font-size: 12px; }
+#linkEditorStatus.error { color: #ff9a9a; }
+.editor-meta h1 { margin: 0 0 1rem; color: #c8a9ff; font-size: 1.2rem; }
+.editor-meta .editor-actions { justify-content: flex-start; }
