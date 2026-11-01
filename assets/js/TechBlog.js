@@ -2,6 +2,8 @@
     'use strict';
 
     const MANIFEST_URL = 'assets/data/blog.json';
+    // 首页「博客分类」只展示 blog.json 中的前 6 个分类；完整分类列表在博客页（TechBlog.html）中展示
+    const HOME_CATEGORY_LIMIT = 6;
     const $blogList = document.getElementById('blogList');
     const $journalGrid = document.getElementById('journalCategoryGrid');
     const $empty = document.getElementById('blogEmpty');
@@ -107,15 +109,18 @@
             const categories = manifest && Array.isArray(manifest.categories)
                 ? manifest.categories
                 : [];
-            if (categories.length !== 6) {
-                throw new Error('博客分类配置必须恰好包含 6 个分类');
+            // 只校验分类不能为空，不再限制固定 6 个，新增分类（如 AI 知识库）不会导致整页加载失败
+            if (!categories.length) {
+                throw new Error('博客分类配置为空');
             }
 
             if ($blogList) {
+                // 博客页：展示全部分类，新增的分类（如 AI 知识库）会出现在这里
                 appendCards($blogList, categories, renderBlogCard);
             }
             if ($journalGrid) {
-                appendCards($journalGrid, categories, renderHomeCard);
+                // 首页：只展示前 6 个分类，超出的部分需点击「更多」进入博客页查看
+                appendCards($journalGrid, categories.slice(0, HOME_CATEGORY_LIMIT), renderHomeCard);
             }
             if ($empty) $empty.style.display = 'none';
         })

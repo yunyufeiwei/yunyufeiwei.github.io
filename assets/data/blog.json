@@ -12,7 +12,7 @@
       "label": "游戏美术",
       "icon": "uil-palette",
       "iconImage": "assets/Image/Blog/游戏美术.jpeg",
-      "externalUrl": "https://my.feishu.cn/wiki/UzWkwPTjXit8jBkSDuIckEAYnve?fromScene=spaceOverview"
+      "externalUrl": "https://my.feishu.cn/wiki/Kq6Yw9rBvixhsKkXhEGcx4fInn0?fromScene=spaceOverview"
     },
     {
       "key": "graphics",
@@ -41,6 +41,13 @@
       "icon": "uil-clipboard-notes",
       "iconImage": "assets/Image/Blog/项目管理.jpeg",
       "externalUrl": "https://my.feishu.cn/wiki/OX9wwpW06iEjkekrW6fcBroanGl?fromScene=spaceOverview"
+    },
+    {
+      "key": "ai-knowledge",
+      "label": "AI知识库",
+      "icon": "uil-clipboard-notes",
+      "iconImage": "assets/Image/Blog/AI知识库.jpeg",
+      "externalUrl": "https://my.feishu.cn/wiki/KoNhwp8peiDP4YkBRqHcYptWntf?fromScene=spaceOverview"
     }
   ]
 }
