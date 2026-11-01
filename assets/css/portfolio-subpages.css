@@ -344,6 +344,108 @@ body.detail-open .detail-panel {
     line-height: 1.8;
 }
 
+/* 作品信息面板内的编辑区与按钮 */
+.detail-heading-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detail-edit-btn {
+    padding: 6px 14px;
+    border: 1px solid rgba(49, 227, 228, 0.32);
+    border-radius: 999px;
+    color: #7de8eb;
+    background: rgba(49, 227, 228, 0.08);
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    transition: color 0.25s, background 0.25s;
+}
+
+.detail-edit-btn:hover {
+    color: #071323;
+    background: #31e3e4;
+}
+
+/* 面板内的 hidden 需要覆盖各自的 display，否则表单/信息行不会被隐藏 */
+.detail-panel [hidden] {
+    display: none;
+}
+
+.detail-edit {
+    display: grid;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.detail-edit label {
+    display: grid;
+    gap: 6px;
+    color: #7f91aa;
+    font-size: 12px;
+}
+
+.detail-edit input,
+.detail-edit textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid rgba(128, 157, 199, 0.28);
+    border-radius: 8px;
+    color: #e0e7f2;
+    background: rgba(7, 19, 35, 0.7);
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1.7;
+    resize: vertical;
+}
+
+.detail-edit input:focus,
+.detail-edit textarea:focus {
+    border-color: rgba(49, 227, 228, 0.55);
+    outline: none;
+}
+
+.detail-edit-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.detail-edit-actions button {
+    padding: 7px 14px;
+    border: 1px solid rgba(128, 157, 199, 0.28);
+    border-radius: 8px;
+    color: #c4d0e1;
+    background: rgba(255, 255, 255, 0.05);
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.detail-edit-actions button[type="submit"] {
+    border-color: rgba(49, 227, 228, 0.4);
+    color: #7de8eb;
+    background: rgba(49, 227, 228, 0.14);
+}
+
+.detail-edit-status {
+    margin: 0;
+    color: #7de8eb;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.detail-edit-status.is-error {
+    color: #ff8f8f;
+}
+
+.detail-edit-hint {
+    color: #7f91aa;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
 .enlarged-container {
     z-index: 1200;
     cursor: zoom-out;

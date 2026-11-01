@@ -646,6 +646,56 @@
     });
 })();
 </script>
+<script>
+(function () {
+    // 技术美术页作品信息：默认读取 assets/data/technical-artist.json；
+    // 页面内编辑后保存的内容存放在 localStorage，并覆盖默认值。
+    var STORAGE_KEY = 'portfolioWorkDetails:TechnicalArtist.html';
+
+    function readOverrides() {
+        try {
+            return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') || {};
+        } catch (error) {
+            return {};
+        }
+    }
+
+    function mergeDetails(items) {
+        var overrides = readOverrides();
+        var details = {};
+        items.forEach(function (item) {
+            if (!item || !item.title) return;
+            var merged = Object.assign({}, item);
+            var override = overrides[item.title];
+            if (override) {
+                Object.keys(override).forEach(function (key) {
+                    merged[key] = override[key];
+                });
+            }
+            details[item.title] = merged;
+        });
+        return details;
+    }
+
+    window.PORTFOLIO_WORK_DETAILS_STORAGE_KEY = STORAGE_KEY;
+    window.PORTFOLIO_WORK_DETAILS_EXPORT_NAME = 'technical-artist.json';
+    // 共享脚本打开面板时会等待该 Promise，避免数据未加载完就回退到旧的模型参数
+    window.PORTFOLIO_WORK_DETAILS_PROMISE = fetch('assets/data/technical-artist.json', { cache: 'no-cache' })
+        .then(function (response) {
+            if (!response.ok) throw new Error('HTTP ' + response.status);
+            return response.json();
+        })
+        .then(function (data) {
+            window.PORTFOLIO_WORK_DETAILS = mergeDetails(Array.isArray(data.works) ? data.works : []);
+            return window.PORTFOLIO_WORK_DETAILS;
+        })
+        .catch(function (error) {
+            console.error('[WorkDetails] 加载作品信息失败:', error);
+            window.PORTFOLIO_WORK_DETAILS = {};
+            return window.PORTFOLIO_WORK_DETAILS;
+        });
+})();
+</script>
 <script src="assets/js/portfolio-subpage-ui.js"></script>
 
 </body>

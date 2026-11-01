@@ -1,0 +1,172 @@
+{
+  "works": [
+    {
+      "title": "Unreal- 雷音",
+      "projectType": "ARPG",
+      "projectTime": "2022-2023",
+      "engine": "Unreal Engine",
+      "tech": "日式卡通渲染、PBR材质渲染、头发各向异性",
+      "description": "主角色的 脸部使用SDF的方式，通过模型自身轴朝向来做左右效果切换。\n角色头发使用模拟的各向异性效果，用一张遮罩图效果，结合光照方向来表现高光效果。\n装备部分使用了默认PBR光照模型，通过叠加反射贴图来强化金属反射时的细节效果。"
+    },
+    {
+      "title": "Unreal- 士兵",
+      "projectType": "角色渲染",
+      "projectTime": "2024 - 2025",
+      "engine": "Unreal Engine",
+      "tech": "统一角色材质规范 · 卡通光照与描边 · 三视图展示",
+      "description": "士兵角色沿用同一套材质与光照规范，验证不同体型与装备在统一渲染风格下的表现。"
+    },
+    {
+      "title": "Unreal - 老虎",
+      "projectType": "角色渲染",
+      "projectTime": "2024 - 2025",
+      "engine": "Unreal Engine",
+      "tech": "生物角色材质 · 卡通光照与描边 · 轮廓与明暗过渡控制",
+      "description": "生物类角色的材质与光照验证，重点检查轮廓描边、条纹层次与明暗过渡。"
+    },
+    {
+      "title": "Unity URP - Moon",
+      "projectType": "角色渲染",
+      "projectTime": "2023 - 2024",
+      "engine": "Unity URP",
+      "tech": "URP 卡通渲染 · 描边 Pass · 高光分层",
+      "description": "Unity URP 下的角色渲染动态演示，展示卡通光照、描边与材质高光在循环动作中的表现。"
+    },
+    {
+      "title": "Unity URP - Substrance Designer 视差",
+      "projectType": "场景材质",
+      "projectTime": "2023 - 2024",
+      "engine": "Unity URP",
+      "tech": "Substance Designer 程序化贴图 · 高度视差（Parallax Mapping） · 分层材质",
+      "description": "使用 Substance Designer 产出程序化材质，并通过高度视差贴图强化表面纵深。"
+    },
+    {
+      "title": "Unity URP - 熔岩视差",
+      "projectType": "场景材质",
+      "projectTime": "2023 - 2024",
+      "engine": "Unity URP",
+      "tech": "视差贴图纵深 · 自发光与流动 UV · 裂缝细节表现",
+      "description": "以视差贴图模拟熔岩裂缝的深度，配合自发光与流动 UV 表现高温质感。"
+    },
+    {
+      "title": "Unity URP - vFace翻书",
+      "projectType": "Shader 效果",
+      "projectTime": "2023 - 2024",
+      "engine": "Unity URP",
+      "tech": "vFace 朝向判断 · UV 重映射 · 翻书过渡动画",
+      "description": "通过 vFace 判断面朝向，实现不依赖关键帧动画的单面翻书过渡效果。"
+    },
+    {
+      "title": "Unity URP - 餐车",
+      "projectType": "场景材质",
+      "projectTime": "2023 - 2024",
+      "engine": "Unity URP",
+      "tech": "玻璃折射与菲涅尔 · 金属高光分层 · 透明排序",
+      "description": "餐车场景的玻璃与金属材质表现，验证折射、菲涅尔与高光分层在场景光照下的效果。"
+    },
+    {
+      "title": "Unreal - 灌木",
+      "projectType": "场景材质",
+      "projectTime": "2024 - 2025",
+      "engine": "Unreal Engine",
+      "tech": "植被双面材质 · 风摆顶点动画 · 透明度裁剪",
+      "description": "植被材质的双面渲染、风摆与透明裁剪组合，在保持自然簇状轮廓的同时控制性能。"
+    },
+    {
+      "title": "Unreal - 河流",
+      "projectType": "场景材质",
+      "projectTime": "2024 - 2025",
+      "engine": "Unreal Engine",
+      "tech": "多层 UV 流动 · 法线扰动 · 水面反射与折射",
+      "description": "河流水面材质的多层 UV 流动与法线扰动，呈现流动感与反射亮度变化。"
+    },
+    {
+      "title": "Unreal - RainWater",
+      "projectType": "场景材质",
+      "projectTime": "2024 - 2025",
+      "engine": "Unreal Engine",
+      "tech": "法线涟漪 · 雨滴粒子 · 反射叠加",
+      "description": "雨天下水面表现，叠加法线涟漪、雨滴粒子与反射变化，体现雨天氛围。"
+    },
+    {
+      "title": "Unreal - 综合效果",
+      "projectType": "场景效果",
+      "projectTime": "2024 - 2025",
+      "engine": "Unreal Engine",
+      "tech": "材质 + 光照 + 后处理组合 · 动态效果演示",
+      "description": "场景材质、光照与后处理综合验证，检查整体画面协调性与运行性能。"
+    },
+    {
+      "title": "Unity Particle - 广告牌",
+      "projectType": "特效制作",
+      "projectTime": "2023 - 2024",
+      "engine": "Unity Particle System",
+      "tech": "Billboard 粒子 · 材质 UV 动画 · 生命周期曲线",
+      "description": "基于广告牌粒子的特效演示，配合材质 UV 动画与生命周期参数控制表现节奏。"
+    },
+    {
+      "title": "Unity Particle - 能量体",
+      "projectType": "特效制作",
+      "projectTime": "2023 - 2024",
+      "engine": "Unity Particle System",
+      "tech": "粒子网格 · 自发光叠加 · 消散材质",
+      "description": "粒子与自发光材质叠加，表现能量汇聚、膨胀与消散的过程。"
+    },
+    {
+      "title": "Unreal Niagara - 波光涟漪",
+      "projectType": "特效制作",
+      "projectTime": "2024 - 2025",
+      "engine": "Unreal Niagara",
+      "tech": "Niagara 涟漪粒子 · 法线与 UV 扰动 · 水面交互",
+      "description": "Niagara 水面涟漪特效，通过法线与 UV 扰动模拟水面波动与光斑变化。"
+    },
+    {
+      "title": "Unreal Niagara - 冰锥",
+      "projectType": "特效制作",
+      "projectTime": "2024 - 2025",
+      "engine": "Unreal Niagara",
+      "tech": "网格粒子 · 冰晶材质 · 生成与消散节奏",
+      "description": "Niagara 网格粒子的冰锥特效，表现冰晶材质质感以及生成、消散的时间节奏。"
+    },
+    {
+      "title": "Unity - 内描边",
+      "projectType": "后期处理",
+      "projectTime": "2023 - 2024",
+      "engine": "Unity 内置管线",
+      "tech": "深度缓冲内描边 · 边缘检测 · 全屏后处理 Pass",
+      "description": "基于深度缓冲的内描边后处理，为主体补充动漫化轮廓并避免外描边的溢出问题。"
+    },
+    {
+      "title": "Unity - PP径向模糊",
+      "projectType": "后期处理",
+      "projectTime": "2023 - 2024",
+      "engine": "Unity Post Processing",
+      "tech": "自定义径向模糊 · UV 缩放采样 · 强度与中心控制",
+      "description": "自定义全屏后处理实现径向模糊，用于加速、聚焦一类的镜头表现。"
+    },
+    {
+      "title": "Unreal - 阵营透视",
+      "projectType": "后期处理",
+      "projectTime": "2024 - 2025",
+      "engine": "Unreal Engine",
+      "tech": "深度/模板分层显示 · 阵营着色 · 半透明透视",
+      "description": "通过深度与模板缓冲的分层显示，实现阵营标识与遮挡透视效果。"
+    },
+    {
+      "title": "Unreal - 生态群落",
+      "projectType": "程序化生成",
+      "projectTime": "2024 - 2025",
+      "engine": "Unreal PCG Framework",
+      "tech": "PCG Graph 规则 · 生物群系分布 · 密度与随机化控制",
+      "description": "基于 PCG Graph 的规则化植被群落生成，按生物群系控制密度、分布与层次。"
+    },
+    {
+      "title": "Unreal - 静态网格",
+      "projectType": "程序化生成",
+      "projectTime": "2024 - 2025",
+      "engine": "Unreal PCG Framework",
+      "tech": "表面采样 · 静态网格实例化 · 随机缩放与旋转",
+      "description": "PCG 表面采样驱动静态网格散布，通过随机缩放与旋转避免重复感。"
+    }
+  ]
+}
