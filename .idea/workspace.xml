@@ -11,51 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bd24feb-6305-42e2-9c0d-c11437b0709f" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/SubPage/Library/UnityShaderReference.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/unity-shader-reference.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/SubPage/Blog/BlogEditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/SubPage/Blog/BlogEditor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/SubPage/Blog/TechBlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/SubPage/Blog/TechBlog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/BlogEditor.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/BlogEditor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/TechBlog.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/TechBlog.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/portfolio.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/portfolio.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/data/blog.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/3dsmax.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/3dsmax/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/UnityEngine.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/UnrealEngine.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/art-theory.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/art-theory/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/art.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/art/level-emotion-design.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/art/scene-model-spec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/blender.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/blender/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/engine/FeiShuContinue.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/engine/ue5-pcg-intro.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/engine/unity-Unityhub弹窗问题.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/engine/unity-多相机测试.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/graphics.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/graphics/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/houdini.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/houdini/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/other.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/other/site-build.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/shader.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/shader/NormalSampler.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/shader/shader属性的全局控制注意事项.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/shader/water-flowmap.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/substance-designer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/substance-designer/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/substance-painter.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/substance-painter/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/tool.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/tool/Graphics.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/tool/python-asset-tool.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/zbrush.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/blog/zbrush/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/data/posts/site-build.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/BlogEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/BlogEditor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/TechBlog.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/TechBlog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/SubPage/Library/MaterialFunctions.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/SubPage/Library/MaterialFunctions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/resource-pages.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/resource-pages.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +23,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="200" />
+    <option name="cachedIndexableFilesCount" value="165" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -78,23 +38,23 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0003300969942412" />
-      <entry key="MS500" value="1.2813106768261968" />
-      <entry key="S2" value="3.1294104158575884" />
-      <entry key="S5" value="6.381406846382222" />
-      <entry key="S10" value="10.998365311673872" />
-      <entry key="S30" value="23.72815634736406" />
-      <entry key="S60" value="32.091955220891634" />
-      <entry key="M2" value="38.14275077273875" />
-      <entry key="M5" value="45.34110556208041" />
-      <entry key="M10" value="65.74468607019003" />
-      <entry key="M15" value="88.98692159632499" />
-      <entry key="M30" value="139.3738878573588" />
-      <entry key="H1" value="189.09113726392025" />
-      <entry key="H2" value="272.47550506817566" />
-      <entry key="H4" value="536.8941675036324" />
-      <entry key="D1" value="2280.3125148370314" />
-      <entry key="W1" value="3399.625694880819" />
+      <entry key="MS100" value="1.000000000677469" />
+      <entry key="MS500" value="1.0196479310731064" />
+      <entry key="S2" value="2.206841449077956" />
+      <entry key="S5" value="5.105174882311332" />
+      <entry key="S10" value="8.602740055996307" />
+      <entry key="S30" value="17.498328654037596" />
+      <entry key="S60" value="26.34857688282444" />
+      <entry key="M2" value="34.90826915902765" />
+      <entry key="M5" value="42.487664975487064" />
+      <entry key="M10" value="45.59698473832452" />
+      <entry key="M15" value="47.071181217801325" />
+      <entry key="M30" value="56.145928194437936" />
+      <entry key="H1" value="98.04730048757722" />
+      <entry key="H2" value="203.36601319532355" />
+      <entry key="H4" value="451.0809573204466" />
+      <entry key="D1" value="2271.102173439108" />
+      <entry key="W1" value="3588.142970328402" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -103,36 +63,36 @@
       <entry key="S5" value="0.0" />
       <entry key="S10" value="0.0" />
       <entry key="S30" value="0.0" />
-      <entry key="S60" value="1.0010805281827076E-183" />
-      <entry key="M2" value="3.163985667036743E-92" />
-      <entry key="M5" value="2.5137656800812963E-37" />
-      <entry key="M10" value="5.240200597661168E-19" />
-      <entry key="M15" value="7.589628935900109E-13" />
-      <entry key="M30" value="1.5499208697102399E-6" />
-      <entry key="H1" value="0.0028748869796421258" />
-      <entry key="H2" value="0.13650411591175762" />
-      <entry key="H4" value="0.982367254481371" />
-      <entry key="D1" value="5.906451220508971" />
-      <entry key="W1" value="8.454597647435847" />
+      <entry key="S60" value="4.3051335923503825E-253" />
+      <entry key="M2" value="6.561351690534245E-127" />
+      <entry key="M5" value="3.365335108795166E-51" />
+      <entry key="M10" value="6.063169008202255E-26" />
+      <entry key="M15" value="1.802139411916478E-17" />
+      <entry key="M30" value="7.55254717578997E-9" />
+      <entry key="H1" value="2.006839942397437E-4" />
+      <entry key="H2" value="0.03606548083519661" />
+      <entry key="H4" value="0.5049482456445329" />
+      <entry key="D1" value="5.286344396716627" />
+      <entry key="W1" value="8.321686466005099" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9529568428325442" />
-      <entry key="MS500" value="1.269603329430631" />
-      <entry key="S2" value="3.1230202066513377" />
-      <entry key="S5" value="6.376548841365675" />
-      <entry key="S10" value="10.994295786357217" />
-      <entry key="S30" value="23.725251891571446" />
-      <entry key="S60" value="32.08998470006674" />
-      <entry key="M2" value="38.14157647234805" />
-      <entry key="M5" value="45.34053258512069" />
-      <entry key="M10" value="65.74422417012049" />
-      <entry key="M15" value="88.98647679291953" />
-      <entry key="M30" value="139.37351732299481" />
-      <entry key="H1" value="189.0937541429149" />
-      <entry key="H2" value="272.611810738639" />
-      <entry key="H4" value="537.8762847020031" />
-      <entry key="D1" value="2286.2187551354764" />
-      <entry key="W1" value="3408.08024777388" />
+      <entry key="MS100" value="0.9659363295837892" />
+      <entry key="MS500" value="1.012631390561039" />
+      <entry key="S2" value="2.2033721732013185" />
+      <entry key="S5" value="5.102052685097901" />
+      <entry key="S10" value="8.600096294336042" />
+      <entry key="S30" value="17.496466256026082" />
+      <entry key="S60" value="26.347130887949213" />
+      <entry key="M2" value="34.9072928225526" />
+      <entry key="M5" value="42.48718395794407" />
+      <entry key="M10" value="45.596725606429935" />
+      <entry key="M15" value="47.07100264485745" />
+      <entry key="M30" value="56.14582067672213" />
+      <entry key="H1" value="98.04740004721033" />
+      <entry key="H2" value="203.40195929906318" />
+      <entry key="H4" value="451.5857311230981" />
+      <entry key="D1" value="2276.3883187134893" />
+      <entry key="W1" value="3596.464611182253" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -163,7 +123,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMThirdPartyAiProvidersConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -196,6 +156,9 @@
       <workItem from="1793107745935" duration="202000" />
       <workItem from="1793108075158" duration="506000" />
       <workItem from="1793143617027" duration="2499000" />
+      <workItem from="1793767857510" duration="218000" />
+      <workItem from="1793768151148" duration="73000" />
+      <workItem from="1793768235978" duration="12130000" />
     </task>
     <servers />
   </component>

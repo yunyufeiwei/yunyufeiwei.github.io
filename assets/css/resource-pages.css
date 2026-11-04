@@ -95,6 +95,101 @@ a { color: inherit; text-decoration: none; }
     box-shadow: 0 0 12px rgba(49,227,228,.65);
     content: "";
 }
+.library-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+.library-card {
+    display: grid;
+    grid-template-columns: minmax(110px, .75fr) minmax(0, 1.25fr);
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(130,159,204,.2);
+    background: rgba(11,24,45,.62);
+    transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.library-card:hover,
+.library-card:focus-visible {
+    border-color: rgba(49,227,228,.55);
+    background: rgba(13,31,55,.86);
+    transform: translateY(-2px);
+}
+.library-card:focus-visible { outline: 1px solid rgba(49,227,228,.55); outline-offset: 3px; }
+.library-card-image { min-height: 100%; background: #0d1a2f; }
+.library-card-image img { display: block; width: 100%; height: 100%; min-height: 150px; object-fit: cover; }
+.library-card-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 18px;
+}
+.library-card-meta {
+    color: var(--accent);
+    font-size: 9px;
+    letter-spacing: .12em;
+}
+.library-card-copy strong { font-size: 15px; font-weight: 500; }
+.library-card-copy > span:not(.library-card-meta):not(.library-card-cta) {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.8;
+}
+.library-card-cta { margin-top: auto; padding-top: 5px; color: var(--accent); font-size: 10px; }
+.shader-reference-page {
+    min-height: 100vh;
+    padding: 0 0 1px;
+    background:
+        linear-gradient(rgba(86,129,188,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(86,129,188,.07) 1px, transparent 1px),
+        radial-gradient(ellipse at 12% 10%, rgba(100,42,181,.2), transparent 42%),
+        radial-gradient(ellipse at 88% 80%, rgba(20,148,171,.16), transparent 44%),
+        linear-gradient(115deg, #0b1a2f, #0b1a33 56%, #10172f);
+    background-size: 56px 56px, 56px 56px, auto, auto, auto;
+    color: #d7d7d7;
+    font-family: Arial, "Noto Sans SC", sans-serif;
+}
+.shader-reference-nav {
+    width: min(1100px, calc(100% - 48px));
+    margin: clamp(24px, 5vh, 48px) auto 0;
+}
+.shader-reference-shell {
+    display: flex;
+    width: min(1100px, calc(100% - 48px));
+    flex-direction: column;
+    margin: 24px auto clamp(24px, 5vh, 48px);
+    overflow: hidden;
+    border: 1px solid rgba(130,159,204,.35);
+    background: rgba(31,39,52,.9);
+    box-shadow: 0 18px 48px rgba(0,0,0,.32);
+}
+.shader-reference-titlebar { display: flex; height: 24px; flex: 0 0 24px; align-items: center; justify-content: space-between; padding: 0 8px; border-bottom: 1px solid #1d1d1d; background: #333; font-size: 11px; }
+.shader-reference-titlebar strong { font-weight: 500; }
+.shader-reference-titlebar a { color: #bdbdbd; }
+.shader-reference-titlebar a:hover { color: #fff; }
+.shader-reference-workspace { display: grid; height: min(680px, calc(100vh - 160px)); min-height: 360px; grid-template-columns: 184px minmax(0, 1fr); gap: 4px; padding: 2px; }
+.shader-reference-tabs { display: flex; min-height: 0; flex-direction: column; gap: 3px; overflow-y: auto; padding: 2px; border: 1px solid #1e1e1e; background: #353535; }
+.shader-reference-tab { min-height: 20px; flex: 0 0 auto; padding: 2px 6px; border: 1px solid #252525; border-radius: 2px; background: #4a4a4a; color: #ddd; font: inherit; font-size: 11px; line-height: 1.15; text-align: left; cursor: pointer; }
+.shader-reference-tab:hover { background: #555; }
+.shader-reference-tab[aria-selected="true"] { border-color: #222; background: #456080; color: #fff; }
+.shader-reference-tab:focus-visible { outline: 1px solid #72a8e8; outline-offset: 1px; }
+.shader-reference-content { min-width: 0; min-height: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; border: 1px solid #1e1e1e; background: #383838; scrollbar-color: #717171 #303030; scrollbar-width: thin; }
+.shader-reference-panel { min-height: 100%; padding: 0 6px 12px; }
+.shader-reference-panel[hidden] { display: none; }
+.shader-reference-panel-title { position: sticky; z-index: 1; top: 0; margin: 0 -6px 4px; padding: 4px 8px; background: #505050; color: #e5e5e5; font-size: 12px; font-weight: 500; text-align: center; }
+.shader-reference-section { margin-top: 4px; }
+.shader-reference-section > h2 { margin: 0; padding: 4px 7px; background: #454545; color: #ddd; font-size: 12px; font-weight: 500; }
+.shader-reference-entry { margin-top: 3px; padding: 6px 7px; background: #414141; }
+.shader-reference-entry h3 { margin: 0 0 3px; color: #e0e0e0; font-size: 13px; font-weight: 400; }
+.shader-reference-entry-body { margin: 0; color: #c9c9c9; font-size: 12px; line-height: 1.65; white-space: pre-wrap; overflow-wrap: anywhere; }
+.shader-reference-entry code { color: #e0e0e0; font-family: Consolas, monospace; }
+.shader-reference-entry pre { overflow-x: auto; margin: 5px 0 0; padding: 7px; background: #303030; font-size: 12px; line-height: 1.55; }
+.shader-reference-entry a { color: #a9c7eb; text-decoration: underline; text-underline-offset: 2px; }
+.shader-reference-entry-link { display: block; overflow-wrap: anywhere; color: #a9c7eb; font-size: 12px; }
+.shader-reference-image { margin: 8px 0; }
+.shader-reference-image img { display: block; width: min(100%, 900px); height: auto; }
 .resource-category { margin-top: clamp(34px, 5vw, 56px); }
 .resource-page-content > .resource-category:first-child { margin-top: 0; }
 .resource-category-head {
@@ -230,6 +325,8 @@ body.is-locked { overflow: hidden; }
 @media (max-width: 640px) {
     .texture-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .lightbox-hint { display: none; }
+    .library-card { grid-template-columns: 1fr; }
+    .library-card-image img { max-height: 180px; }
 }
 .resource-page-footer {
     display: flex;
@@ -241,6 +338,11 @@ body.is-locked { overflow: hidden; }
 }
 .resource-page-footer a:hover { color: var(--accent); }
 @media (max-width: 640px) {
+    .shader-reference-nav { width: calc(100% - 24px); margin-top: 16px; }
+    .shader-reference-shell { width: calc(100% - 24px); margin: 12px auto; }
+    .shader-reference-workspace { height: min(760px, calc(100vh - 120px)); min-height: 400px; grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); }
+    .shader-reference-tabs { max-height: 72px; flex-direction: row; overflow-x: auto; overflow-y: hidden; }
+    .shader-reference-tab { min-height: 28px; white-space: nowrap; }
     .resource-page { width: calc(100% - 32px); padding-top: 18px; }
     .resource-page-nav { font-size: 10px; }
     .resource-page-header { padding-block: 78px 32px; }
